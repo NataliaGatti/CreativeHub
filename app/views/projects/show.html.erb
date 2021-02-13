@@ -1,0 +1,11 @@
+<div>
+  <p><%= @project.title%></p>
+  <p><%= @project.description%></p>
+  <p><%= @project.cost%></p>
+  <p><%= @project.deadline%></p>
+  <p><%= @project.status%></p>
+  <p><%= @project.user.name%></p>
+  <% if @project.status == "open" %>
+    <p><%= link_to "unpublish", unpublish_path(@project)%></p>
+    <% end %>
+</div>

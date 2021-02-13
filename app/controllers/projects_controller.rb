@@ -1,13 +1,13 @@
 class ProjectsController < ApplicationController
 
-  before_action :project_by_params_id, only: [:show,:edit, :update]
+  before_action :project_by_params_id, only: [:show,:edit, :update, :unpublish]
 
   def index
     @projects = Project.all
   end
 
   def show
-
+   
   end
 
   def new
@@ -16,7 +16,8 @@ class ProjectsController < ApplicationController
 
   def create
      @project = Project.new(project_params)
-      @project.user = current_user
+     @project.user = current_user
+     @project.status = 0
      if @project.save
       redirect_to project_path(@project)
      else
@@ -36,14 +37,14 @@ class ProjectsController < ApplicationController
      end
   end
 
-  # def unpublish
-  #   @project.status = 1
-  #   if @project.save
-  #     redirect_to project_path(@project)
-  #    else
-  #     render :edit
-  #    end
-  # end
+  def unpublish
+    @project.status = 1
+    if @project.save
+      redirect_to project_path(@project)
+     else
+      render :edit
+     end
+  end
 
 private
 

@@ -1,11 +1,12 @@
 <div >
   <% @projects.each do |project| %>
-     <p><%= project.title %></p>
+     <p><%= link_to project.title, project_path(project)%></p>
      <p><%= project.description %></p>
      <p><%= project.cost %></p>
      <p><%= project.deadline %></p>
      <p><%= project.status %></p>
      <p><%= project.user.name %></p>
+     <p><%= link_to "Edit", edit_project_path(project)%></p>
        <p>----------------------------------</p>
   <% end %>
 </div>
