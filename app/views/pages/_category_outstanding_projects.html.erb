@@ -1,0 +1,13 @@
+<h2 style="text-align: center;">Proyectos destacados</h2>
+
+<div class="container">
+  <div class="row">
+
+    <% @projects.each do |project| %>
+
+      <%= render 'components/proposal_card', project: project %>
+
+    <% end %>
+
+  </div>
+</div>

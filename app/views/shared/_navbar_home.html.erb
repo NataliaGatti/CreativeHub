@@ -1,0 +1,21 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-5">
+  <div>
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "navbar/logo", style:"width: 100%" %>
+    <% end %>
+
+    <%= link_to "Preguntas frecuentes", "#", class:"text-white pl-3 pr-3"  %>
+    <%= link_to "¿Como funciona?", "#", class:"text-white pl-3 pr-3" %>
+  </div>
+
+  <div>
+  
+    <% if user_signed_in? %>
+      <%= link_to "My profile", "#" %>
+    <% else %>
+      <%= link_to "Iniciar sesión", "#", class:"text-white pl-3 pr-3" %>
+      <%= link_to "Registrarse", "#", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

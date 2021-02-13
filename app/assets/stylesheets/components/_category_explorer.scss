@@ -1,0 +1,38 @@
+.circle {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-position: center;
+}
+
+.circle-text {
+  margin: 0;
+  margin-top: 50%;
+  padding: 0;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(66, 66, 66, 0.5);
+  border-radius: 15%;
+  padding: 5px;
+}
+
+.categories-list {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.categories-title {
+  text-align: center;
+}
+
+.text-category-background {
+  background-color: rgba(255, 255, 255, 1);
+}
