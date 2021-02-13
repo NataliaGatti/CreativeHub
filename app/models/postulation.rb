@@ -1,4 +1,4 @@
-class Application < ApplicationRecord
+class Postulation < ApplicationRecord
   belongs_to :user
   belongs_to :project
   has_many :reviews
