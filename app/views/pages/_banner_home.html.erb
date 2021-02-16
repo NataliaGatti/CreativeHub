@@ -1,0 +1,25 @@
+<div class="banner">
+  <%= render 'shared/navbar_home' %>
+  <div class="container mt-5">
+    <div class="col-6">
+      <h1>Encuentra tu proximo proyecto.</h1>
+      <p class="text-white">Trabaja con los mejores profesionales usando una de las plataformas de trabajo remoto más grandes del mundo.</p>
+
+      <%= form_tag "#", method: :get do %>
+        <div class="input-group">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a movie"
+          %>
+
+          <div class="input-group-append">
+            <%= submit_tag "Search", class: "btn btn-primary", id:"basic-addon2" %>
+          </div>
+
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
