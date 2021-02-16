@@ -1,11 +1,12 @@
 <div>
-  <p><%= @project.title%></p>
-  <p><%= @project.description%></p>
-  <p><%= @project.cost%></p>
-  <p><%= @project.deadline%></p>
-  <p><%= @project.status%></p>
-  <p><%= @project.user.name%></p>
-  <% if @project.status == "open" %>
+  <h3><%= @project.title%></h3>
+  <p>Descripcion: <%= @project.description%></p>
+  <p>Costo: <%= @project.cost%></p>
+  <p>Fecha final de entrega: <%= @project.deadline%></p>
+  <p>Status: <%= @project.status%></p>
+  <p>Empresa: <%= @project.user.name%></p>
+  <% if @project.status == "Abierto" %>
+    <p><%= link_to "Postulate", new_project_postulation_path(@project)%></p> 
     <p><%= link_to "unpublish", unpublish_path(@project)%></p>
     <% end %>
 </div>
