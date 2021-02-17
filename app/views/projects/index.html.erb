@@ -1,11 +1,14 @@
 <div >
   <% @projects.each do |project| %>
-     <p><%= project.title %></p>
-     <p><%= project.description %></p>
-     <p><%= project.cost %></p>
-     <p><%= project.deadline %></p>
-     <p><%= project.status %></p>
-     <p><%= project.user.name %></p>
+     <h3><%= link_to project.title, project_path(project)%></h3>
+     <p>Descripcion: <%= project.description %></p>
+     <p>Costo: <%= project.cost %></p>
+     <p>Fecha final de entrega: <%= project.deadline %></p>
+     <p>Status: <%= project.status %></p>
+     <p>Empresa: <%= project.user.name %></p>
+     <p><%= link_to "Editar", edit_project_path(project)%></p>
+       <p><%= link_to "+Info", project_path(project)%></p>
        <p>----------------------------------</p>
   <% end %>
+     <p><%= link_to "Nuevo Proyecto", new_project_path%></p>
 </div>
