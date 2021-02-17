@@ -1,0 +1,16 @@
+<div >
+<h2><%= @project.title %></h2>
+  <% @postulations.each do |postulation| %>
+     <%# <p><%= link_to project.title, project_path(project)%></p>
+    <p><%= postulation.description %></p>
+    <a href=<%=postulation.file%>>Adjunto</a>
+    <p>Status de la postulacion: <%= postulation.status %></p>
+    <p>Diseñador/Creativo: <%= postulation.user.name %></p>
+    <p>Empresa:<%= postulation.project.user.name %></p>
+    <% if postulation.status == "Postulado" %>
+      <p><%= link_to "Aceptar", accept_project_path(postulation.id), method: :PATCH %></p>
+      <p><%= link_to "Declinar", decline_project_path(postulation.id), method: :PATCH %></p> 
+    <% end %>
+     <p>----------------------------------</p>
+    <% end %>
+</div>

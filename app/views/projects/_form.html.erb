@@ -1,0 +1,12 @@
+<div class="container">
+ <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <%= simple_form_for(project) do |f| %>
+        <%= f.input :title, placeholder: "Título de tu proyecto", label_html: {class: "text-white"}%>
+        <%= f.input :description, as: :text, class:"label", placeholder: "Describe tus necesidades, alcances objetivos de manera clara y puntual.", label_html: { class: "text-white"} %>
+        <%= f.input :cost, as: :numeric, placeholder: "¿Cuanto estas dispuesto a pagar?", label_html: { class: "text-white"} %>
+         <%= f.input :deadline, as: :string, required: false, input_html: 
+         {class: "datepicker"}, placeholder: "Fecha maxima de recepcion", label_html: { class: "text-white"} %>
+        <%= f.submit "Genera tu projecto", class: "btn btn-primary" %>
+    <% end %>
+</div>
+</div>
