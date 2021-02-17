@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :show, :new, :create, :edit, :update] do
   resources :postulations, only: [:index, :show, :new, :create]
   end
+
+  resources :categories, only: [:index, :new, :create]
+
   get '/project/:id', to: 'projects#unpublish', as: 'unpublish'
   patch '/project/:id/postulations/accept', to: 'postulations#accept_project', as: 'accept_project'
   patch '/project/:id/postulations/decline', to: 'postulations#decline_project', as: 'decline_project'

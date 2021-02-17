@@ -1,0 +1,10 @@
+<div class="container">
+ <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <%= simple_form_for(category) do |f| %>
+        <%= f.input :title, placeholder: "Nombre de la categoria", label_html: {class: "text-white"}%>
+        <%# <%= f.input :description, as: :text, class:"label", placeholder: "Describe tus necesidades, alcances objetivos de manera clara y puntual.", label_html: { class: "text-white"} %> %>
+
+        <%= f.submit "Crea una categoria", class: "btn btn-primary" %>
+    <% end %>
+</div>
+</div>
