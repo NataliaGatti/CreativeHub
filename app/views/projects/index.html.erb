@@ -1,11 +1,15 @@
-<div >
-  <% @projects.each do |project| %>
-     <p><%= project.title %></p>
-     <p><%= project.description %></p>
-     <p><%= project.cost %></p>
-     <p><%= project.deadline %></p>
-     <p><%= project.status %></p>
-     <p><%= project.user.name %></p>
-       <p>----------------------------------</p>
-  <% end %>
+<%= render "shared/banner" %>
+
+<div class="container">
+  <div class="row m-4">
+
+    <% @projects.each do |project| %>
+
+      <%= render 'components/proposal_card', project: project %>
+
+    <% end %>
+
+  </div>
 </div>
+
+<%= render "components/footer" %>
