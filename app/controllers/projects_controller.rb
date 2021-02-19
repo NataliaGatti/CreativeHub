@@ -17,8 +17,12 @@ class ProjectsController < ApplicationController
   def create
      @project = Project.new(project_params)
      @project.user = current_user
-     @project.status = 0
-     if @project.save
+    if @project.save
+      params[:categories].shift
+      params[:categories].each do |id|
+        category = Category.find(id.to_i)
+        CategoryProject.create(project: @project, category: category )
+      end
       redirect_to project_path(@project)
      else
       render :new
@@ -29,7 +33,15 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @project.categories.clear
     @project.update(project_params)
+    if params[:categories] != [""]
+     params[:categories].delete_at(0)
+     params[:categories].each do |id|
+     category = Category.find(id.to_i)
+    CategoryProject.create(project: @project, category: category )
+     end
+    end
      if @project.save
       redirect_to project_path(@project)
      else

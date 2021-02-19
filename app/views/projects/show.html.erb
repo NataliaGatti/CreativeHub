@@ -1,11 +1,17 @@
 <div>
   <h3><%= @project.title%></h3>
   <p>Descripcion: <%= @project.description%></p>
-  <p>Costo: <%= @project.cost%></p>
+  <p>Presupuesto: <%= @project.cost%></p>
   <p>Fecha final de entrega: <%= @project.deadline%></p>
   <p>Status: <%= @project.status%></p>
   <p>Empresa: <%= @project.user.name%></p>
+  <p><ul><% @project.category_projects.each do |cat_project| %>
+    <li><%= cat_project.category.title %> 
+    <%= cl_image_tag cat_project.category.photo.key, height: 50, width: 67, crop: :fill %>
+    <% end %>
+  </ul></p>
   <% if @project.status == "Abierto" %>
+    <p><%= link_to "Editar", edit_project_path(@project)%></p>
     <p><%= link_to "Postulate", new_project_postulation_path(@project)%></p> 
     <p><%= link_to "unpublish", unpublish_path(@project)%></p>
     <% end %>
