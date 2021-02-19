@@ -13,7 +13,7 @@
     <% if user_signed_in? %>
       <%= link_to "My profile", "#" %>
     <% else %>
-      <%= link_to "Iniciar sesión", "#", class:"text-white pl-3 pr-3" %>
+      <%= link_to "Iniciar sesión",  user_session_path, class:"text-white pl-3 pr-3" %>
       <%= link_to "Registrarse", "#", class: "btn btn-primary" %>
     <% end %>
 

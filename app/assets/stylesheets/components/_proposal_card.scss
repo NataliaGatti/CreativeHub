@@ -1,9 +1,27 @@
 .proposal-card {
   border-radius: 5%;
   box-shadow: 1px 5px rgba(0, 0, 0, 0.15);
+ /*  text-decoration: none; */
+  color: black;
+  height: 475px;
+  width: 350px;
+  position: relative;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .proposal-cost {
   text-align:center;
-  color: blue;
+  color: black;
+  position: absolute;
+  bottom: 15px;
+  left: 56px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1px;
 }
