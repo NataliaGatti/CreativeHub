@@ -1,5 +1,5 @@
 <div >
-<h2><%= @project.title %></h2>
+  <h2><%= @project.title %></h2>
   <% @postulations.each do |postulation| %>
      <%# <p><%= link_to project.title, project_path(project)%></p>
     <p><%= postulation.description %></p>
@@ -11,6 +11,6 @@
       <p><%= link_to "Aceptar", accept_project_path(postulation.id), method: :PATCH %></p>
       <p><%= link_to "Declinar", decline_project_path(postulation.id), method: :PATCH %></p> 
     <% end %>
-     <p>----------------------------------</p>
+    <p>----------------------------------</p>
     <% end %>
 </div>

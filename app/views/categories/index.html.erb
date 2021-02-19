@@ -1,9 +1,9 @@
 <div >
   <% @categories.each do |category| %>
-     <p>Categoria: <%= category.title %></p>
-     <%= cl_image_tag category.photo.key, height: 300, width: 400, crop: :fill %>
-       <p>----------------------------------</p>
+    <p>Categoria: <%= category.title %></p>
+    <%= cl_image_tag category.photo.key, height: 300, width: 400, crop: :fill %>
+      <p>----------------------------------</p>
   <% end %>
-     <p><%= link_to "Nueva categoria", new_category_path%></p>
+  <p><%= link_to "Nueva categoria", new_category_path%></p>
 </div>
 
