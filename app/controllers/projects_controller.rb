@@ -7,7 +7,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-   
+    @company = @project.user
+    @reviews = @company.reviews
   end
 
   def new

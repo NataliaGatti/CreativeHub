@@ -1,12 +1,24 @@
 <div>
+
   <h3><%= @project.title%></h3>
   <p>Descripcion: <%= @project.description%></p>
   <p>Costo: <%= @project.cost%></p>
   <p>Fecha final de entrega: <%= @project.deadline%></p>
   <p>Status: <%= @project.status%></p>
   <p>Empresa: <%= @project.user.name%></p>
+
   <% if @project.status == "Abierto" %>
+
     <p><%= link_to "Postulate", new_project_postulation_path(@project)%></p> 
     <p><%= link_to "unpublish", unpublish_path(@project)%></p>
+
+  <% end %>
+
+  <% if @reviews != nil && @reviews.count != 0 %>
+
+    <% @reviews.each do |review| %>
+      <%= render 'components/review_comment', { emmiter: review.postulation.user, review: review } %>
     <% end %>
+
+  <% end %>
 </div>

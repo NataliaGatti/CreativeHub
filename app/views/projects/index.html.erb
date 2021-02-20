@@ -11,13 +11,17 @@
 
 <div class="container">
   <div class=" card-grid m-4">
+  <% if @projects != nil %>
+
     <% @projects.each do |project| %>
-    <div>
-      <%= link_to project_path(project) do  %>
-        <%= render 'components/proposal_card', project: project %>
-      <% end %>
-    </div>
+      <div>
+        <%= link_to project_path(project) do  %>
+          <%= render 'components/proposal_card', project: project %>
+        <% end %>
+      </div>
     <% end %>
+    
+  <% end %>
 
   </div>
 </div>

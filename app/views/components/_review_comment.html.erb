@@ -1,0 +1,17 @@
+<div class="">
+  <%= cl_image_tag emmiter.photo.key, alt: "Logo", class: "review-comment-img"  %>
+  <strong><%= emmiter.name %></strong>
+
+  <div style="display: inline">
+    <i class="fas fa-star" style="color: orange"></i>
+    <i class="fas fa-star" style="color: orange"></i>
+    <i class="fas fa-star" style="color: orange"></i>
+    <i class="fas fa-star" style="color: orange"></i>
+    <i class="far fa-star" style="color: orange"></i>
+  </div>
+
+  <div style="display: inline-block">
+    <p>Publicado hace <%= ( (Time.now - review.created_at) / (1000 * 3600 ) ).round(0) %> horas </p>
+  </div>
+
+</div>
