@@ -1,1 +1,17 @@
-<%= render 'form', project: @project %>
+<%= render "shared/navbar" %>
+
+  <div class="container d-flex align-self-center">
+    <div class="row">
+      <div class="col-sm-7 new_form">
+        <h4 class="text-left pt-3">Edita tu proyecto</h4>
+        <%= render 'form', project: @project %>
+      </div>
+      <div class="col-sm-4 edit_instructions">
+        <p>Ponle imagen a lo que quieras contar: desde el diseño web hasta fotografías, videos, animación, sonido y todo lo que buscas para destacarte</p>
+        <p>Ya sea que necesitas una imagen para redes sociales o crear toda la identidad visual de tu negocio (incluido logo, landing o tu video institucional), podrás hacerlo con la ayuda de diseñadores multimedia, editores, entre otros especialistas.</p>
+         <%= image_tag "Croods.png" , :class => "style_image_edit" %>
+      </div>
+    </div>
+  </div>
+
+<%= render "components/footer" %>
