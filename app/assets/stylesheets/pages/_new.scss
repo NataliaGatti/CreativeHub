@@ -1,0 +1,44 @@
+.new_form{
+  background-color: #EBE7EB;
+  height: 600px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-top-left-radius: 10px ;
+  border-bottom-left-radius: 10px ;
+  h4{
+    margin-top: 32px;
+    margin-left: 68px;
+    margin-bottom: 20px;
+  }
+}
+
+.new_instructions {
+  background-color: #046CE7;
+  height: 600px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  border-top-right-radius: 10px ;
+  border-bottom-right-radius: 10px ;
+
+  p{
+    margin-top: 60px;
+  }
+
+}
+
+.style_image{
+  width: 350px;
+}
+
+.deadline{
+  width: 235px;
+}
+
+.categorydesign{
+  margin-left: 20px;
+}
+
+.select2-container--default.select2-selection--multiple {
+  background-color: yellow !important;
+}
