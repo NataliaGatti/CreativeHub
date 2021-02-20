@@ -7,7 +7,7 @@ const initflatpickr = () => {
   flatpickr(".datepicker", {
     enableTime: true,
     dateFormat: "Y-m-d H:i",
-    "locale": Spanish ,
+    "locale": Spanish,
   });
 };
 

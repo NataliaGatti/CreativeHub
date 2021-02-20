@@ -1,18 +1,133 @@
-<div>
-  <h3><%= @project.title%></h3>
-  <p>Descripcion: <%= @project.description%></p>
-  <p>Presupuesto: <%= @project.cost%></p>
-  <p>Fecha final de entrega: <%= @project.deadline%></p>
-  <p>Status: <%= @project.status%></p>
-  <p>Empresa: <%= @project.user.name%></p>
-  <p><ul><% @project.category_projects.each do |cat_project| %>
-    <li><%= cat_project.category.title %> 
-    <%= cl_image_tag cat_project.category.photo.key, height: 50, width: 67, crop: :fill %>
-    <% end %>
-  </ul></p>
-  <% if @project.status == "Abierto" %>
+<!-- NAVBAR -->
+
+<%= render "shared/navbar" %>
+
+                      <!-- RUTAS DE LINKS -->
+<div class="d-flex ml-2">
+  <%= link_to "Creative Hub Home", root_path  %> <p class="px-2">></p> <%= link_to " Proyectos", projects_path  %> <p class="px-2"> > <%= @project.title %> </p>
+</div>
+
+
+
+<div class="container shadow mb-5 mt-2 bg-white">
+
+
+                    <!-- INFO DE LA EMPRESA-->
+
+  <div class="d-flex">
+    <div class="pt-3 mr-2" >
+      <%= cl_image_tag @project.user.photo.key, alt: "Logo", style:"height:120px" %>
+    </div>
+    <div class="mt-2"style="width:807px">
+      <h1 class=" mt-2 text-wrap" style="height: 90px"><%= @project.title%></h1>
+      <div class="d-flex mb-4">
+        <h2 class="text-secondary m-0" > <%= @project.user.name  %> </h2>
+        <div class="d-flex align-items-center ml-3">
+           <%= '<i class="fas fa-star" style="color: orange"></i>'.html_safe * @project.user.rating %>
+          <%= '<i class="fas fa-star" style="color: grey"></i>'.html_safe * (5 - @project.user.rating) %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mr-3 pr-2">
+        <p class="mt-2 mb-0 text-secondary">Publicado hace <%= ( (Time.now - @project.created_at) / (1000 * 3600 ) ).round(0) %> horas </p>
+
+        <%if @project.status == "Abierto"%>
+          <p class="pr-2 mt-2 mb-0 text-success">Evaluando propuestas</p>
+        <% else %>
+          <p class="pr-2 mt-2 mb-0 text-danger">Proyecto Finalizado</p>
+        <% end %>
+
+
+      </div>
+    </div>
+    <div class="text-center border-left-description px-2 mt-3" style="width: 386px;" >
+      <p> Proyectos publicados por esta empresa:</p>
+      <p >24</p>
+      <p>Proyectos finalizados a la fecha:</p>
+      <p class="mb-0">20</p>
+      <p class="text-center text-secondary">Miembro desde <%= time_tag(@project.user.created_at, :format=>'%d/%m/%Y')  %></p>
+    </div>
+  </div>
+  <hr>
+
+                  <!-- DETALLE DE PROPUESTA -->
+
+  <h4 class="mt-3 mb-3"> INFORMACION SOBRE ESTE PROYECTO</h2>
+    <hr>
+    <div class="d-flex justify-content-between text-wrap">
+      <div style="width: 812px">
+       <p class="text-black-50">Descripcion: <%= @project.description%></p>
+      </div>
+      <div class=" border-left-description px-3">
+        <div style="width:225px">
+          <h6 class="text-center text-secondary">Actividad en este proyecto</h4>
+          <div class="d-flex justify-content-between ">
+           <p>Propuestas:</p> <p>24</p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p>Visualizaciones:</p> <p>51</p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p >Categoria:</p> <p class="text-wrap"> Diseño, Marketing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>Fecha de Entrega: <%= time_tag(@project.deadline, :format=>'%d-%m-%Y, %l:%M %p') %></p>
+    <div class="d-flex">
+      <h4><strong>Remuneracion:</strong> </h4> <h4 class="text-primary pl-2"><strong> u$s <%= @project.cost.round(0) %></strong> </h4>
+    </div>
+    <div class="d-flex">
+      <p class=" mr-3">Status:</p>
+      <%if @project.status == "Abierto"%>
+        <p class="text-success"> Abierto </p>
+      <% else %>
+        <p class="text-danger"> Cerrado </p>
+      <% end %>
+    </div>
+    <!-- <div>
+      <% if @project.status == "Abierto" %>
+        <p><%= link_to "unpublish", unpublish_path(@project)%></p>
+      <% end %>
+    </div> -->
+    <% if @project.status == "Abierto" %>
     <p><%= link_to "Editar", edit_project_path(@project)%></p>
     <p><%= link_to "Postulate", new_project_postulation_path(@project)%></p> 
     <p><%= link_to "unpublish", unpublish_path(@project)%></p>
   <% end %>
+    <div class="d-flex justify-content-center ">
+      <%= link_to "Enviar propuesta", new_project_postulation_path(@project), class:"btn btn-primary mx-2 mb-3"%>
+      <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 mb-3"  %>
+    </div>
 </div>
+
+
+          <!--REVIEWS DE FREELANCERS A LA EMPRESA -->
+
+<div class="container shadow reviews-back">
+  <h3>Comentarios de Freelancers </h3>
+  <hr>
+  <div>
+   <h6>Trabajo realizado</h6>
+   <div class="d-flex justify-content-between">
+     <div class="d-flex">
+      <%= image_tag "avatar_designer.png", alt: "picture designer", class:"avatar-review" %>
+      <p class="px-2 mb-0 align-items-center pt-1"> Facundo Lanus </p>
+      <div class="d-flex ml-3 pt-1 ">
+        <i class="fas fa-star ml-2" style="color: orange"></i>
+        <i class="fas fa-star ml-2" style="color: orange"></i>
+        <i class="fas fa-star ml-2" style="color: orange"></i>
+        <i class="fas fa-star ml-2" style="color: orange"></i>
+        <i class="far fa-star ml-2" style="color: orange"></i> 
+      </div>
+     </div>
+     <p class="text-secondary mr-5"> Publicado hace 2 meses </p>
+   </div>
+    <p> Ha sido un placer este trabajo. El cliente muy atento. Ha revisado todos los detalles. Seguro trabajaremos juntos nuevamente. </p>
+  </div>
+  <hr class="pb-3">
+</div>
+
+                          <!-- FOOTER -->
+
+<%= render "components/footer" %>

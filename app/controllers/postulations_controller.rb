@@ -2,6 +2,7 @@ class PostulationsController < ApplicationController
 
   def index
     @project = Project.find(params[:project_id])
+    # @postulations = Postulation.where(@project.user== current_user)
     @postulations =  @project.postulations
   end
 
@@ -19,12 +20,13 @@ class PostulationsController < ApplicationController
     @postulation = Postulation.new(postulation_params)
     @postulation.project = @project
     @postulation.user = current_user
-    # @postulation.status = 0
+    @postulation.status = 0
     if @postulation.save
-      sleep(4)
+      # sleep(4)
       redirect_to projects_path
-    else  
-      render 'postulations/alert'
+    else
+      flash[:alert] = "Falta información en tu postulación"
+      render :new  
     end
   end
   
@@ -54,7 +56,9 @@ class PostulationsController < ApplicationController
      end
   end
   
+  
   private
+  
   
   def postulation_params
    params.require(:postulation).permit(:file, :description, :status, :project_id, :user_id)
