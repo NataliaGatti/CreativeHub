@@ -24,8 +24,9 @@ class PostulationsController < ApplicationController
     if @postulation.save
       sleep(4)
       redirect_to projects_path
-    else  
-      render 'postulations/alert'
+    else
+      flash[:alert] = "Falta información en tu postulación"
+      render :new  
     end
   end
   
