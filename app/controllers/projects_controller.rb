@@ -16,23 +16,35 @@ class ProjectsController < ApplicationController
   def create
      @project = Project.new(project_params)
      @project.user = current_user
-     @project.status = 0
-     if @project.save
+    if @project.save
+      params[:categories].shift
+      params[:categories].each do |id|
+        category = Category.find(id.to_i)
+        CategoryProject.create(project: @project, category: category )
+      end
       redirect_to project_path(@project)
      else
       render :new
-     end
+    end
   end
   
   def edit
   end
 
   def update
+    @project.categories.clear
     @project.update(project_params)
+    if params[:categories] != [""]
+      params[:categories].delete_at(0)
+      params[:categories].each do |id|
+        category = Category.find(id.to_i)
+        CategoryProject.create(project: @project, category: category )
+      end
+    end
      if @project.save
-      redirect_to project_path(@project)
+       redirect_to project_path(@project)
      else
-      render :edit
+        render :edit
      end
   end
 
@@ -40,9 +52,9 @@ class ProjectsController < ApplicationController
     @project.status = 1
     if @project.save
       redirect_to project_path(@project)
-     else
+    else
       render :edit
-     end
+    end
   end
 
 private
@@ -52,7 +64,7 @@ private
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :cost, :deadline, :status)
+    params.require(:project).permit(:title, :description, :cost, :deadline, :status, :categories)
   end
 
 end
