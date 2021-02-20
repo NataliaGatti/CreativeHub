@@ -13,6 +13,7 @@ require "open-uri"
 Project.destroy_all
 # Application.destroy_all
 User.destroy_all
+Category.destroy_all
 
 puts "Creando los users"
 natalia = User.create!(email: "nataliagatti@gmail.com", password: "gattinati", name: "Natalia", company: false, rating: 5)
@@ -173,5 +174,47 @@ puts "Creando Projects"
   user: loreal
 )
 
+puts "Creando cinco categories"
+
+diseno_photo = URI.open('https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+diseno_grafico = Category.create(title: 'Diseño Grafico')
+diseno_grafico.photo.attach(io: diseno_photo, filename: 'diseno.png', content_type: 'image/png')
+
+photography_photo = URI.open('https://images.unsplash.com/photo-1523467327888-a8a445992901?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fHBob3RvZ3JhcGh5fGVufDB8fDB8&auto=format&fit=crop&w=500&q=60')
+photography = Category.create(title: 'Fotografía')
+photography.photo.attach(io: photography_photo, filename: 'fotografia.png', content_type: 'image/png')
+
+video_photo = URI.open('https://images.unsplash.com/photo-1493804714600-6edb1cd93080?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
+video = Category.create(title: 'Video')
+video.photo.attach(io: video_photo, filename: 'video.png', content_type: 'image/png')
+
+illustration_photo = URI.open('https://images.unsplash.com/photo-1569309338532-a0c01062acc8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHwxMzQ2ODg4Mnx8ZW58MHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
+illustration = Category.create(title: 'Ilustración')
+illustration.photo.attach(io: illustration_photo, filename: 'ilustration.png', content_type: 'image/png')
+
+ux_design_photo = URI.open('https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+uxdesign = Category.create(title: 'Diseño UX/UI Responsive')
+uxdesign.photo.attach(io: ux_design_photo, filename: 'uxdesign.png', content_type: 'image/png')
+
+puts "Creando relaciones project-category"
+CategoryProject.create( project: amazon, category: photography )
+
+CategoryProject.create( project: branca, category: diseno_grafico )
+
+CategoryProject.create( project: pwc, category: uxdesign )
+
+CategoryProject.create( project: telecom, category: video )
+CategoryProject.create( project: arcor, category: video )
+
+CategoryProject.create( project: correo_argentino, category: uxdesign )
+CategoryProject.create( project: cuareim, category: diseno_grafico )
+
+CategoryProject.create( project: valti, category: diseno_grafico )
+CategoryProject.create( project: vega, category: uxdesign )
+
+CategoryProject.create( project: cocacola, category: diseno_grafico )
+CategoryProject.create( project: chevallier, category: uxdesign )
+
+CategoryProject.create( project: loreal, category: diseno_grafico )
 
 puts "Seeds creadas"

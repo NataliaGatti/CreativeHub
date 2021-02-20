@@ -22,10 +22,11 @@ class PostulationsController < ApplicationController
     @postulation.user = current_user
     @postulation.status = 0
     if @postulation.save
-      sleep(4)
+      # sleep(4)
       redirect_to projects_path
-    else  
-      render 'postulations/alert'
+    else
+      flash[:alert] = "Falta información en tu postulación"
+      render :new  
     end
   end
   

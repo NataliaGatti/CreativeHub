@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @categories = Category.all
-    @projects = Project.last(6)
+    @projects = Project.all.first(3)
   end
 end
