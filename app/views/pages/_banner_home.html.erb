@@ -5,12 +5,12 @@
       <h1>Encuentra tu proximo proyecto.</h1>
       <p class="text-white">Trabaja con los mejores profesionales usando una de las plataformas de trabajo remoto más grandes del mundo.</p>
 
-      <%= form_tag "#", method: :get do %>
+      <%= form_tag projects_path, method: :get do %>
         <div class="input-group">
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: 'Prueba "Diseño web y móvil"'
+            placeholder: 'Prueba "Diseño UX/UI"'
           %>
 
           <div class="input-group-append">
@@ -22,9 +22,9 @@
 
       <div class="d-flex mt-2 align-items-center">
         <p class="m-0"> Busquedas populares: </p>
-        <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Diseño web </p>
-        <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Logos </p>
-        <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Folleteria </p>
+        <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Video </p>
+        <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Ilustración </p>
+        <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Fotografía </p>
       </div>
     </div>
 
