@@ -1,0 +1,18 @@
+<div class="my-project-card rounded m-2">
+  <h3><strong><%= project.title %></strong></h3>
+
+  <h5><strong>actividad en este proyecto</strong></h5>
+  <p>Status: <%= project.status %></p>
+  <p>Propuestas: <%= project.postulations.count %></p>
+  <div style="display: inline" class="button-option d-flex justify-content-between">
+    <%= link_to "Editar proyecto", "#", class: "btn btn-primary button-project" %>
+
+    <% if project.status == "Abierto" %>
+      <%= link_to "Bajar proyecto", unpublish_project_path(project.id), method: :PUT, class: "btn btn-primary button-project" %>
+    <% elsif project.status == "Cerrado" %>
+      <%= link_to "Dar de alta", unpublish_project_path(project.id), method: :PUT, class: "btn btn-primary button-project" %>
+    <% end %>
+
+    <%= link_to "Propuestas", my_projects_postulations_path(project.id), class: "btn btn-primary button-project" %>
+  </div>
+</div>

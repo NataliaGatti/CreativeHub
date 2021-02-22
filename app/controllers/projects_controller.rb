@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_action :project_by_params_id, only: [:show,:edit, :update, :unpublish]
+  before_action :project_by_params_id, only: [:show,:edit, :update, :unpublish, :unpublish_project_by_user_company, :my_projects_postulations]
 
   def index
     @projects = Project.all
@@ -13,6 +13,13 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @company = @project.user
+    @reviews = @company.reviews
+
+    @user_postulated = false
+    current_user.postulations.each do |postulation|
+      @user_postulated = true if postulation.project_id == params[:id].to_i
+    end
   end
 
   def new
@@ -63,7 +70,28 @@ class ProjectsController < ApplicationController
     end
   end
 
-private
+  def index_by_user_company
+    if current_user.company
+      @projects = current_user.projects
+    end
+  end
+  
+  def unpublish_project_by_user_company
+    if @project.status == "Cerrado"
+      @project.status = :Abierto
+    elsif @project.status == "Abierto"
+      @project.status = :Cerrado
+    end
+
+    @project.save
+    redirect_to my_projects_path
+  end
+  
+  def my_projects_postulations
+    @postulations = @project.postulations
+  end
+
+  private
 
   def project_by_params_id
     @project = Project.find(params[:id])

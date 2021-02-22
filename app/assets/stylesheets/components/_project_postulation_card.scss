@@ -1,0 +1,13 @@
+.user-image {
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+  display: inline;
+}
+
+.my-text-wrap {
+  word-wrap: break-word;         /* All browsers since IE 5.5+ */
+  overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+  width: 100%;
+  background-color: rgba($color: #D1E6E8, $alpha: 1.0);
+}
