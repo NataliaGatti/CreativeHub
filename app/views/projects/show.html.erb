@@ -96,7 +96,11 @@
     <p><%= link_to "unpublish", unpublish_path(@project)%></p>
   <% end %>
     <div class="d-flex justify-content-center ">
-      <%= link_to "Enviar propuesta", new_project_postulation_path(@project), class:"btn btn-primary mx-2 mb-3"%>
+      <% if @user_postulated %>
+        <p>ya te anotaste chanta</p>
+      <% else %>
+        <%= link_to "Enviar propuesta", new_project_postulation_path(@project), class:"btn btn-primary mx-2 mb-3"%>
+      <% end %>
       <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 mb-3"  %>
     </div>
 </div>
@@ -107,25 +111,11 @@
 <div class="container shadow reviews-back">
   <h3>Comentarios de Freelancers </h3>
   <hr>
-  <div>
-   <h6>Trabajo realizado</h6>
-   <div class="d-flex justify-content-between">
-     <div class="d-flex">
-      <%= image_tag "avatar_designer.png", alt: "picture designer", class:"avatar-review" %>
-      <p class="px-2 mb-0 align-items-center pt-1"> Facundo Lanus </p>
-      <div class="d-flex ml-3 pt-1 ">
-        <i class="fas fa-star ml-2" style="color: orange"></i>
-        <i class="fas fa-star ml-2" style="color: orange"></i>
-        <i class="fas fa-star ml-2" style="color: orange"></i>
-        <i class="fas fa-star ml-2" style="color: orange"></i>
-        <i class="far fa-star ml-2" style="color: orange"></i> 
-      </div>
-     </div>
-     <p class="text-secondary mr-5"> Publicado hace 2 meses </p>
-   </div>
-    <p> Ha sido un placer este trabajo. El cliente muy atento. Ha revisado todos los detalles. Seguro trabajaremos juntos nuevamente. </p>
-  </div>
-  <hr class="pb-3">
+  
+  <% @reviews.each do |review| %>
+    <%= render 'components/review_comment', {emmiter: review.postulations.user, review: review} %>
+  <% end %>
+
 </div>
 
                           <!-- FOOTER -->

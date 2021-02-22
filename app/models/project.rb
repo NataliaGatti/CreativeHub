@@ -5,5 +5,5 @@ class Project < ApplicationRecord
   has_many :categories, through: :category_projects
   validates :title, :cost, :deadline, :status, presence: true
   validates :description, length: { minimum: 50 }
-  enum status: [:Abierto, :Cerrado], _default: "Abierto"
+  enum status: [:Abierto, :Cerrado], _default: :Abierto
 end
