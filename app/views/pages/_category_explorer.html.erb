@@ -6,7 +6,7 @@
 
     <% @categories.each do |category| %>
       <div class="circle" style="background-image: url('https://hipertextual.com/files/2019/11/hipertextual-impresionantes-fotografias-galardonadas-concurso-sociedad-britanica-ecologia-2019227038.jpg')">
-        <%= link_to category.title, "#", class:"circle-text" %>
+        <%= link_to category.title, projects_by_category_path(foo_param: category.title), class:"circle-text" %>
       </div>
     <% end %>
 

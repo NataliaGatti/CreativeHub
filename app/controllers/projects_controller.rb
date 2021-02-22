@@ -57,6 +57,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def projects_by_category
+    @projects = Project.includes(:categories).where(categories: {title: params[:foo_param]})
+  end
+
 private
 
   def project_by_params_id
