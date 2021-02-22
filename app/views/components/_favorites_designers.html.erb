@@ -1,128 +1,41 @@
 <div class="favorites-designers-body">
   <div class="background-color-block">
-  <h1 class="text-center">Nuestros diseñadores favoritos</h1>
-    <div class="container my-container">
+  <h1 class="text-center pt-5 pb-4">Nuestros diseñadores favoritos</h1>
+
+    <div class="container my-container" id="designers-margin">
       <div class="d-flex my-row">
+        <% @designers.each do |designer| %>
+          <div class="card-favorite-designer col-3">
+          <% if designer.photo.attached? %>
+            <div class="designer-data-background" style="background-image: url('<%= cl_image_path designer.photo.key %>')">
+          <% else %>
+            <div class="designer-data-background" style="background-image: url('https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')">
+            <% end %>
+            
+              <div class="designer-data">
+                <h3 class="designer-name-favorite-card"><%= designer.name %></h3>
 
-        <div class="card-favorite-designer col-3">
+                <div class="d-flex justify-content-between align-items-center">
 
-          <div class="designer-data-background">
-            <div class="designer-data">
-          
-              <h3 class="designer-name-favorite-card">Pablo Casas</h3>
+                  <div>
+                    <%= '<i class="fas fa-star" style="color: orange"></i>'.html_safe * designer.rating %>
+                    <%= '<i class="fas fa-star" style="color: grey"></i>'.html_safe * (5 - designer.rating) %>
+                  </div>
 
-              <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                  <%#  <% @designers.categories.each do |category| %>
+                    <%#  <div class="circle" style="background-image: url('<%= cl_image_path category.photo.key %>
+                      <%#  <p class="circle-text"><%= category.title %>
+                    <%#  </div>
+                  <%#  <% end %>
 
-                <div>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="far fa-star" style="color: orange"></i>
+                  </div>
+
                 </div>
-
-
-                <div class="circle-avatar" style="background-image: url('https://www.pngkit.com/png/detail/157-1573071_about-le-wagon-le-wagon-logo.png')">
-                </div>
-
-              </div>
-
+              </div>      
             </div>
-
           </div>
-
-        </div>
-
-        <div class="card-favorite-designer col-3">
-
-          <div class="designer-data-background">
-            <div class="designer-data">
-          
-              <h3 class="designer-name-favorite-card">Pablo Casas</h3>
-
-              <div class="d-flex justify-content-between align-items-center">
-
-                <div class="">
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="far fa-star" style="color: orange"></i>
-                </div>
-
-
-                <div class="circle-avatar" style="background-image: url('https://www.pngkit.com/png/detail/157-1573071_about-le-wagon-le-wagon-logo.png')">
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="card-favorite-designer col-3">
-
-          <div class="designer-data-background">
-            <div class="designer-data">
-          
-              <h3 class="designer-name-favorite-card">Pablo Casas</h3>
-
-              <div class="d-flex justify-content-between align-items-center">
-
-                <div class="">
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="far fa-star" style="color: orange"></i>
-                </div>
-
-
-                <div class="circle-avatar" style="background-image: url('https://www.pngkit.com/png/detail/157-1573071_about-le-wagon-le-wagon-logo.png')">
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="card-favorite-designer col-3">
-
-          <div class="designer-data-background">
-            <div class="designer-data">
-          
-              <h3 class="designer-name-favorite-card">Pablo Casas</h3>
-
-              <div class="d-flex justify-content-between align-items-center">
-
-                <div class="">
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="fas fa-star" style="color: orange"></i>
-                  <i class="far fa-star" style="color: orange"></i>
-                </div>
-
-
-                <div class="circle-avatar" style="background-image: url('https://www.pngkit.com/png/detail/157-1573071_about-le-wagon-le-wagon-logo.png')">
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        
-        
+        <% end %>
       </div>
-    </div>
-  </div>
+     
 </div>

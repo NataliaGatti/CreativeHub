@@ -90,14 +90,9 @@
         <p><%= link_to "unpublish", unpublish_path(@project)%></p>
       <% end %>
     </div> -->
-    <% if @project.status == "Abierto" %>
-    <p><%= link_to "Editar", edit_project_path(@project)%></p>
-    <p><%= link_to "Postulate", new_project_postulation_path(@project)%></p> 
-    <p><%= link_to "unpublish", unpublish_path(@project)%></p>
-  <% end %>
     <div class="d-flex justify-content-center ">
       <% if @user_postulated %>
-        <p>ya te anotaste chanta</p>
+        <p class="p-2 bg-success text-white">Ya estás postulado a este proyecto</p>
       <% else %>
         <%= link_to "Enviar propuesta", new_project_postulation_path(@project), class:"btn btn-primary mx-2 mb-3"%>
       <% end %>

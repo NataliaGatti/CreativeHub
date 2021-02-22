@@ -1,15 +1,17 @@
-<h1 class="categories-title">Explora nuestras categorias</h1>
+<h1 class="categories-title m-5">Explora nuestras categorías</h1>
 
 <div class="container">
 
-  <div class="categories-list d-flex">
+  <div class="categories-list d-flex mb-5">
 
-    <% @categories.each do |category| %>
-      <div class="circle" style="background-image: url('https://hipertextual.com/files/2019/11/hipertextual-impresionantes-fotografias-galardonadas-concurso-sociedad-britanica-ecologia-2019227038.jpg')">
-        <%= link_to category.title, "#", class:"circle-text" %>
-      </div>
+    <% @categories.first(5).each do |category| %>
+      <%= link_to "#" do  %>
+        <div class="circle" style="background-image: url('<%= cl_image_path category.photo.key %>')">
+          <p class="circle-text"><%= category.title %></p>
+        </div>
+      <% end %>
     <% end %>
 
   </div>
-
+  
 </div>
