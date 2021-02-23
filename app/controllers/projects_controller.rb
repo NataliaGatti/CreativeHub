@@ -70,6 +70,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def projects_by_category
+    @projects = Project.includes(:categories).where(categories: {title: params[:foo_param]})
+  end
+
+private
   def index_by_user_company
     if current_user.company
       @projects = current_user.projects
