@@ -1,13 +1,19 @@
-<h2 style="text-align: center;">Proyectos destacados</h2>
+<h1 class="text-center m-5">Proyectos destacados</h1>
 
 <div class="container">
   <div class="row">
 
     <% @projects.each do |project| %>
 
-      <%= render 'components/proposal_card', project: project %>
+      <%= link_to project_path(project) do  %>
+        <%= render 'components/proposal_card', project: project %>
+      <% end %>
 
     <% end %>
 
+  </div>
+
+  <div class="text-center py-4">
+    <h2 class="mb-5 mt-3"><%= link_to "Ver todos los proyectos", projects_path, class:"btn btn-primary btn-lg p-3 border border-rounded border-secondary shadow p-3 bg-body" %></h2>
   </div>
 </div>

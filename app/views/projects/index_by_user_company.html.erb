@@ -1,0 +1,15 @@
+<%= render 'shared/navbar' %>
+
+<div class="container">
+
+  <h1>Mis Proyectos</h1>
+
+  <div class="d-flex justify-content-center">
+    <% @projects.each do |project| %>
+
+      <%= render 'components/my_project_card', project: project %>
+
+    <% end %>
+  </div>
+
+</div>

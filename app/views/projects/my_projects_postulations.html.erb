@@ -1,0 +1,12 @@
+<%= render 'shared/navbar' %>
+
+<h1 styel="font-style: oblique;" class="mt-4 mb-4 container"><%= @project.title %></h1>
+<div class="container">
+
+  <% @postulations.each do |postulation| %>
+  
+    <%= render 'components/project_postulation_card', postulation: postulation %>
+
+  <% end %>
+
+</div>
