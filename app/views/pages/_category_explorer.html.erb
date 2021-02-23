@@ -5,10 +5,9 @@
   <div class="categories-list d-flex mb-5">
 
     <% @categories.first(5).each do |category| %>
-      <%= link_to "#" do  %>
+      <%= link_to projects_by_category_path(foo_param:category.title) do  %>
         <div class="circle" style="background-image: url('<%= cl_image_path category.photo.key %>')">
           <p class="circle-text"><%= category.title %></p>
-                
         </div>
       <% end %>
     <% end %>
