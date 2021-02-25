@@ -1,0 +1,19 @@
+<div class="col-md-4">
+  <div class="card card-blog">
+    <div class="card-image">
+      <a href="#">
+        <%= cl_image_tag postulation.project.user.photo.key, class:"img" %>
+      </a>
+      <div class="ripple-cont"></div>
+    </div>
+    <div class="card-caption"> <%= postulation.project.title %> </div>
+    <div class="table">
+      <% for category in postulation.project.categories %>
+        <h6 class="category text-info"><%= category.title %></h6>
+        <br>
+      <% end %>
+      
+      <p class="card-description"> <%= postulation.project.description %> </p>
+    </div>
+  </div>
+</div>

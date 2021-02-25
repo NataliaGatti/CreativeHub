@@ -1,0 +1,16 @@
+<%= render 'shared/navbar' %>
+
+<div class="cards-1 section-gray">
+  <div class="container">
+    <div class="row">
+
+      <% @postulations.each do |postulation| %>
+
+        <%= render 'my_postulation_card', postulation: postulation %>
+      
+
+      <% end %>
+  
+    </div>
+  </div>
+</div>

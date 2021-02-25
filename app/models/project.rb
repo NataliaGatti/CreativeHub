@@ -6,5 +6,7 @@ class Project < ApplicationRecord
   validates :title, :cost, :deadline, :status, presence: true
   validates :description, length: { minimum: 50 }
   enum status: [:Abierto, :Cerrado], _default: :Abierto
+
+  scope :open_proyects, -> { where(status: :Abierto) }
   acts_as_punchable
 end
