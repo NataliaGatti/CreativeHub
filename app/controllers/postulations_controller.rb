@@ -22,6 +22,7 @@ class PostulationsController < ApplicationController
     @postulation.user = current_user
     @postulation.status = 0
     if @postulation.save
+      flash[:alert] = "Tu postulación ha sido enviada exitosamente"
       # sleep(4)
       redirect_to projects_path
     else
