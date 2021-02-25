@@ -68,8 +68,8 @@ loreal.save!
 puts "Creando Projects"
 
  amazon = Project.create!(
-  title: "Sesion de fotografia de productos en almacen", 
-  description: "Se solicita sesion fotografica de los productos que tenemos en stock en almacen un total de 10 fotos", 
+  title: "Sesión de fotografía de productos en almacén", 
+  description: "Se solicita sesión fotográfica de los productos que tenemos en stock en almacén un total de 10 fotos", 
   cost: 320,
   deadline: Date.new(2021, 4, 14, 18), 
   status: 0, 
@@ -77,8 +77,8 @@ puts "Creando Projects"
 )
 
  branca = Project.create!(
-  title: "Creacion de nuevo logo para edicion limitada de Fernet", 
-  description: "Se solicita la creacion de un nuevo logo para lanzamiento de edicion limitada de fernet Strong", 
+  title: "Creación de nuevo logo para edición limitada de Fernet", 
+  description: "Se solicita la creación de un nuevo logo para lanzamiento de edición limitada de fernet Strong", 
   cost: 1200,
   deadline: Date.new(2021, 3, 14, 12),
   status: 0, 
@@ -87,7 +87,7 @@ puts "Creando Projects"
 
  pwc = Project.create!(
   title: "Creación de software online a medida", 
-  description: "Se solicita la creacion de una aplicacion de gestion contable para la operacion con bancos.", 
+  description: "Se solicita la creación de una aplicación de gestión contable para la operación con bancos.", 
   cost: 1500,
   deadline: Date.new(2021, 6, 20, 20),
   status: 0, 
@@ -105,7 +105,7 @@ puts "Creando Projects"
 
  arcor = Project.create!(
   title: "Creación de Videos", 
-  description: "Creación de videos cortos 15 segundos para stories de instagram, yo paso el material pero no tengo los efectos. Estoy buscando transiciones muy rápidas que comuniquen un mensaje a corto tiempo.", 
+  description: "Creación de videos cortos 15 segundos para stories de instagram, yo paso el material, pero no tengo los efectos. Estoy buscando transiciones muy rápidas que comuniquen un mensaje a corto tiempo.", 
   cost: 120,
   deadline: Date.new(2021, 9, 3, 20),
   status: 0, 
@@ -114,7 +114,7 @@ puts "Creando Projects"
 
  correo_argentino = Project.create!(
   title: "Desarrollador Php para relevamiento de entregas", 
-  description: "Se solicita la creacion de un sistema de control de las entregas y rechazos usando lenguaje Php.", 
+  description: "Se solicita la creación de un sistema de control de las entregas y rechazos usando lenguaje Php.", 
   cost: 1420,
   deadline: Date.new(2021, 7, 23, 20),
   status: 0, 

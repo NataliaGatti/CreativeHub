@@ -2,7 +2,7 @@
 
   <div class="form-wrapper" style="width: 500px; margin: 0 auto;">
     <%= simple_form_for(project) do |f| %>
-      <%= f.association :categories, input_html: { class: "js-example-basic-multiple ml-3", name: "categories[]" ,multiple:"multiple" },label: "Selecciona la categoria/s de tu proyecto:", label_html: { class: "text-black mr-3"} %>
+      <%= f.association :categories, input_html: { class: "js-example-basic-multiple ml-3", name: "categories[]" ,multiple:"multiple" },label: "Selecciona la categoría/s de tu proyecto:", label_html: { class: "text-black mr-3"} %>
       <%= f.input :title, placeholder: "Título de tu proyecto", label_html: {class: "text-black"}, label: "Título del Proyecto"%>
       <%= f.input :description, as: :text, class:"label", placeholder: "Describe tus necesidades, alcances objetivos de manera clara y puntual.", label_html: { class: "text-black"}, label: "Describe con tus palabras el proyecto."%>
       <%= f.input :cost, as: :numeric, placeholder: "¿Cual es tu presupuesto?", label_html: { class: "text-black"},label: "Presupuesto USD" , input_html: 
