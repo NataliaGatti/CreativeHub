@@ -2,8 +2,8 @@
   <%= render 'shared/navbar_home' %>
   <div class="container mt-5">
     <div class="col-6">
-      <h1>Encuentra tu proximo proyecto.</h1>
-      <p class="text-white">Trabaja con los mejores profesionales usando una de las plataformas de trabajo remoto más grandes del mundo.</p>
+      <h1>Encuentra tu próximo proyecto.</h1>
+      <p class="text-white">Trabaja con los mejores profesionales usando una de las plataformas de trabajo remoto más importante del mundo.</p>
 
       <%= form_tag projects_path, method: :get do %>
         <div class="input-group">
@@ -22,9 +22,14 @@
 
       <div class="d-flex mt-2 align-items-center">
         <p class="m-0"> Busquedas populares: </p>
+        <% @categories.first(3).each do |category| %>
+        <%= link_to category.title, projects_by_category_path, class:"m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark" %>
+        <% end %>
+        <!--
         <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Video </p>
         <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Ilustración </p>
         <p class="m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark">Fotografía </p>
+        -->
       </div>
     </div>
 

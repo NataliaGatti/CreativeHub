@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :project_by_params_id, only: [:show,:edit, :update, :unpublish, :unpublish_project_by_user_company, :my_projects_postulations]
 
   def index
@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project.punch(request)
     @company = @project.user
     @reviews = @company.reviews
 
