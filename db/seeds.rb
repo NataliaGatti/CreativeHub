@@ -15,6 +15,7 @@ Project.destroy_all
 User.destroy_all
 Category.destroy_all
 
+
 puts "Creando los users"
 nico = User.create!(email: "nicokennedy@lewagon.com", password: "nicokennedy", name: "Nico Kennedy", company: false, rating: 4)
 nico.photo.attach(io: open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_600,w_600/jjnpprepy6ktoh1afgdz.jpg"), filename: "nicolas.png", content_type: "image/jpeg")
@@ -68,29 +69,29 @@ loreal.save!
 puts "Creando Projects"
 
  amazon = Project.create!(
-  title: "Sesion de fotografia de productos en almacen", 
-  description: "Se solicita sesion fotografica de los productos que tenemos en stock en almacen un total de 10 fotos", 
+  title: "Sesión de fotografía de productos en almacén", 
+  description: "Se solicita sesión fotográfica de los productos que tenemos en stock en almacén un total de 10 fotos", 
   cost: 320,
   deadline: Date.new(2021, 4, 14, 18), 
-  status: 0, 
+  status: "Abierto", 
   user: amazon
 )
 
  branca = Project.create!(
-  title: "Creacion de nuevo logo para edicion limitada de Fernet", 
-  description: "Se solicita la creacion de un nuevo logo para lanzamiento de edicion limitada de fernet Strong", 
+  title: "Creación de nuevo logo para edición limitada de Fernet", 
+  description: "Se solicita la creación de un nuevo logo para lanzamiento de edición limitada de fernet Strong", 
   cost: 1200,
   deadline: Date.new(2021, 3, 14, 12),
-  status: 0, 
+  status: "Abierto", 
   user: branca
 )
 
  pwc = Project.create!(
   title: "Creación de software online a medida", 
-  description: "Se solicita la creacion de una aplicacion de gestion contable para la operacion con bancos.", 
+  description: "Se solicita la creación de una aplicación de gestión contable para la operación con bancos.", 
   cost: 1500,
   deadline: Date.new(2021, 6, 20, 20),
-  status: 0, 
+  status: "Abierto", 
   user: pwc
 )
 
@@ -99,25 +100,25 @@ puts "Creando Projects"
   description: "Se necesita un profesional que cree videos con algunas animaciones 3d agregando la identidad de imagen acorde a la marca.", 
   cost: 230,
   deadline: Date.new(2021, 6, 3, 20),
-  status: 0, 
+  status: "Abierto", 
   user: telecom
 )
 
  arcor = Project.create!(
   title: "Creación de Videos", 
-  description: "Creación de videos cortos 15 segundos para stories de instagram, yo paso el material pero no tengo los efectos. Estoy buscando transiciones muy rápidas que comuniquen un mensaje a corto tiempo.", 
+  description: "Creación de videos cortos 15 segundos para stories de instagram, yo paso el material, pero no tengo los efectos. Estoy buscando transiciones muy rápidas que comuniquen un mensaje a corto tiempo.", 
   cost: 120,
   deadline: Date.new(2021, 9, 3, 20),
-  status: 0, 
+  status: "Abierto", 
   user: arcor
 )
 
  correo_argentino = Project.create!(
   title: "Desarrollador Php para relevamiento de entregas", 
-  description: "Se solicita la creacion de un sistema de control de las entregas y rechazos usando lenguaje Php.", 
+  description: "Se solicita la creación de un sistema de control de las entregas y rechazos usando lenguaje Php.", 
   cost: 1420,
   deadline: Date.new(2021, 7, 23, 20),
-  status: 0, 
+  status: "Abierto", 
   user: correo_argentino
 )
 
@@ -127,7 +128,7 @@ puts "Creando Projects"
   La empresa ya tiene manual de marca.", 
   cost: 250,
   deadline: Date.new(2021, 4, 13, 20),
-  status: 0, 
+  status: "Abierto", 
   user: cuareim
 )
 
@@ -136,7 +137,7 @@ puts "Creando Projects"
   description: "Se solicita mejora en el tiempo de carga del sitio web que coore por WordPress de contactos , preferentemente evitando el uso de plugins.", 
   cost: 100,
   deadline: Date.new(2021, 5, 8, 20),
-  status: 0, 
+  status: "Abierto", 
   user: valti
 )
 
@@ -145,7 +146,7 @@ puts "Creando Projects"
   description: "Se necesita analizar un sitio web que lleva 20 años y que requiere tener un mejor posicionamiento con respecto al momento, revisar bien para dar propuestas de mejoras.", 
   cost: 1500,
   deadline: Date.new(2021, 3, 8, 20),
-  status: 0, 
+  status: "Abierto", 
   user: vega
 )
 
@@ -155,7 +156,7 @@ puts "Creando Projects"
   Creación, gestión e implantación en Facebook Ads orientados a generar ventas y leads cualificados.", 
   cost: 500,
   deadline: Date.new(2021, 2, 28, 20),
-  status: 0, 
+  status: "Abierto", 
   user: cocacola
 )
 
@@ -164,7 +165,7 @@ puts "Creando Projects"
   description: "Se solicita coordinador de área, quien será responsable de la creación de estrategias digitales y de contenido.", 
   cost: 450,
   deadline: Date.new(2021, 3, 18, 20),
-  status: 0, 
+  status: "Abierto", 
   user: chevallier
 )
 
@@ -173,7 +174,7 @@ puts "Creando Projects"
   description: "Se solicita el apoyo para el envió de contenido ya creado, a los que hay que agregar diseño de email (html y css) junto a la creación de algunos gráficos.", 
   cost: 1000,
   deadline: Date.new(2021, 2, 18, 20),
-  status: 0, 
+  status: "Abierto", 
   user: loreal
 )
 

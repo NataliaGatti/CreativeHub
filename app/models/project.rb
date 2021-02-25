@@ -8,4 +8,5 @@ class Project < ApplicationRecord
   enum status: [:Abierto, :Cerrado], _default: :Abierto
 
   scope :open_proyects, -> { where(status: :Abierto) }
+  acts_as_punchable
 end

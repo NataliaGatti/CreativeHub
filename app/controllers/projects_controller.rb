@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :project_by_params_id, only: [:show,:edit, :update, :unpublish, :unpublish_project_by_user_company, :my_projects_postulations, :change_projects_postulations_state]
+
 
   def index
     if current_user.company
@@ -16,9 +17,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    if current_user.company
-      redirect_to projects_path
-    end
+    @project.punch(request)
     @company = @project.user
     @reviews = @company.reviews
 
@@ -76,6 +75,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def projects_by_category
+    @projects = Project.includes(:categories).where(categories: {title: params[:foo_param]})
+  end
+
   def index_by_user_company
     if current_user.company
       @projects = current_user.projects
@@ -108,7 +111,7 @@ class ProjectsController < ApplicationController
   def unpublish_project_by_user_company
     if @project.status == "Cerrado"
       @project.status = :Abierto
-    elsif @project.status == "Abierto" && @project.postulations == 0
+    elsif @project.status == "Abierto" && @project.postulations.count == 0
       @project.status = :Cerrado
     end
 

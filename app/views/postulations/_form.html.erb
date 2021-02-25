@@ -1,9 +1,9 @@
 <div class="container">
   <div class="form-wrapper" style="margin: 0 auto;">
     <%= simple_form_for [project, postulation] do |f| %>
-        <%= f.input :description, as: :text, class:"label", placeholder: "Has una breve descripcion del concepto de tu proyecto", label_html: { class: "text-white"}, label: "Descripción" %>
+        <%= f.input :description, as: :text, class:"label", placeholder: "Has una breve descripción del concepto de tu proyecto", label_html: { class: "text-white"}, label: "Descripción" %>
         <%= f.input :file, as: :string, placeholder: "ingresa el link de tu demo", label_html: { class: "text-white"}, label: "Link de tu demo" %>
-        <%= f.submit "Envia tu demo", disable_with: 'Submiting...', class: "btn btn-primary" %>
+        <%= f.submit "Envía tu demo", disable_with: 'Submiting...', class: "btn btn-primary postulation-button" %>
     <% end %>   
   </div>
 </div>

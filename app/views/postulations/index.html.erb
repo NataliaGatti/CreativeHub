@@ -3,7 +3,8 @@
   <% @postulations.each do |postulation| %>
      <%# <p><%= link_to project.title, project_path(project)%></p>
     <p><%= postulation.description %></p>
-    <a href=<%=postulation.file%>>Adjunto</a>
+    <!-- <a href=<%=postulation.file%>>Adjunto</a> -->
+    <%= link_to "Adjunto", postulation.file, target: "_blank" %>
     <p>Status de la postulacion: <%= postulation.status %></p>
     <p>Diseñador/Creativo: <%= postulation.user.name %></p>
     <p>Empresa:<%= postulation.project.user.name %></p>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :new, :create]
 
   get '/project/:id', to: 'projects#unpublish', as: 'unpublish'
+  get '/projectsbycategory/', to: 'projects#projects_by_category', as: 'projects_by_category'
   patch '/project/:id/postulations/accept', to: 'postulations#accept_project', as: 'accept_project'
   patch '/project/:id/postulations/decline', to: 'postulations#decline_project', as: 'decline_project'
 

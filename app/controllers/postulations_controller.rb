@@ -58,7 +58,7 @@ class PostulationsController < ApplicationController
     @project.status = 1
     @project.save
     if @postulation.save
-      redirect_to project_postulations_path(@postulation.project.id)
+      redirect_to my_projects_postulations_path(@postulation.project.id)
      else
       render 'postulations/alert'
      end
