@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project.punch(request)
     @company = @project.user
     @reviews = @company.reviews
 
