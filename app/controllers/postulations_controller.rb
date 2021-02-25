@@ -29,6 +29,14 @@ class PostulationsController < ApplicationController
       render :new  
     end
   end
+
+  def my_postulations
+    if !current_user.company
+      @postulations = current_user.postulations
+    else
+      redirect_to projects_path
+    end
+  end
   
   def accept_project
     @postulation = Postulation.find(params[:id])
@@ -50,7 +58,7 @@ class PostulationsController < ApplicationController
     @project.status = 1
     @project.save
     if @postulation.save
-      redirect_to project_postulations_path(@postulation.project)
+      redirect_to project_postulations_path(@postulation.project.id)
      else
       render 'postulations/alert'
      end

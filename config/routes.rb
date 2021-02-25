@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   get '/my_projects', to: 'projects#index_by_user_company', as: 'my_projects'
   put '/my_projects/:id', to: 'projects#unpublish_project_by_user_company', as: 'unpublish_project'
   get '/my_projects/:id/postulations', to: 'projects#my_projects_postulations', as: 'my_projects_postulations'
+  patch '/my_projects/:id/postulations/:postulation_id', to: 'projects#change_projects_postulations_state', as: 'change_projects_postulations_state'
+
+  get '/my_postulations', to: 'postulations#my_postulations', as: 'my_postulations'
+  
+  # get '/postulations/:id/review', to: 'reviews#new', 
 end

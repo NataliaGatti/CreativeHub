@@ -1,18 +1,24 @@
 class ProjectsController < ApplicationController
 
-  before_action :project_by_params_id, only: [:show,:edit, :update, :unpublish, :unpublish_project_by_user_company, :my_projects_postulations]
+  before_action :project_by_params_id, only: [:show,:edit, :update, :unpublish, :unpublish_project_by_user_company, :my_projects_postulations, :change_projects_postulations_state]
 
   def index
-    @projects = Project.all
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query"
-      @projects = Project.where(sql_query, query: "%#{params[:query]}%")
+    if current_user.company
+      redirect_to my_projects_path
     else
-      @projects = Project.all
+      if params[:query].present?
+        sql_query = "title ILIKE :query OR description ILIKE :query"
+        @projects = Project.where(sql_query, query: "%#{params[:query]}%")
+      else
+        @projects = Project.all.open_proyects
+      end
     end
   end
 
   def show
+    if current_user.company
+      redirect_to projects_path
+    end
     @company = @project.user
     @reviews = @company.reviews
 
@@ -27,8 +33,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-     @project = Project.new(project_params)
-     @project.user = current_user
+    @project = Project.new(project_params)
+    @project.user = current_user
     if @project.save
       params[:categories].shift
       params[:categories].each do |id|
@@ -36,7 +42,7 @@ class ProjectsController < ApplicationController
         CategoryProject.create(project: @project, category: category )
       end
       redirect_to project_path(@project)
-     else
+    else
       render :new
     end
   end
@@ -54,11 +60,11 @@ class ProjectsController < ApplicationController
         CategoryProject.create(project: @project, category: category )
       end
     end
-     if @project.save
-       redirect_to project_path(@project)
-     else
-        render :edit
-     end
+    if @project.save
+      redirect_to project_path(@project)
+    else
+      render :edit
+    end
   end
 
   def unpublish
@@ -73,13 +79,36 @@ class ProjectsController < ApplicationController
   def index_by_user_company
     if current_user.company
       @projects = current_user.projects
+    else
+        redirect_to my_postulations
     end
   end
+
+
+  def change_projects_postulations_state
+    @postulations = @project.postulations
+    @postulation_id = params[:postulation_id].to_i
+    @project.status = "Cerrado"
+
+    @postulations.each do |p|
+      if p.id == @postulation_id
+        p.status = "Aceptado"
+      else
+        p.status = "Declinado"
+      end
+      p.save
+    end
+    @project.save
+    
+    redirect_to my_projects_postulations_path(@project)
+  end
+  
+  
   
   def unpublish_project_by_user_company
     if @project.status == "Cerrado"
       @project.status = :Abierto
-    elsif @project.status == "Abierto"
+    elsif @project.status == "Abierto" && @project.postulations == 0
       @project.status = :Cerrado
     end
 
