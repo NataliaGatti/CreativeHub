@@ -19,7 +19,7 @@
     <div class="d-flex mt-2 align-items-center">
       <p class="m-0"> Búsquedas populares: </p>
       <% @categories.first(3).each do |category| %>
-        <%= link_to category.title, projects_by_category_path(foo_param: category.title), class:"m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark bg-light" %>
+        <%= link_to category.title, projects_by_category_path(foo_param: category.title), class:"m-0 text-center badge rounded-pill border p-2 px-3 mx-2 bg-light" %>
       <% end %>
     </div>
   </div>
