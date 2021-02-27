@@ -2,3 +2,47 @@
 .letter-size {
   font-size: 20px;
 }
+
+
+#registrate{
+  
+list-style-type: none;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+margin-top: 20px ;
+margin-bottom: 80px ;
+padding-top: 10px;
+padding-left: 0px;
+margin-left: 30px;
+position: fixed;
+top: 72%;
+z-index: 1;
+ width: 120px;
+ height: 222px;
+ background-color: #f4f4f446;
+ border-radius: 10px;
+i{
+font-size: 30px;
+color: #046CE7;
+}
+li {
+font-size: 14px;
+color: #046CE7;
+margin-bottom: 10px;
+}
+ a{
+   color: #046CE7;
+ } 
+}
+
+
+.home_icons{
+ width: 100px;
+
+}
+
+.background-color-block{
+  
+}
