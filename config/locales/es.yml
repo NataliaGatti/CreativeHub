@@ -20,7 +20,7 @@ es:
         other: "alrededor de %{count} horas"
       x_days:
         one:   "1 día"
-        other: "%{count} dias"
+        other: "%{count} días"
       about_x_months:
         one:   "alrededor de 1 mes"
         other: "alrededor de %{count} meses"
