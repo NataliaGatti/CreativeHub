@@ -23,6 +23,7 @@ import "bootstrap";
 import { initflatpickr } from "../plugins/init_flatpickr";
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initSelect2 } from '../plugins/init_select2';
+import { initNavbar } from '../plugins/init_navbar';
 // import { init } from '../plugins/prueba';
 // import "../plugins/init_flatpickr";
 
@@ -34,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   
    initflatpickr();
+   initNavbar();
   initSelect2();
    initSweetalert('#sweet-alert-demo', {
      title: "Te has postulado para este proyecto!",
