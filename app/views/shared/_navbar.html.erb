@@ -11,15 +11,15 @@
         <%= text_field_tag :query,
         params[:query],
         class:"form-control",
-        placeholder: 'Prueba "Logotipo"'
+        placeholder: 'Prueba "Vídeo"'
         %>
-        <%= submit_tag "Search", class: "btn btn-primary m-0 ml-1" %>
+        <%= submit_tag "Search", class: "btn btn-primary m-0 ml-1 py-0" %>
       <% end %>
     </div>
     <div class="d-flex mt-2 align-items-center">
-      <p class="m-0"> Busquedas populares: </p>
+      <p class="m-0"> Búsquedas populares: </p>
       <% @categories.first(3).each do |category| %>
-        <%= link_to category.title, projects_by_category_path, class:"m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark" %>
+        <%= link_to category.title, projects_by_category_path(foo_param: category.title), class:"m-0 text-center badge rounded-pill border p-2 px-3 mx-2 border border-dark bg-light" %>
       <% end %>
     </div>
   </div>
