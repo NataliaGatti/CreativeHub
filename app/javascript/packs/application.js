@@ -21,7 +21,7 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 import { initflatpickr } from "../plugins/init_flatpickr";
-import { initSweetalert } from '../plugins/init_sweetalert';
+import { initSweetalert} from '../plugins/init_sweetalert';
 import { initSelect2 } from '../plugins/init_select2';
 // import "../plugins/init_flatpickr";
 
@@ -33,10 +33,11 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
    initflatpickr();
   initSelect2();
+  
    initSweetalert('#sweet-alert-demo', {
      title: "Te has postulado para este proyecto!",
      text: "En el transcurso de las proximas 72hs la empresa revisara tu propuesta y recibirás un correo electrónico si tu proyecto fue aceptado!",
-     icon: "success"
+     icon: "success",
    },
      (value) => {
        if (value) {
