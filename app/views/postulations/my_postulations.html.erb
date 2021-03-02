@@ -1,16 +1,27 @@
 <%= render 'shared/navbar' %>
 
-<div class="cards-1 section-gray">
-  <div class="container">
-    <div class="row">
 
-      <% @postulations.each do |postulation| %>
-
-        <%= render 'my_postulation_card', postulation: postulation %>
-      
-
-      <% end %>
-  
+<div id="header">
+  <nav id="drop-menu" class="">
+    <a href="#" class="dc-menu-trigger"><span>Menu</span></a>
+    <div class="menu-overlay">
+    <p class="d-flex justify-content-center align-middle filter-status" style="color:white">Todas las postulaciones</p>
+      <ul>
+        <li class="status-item">Todas las postulaciones</li>
+        <li class="status-item">Aceptadas</li>
+        <li class="status-item">Rechazadas</li>
+        <li class="status-item">En espera</li>
+      </ul>
     </div>
-  </div>
+  </nav>
 </div>
+
+  <div class="my_postulations_card_row row">
+
+    <% @postulations.each do |postulation| %>
+
+      <%= render 'my_postulation_card', postulation: postulation %>
+
+    <% end %>
+  </div>
+
