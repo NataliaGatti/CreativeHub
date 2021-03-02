@@ -81,7 +81,7 @@ puts "Creando Projects"
   title: "Creación de nuevo logo para edición limitada de Fernet", 
   description: "Se solicita la creación de un nuevo logo para lanzamiento de edición limitada de fernet Strong", 
   cost: 1200,
-  deadline: Date.new(2021, 3, 14, 12),
+  deadline: Date.new(2021, 3, 16, 12),
   status: "Abierto", 
   user: branca
 )
@@ -90,7 +90,7 @@ puts "Creando Projects"
   title: "Creación de software online a medida", 
   description: "Se solicita la creación de una aplicación de gestión contable para la operación con bancos.", 
   cost: 1500,
-  deadline: Date.new(2021, 6, 20, 20),
+  deadline: Date.new(2021, 5, 20, 20),
   status: "Abierto", 
   user: pwc
 )
@@ -99,7 +99,7 @@ puts "Creando Projects"
   title: "Videógrafo 3d para redes sociales", 
   description: "Se necesita un profesional que cree videos con algunas animaciones 3d agregando la identidad de imagen acorde a la marca.", 
   cost: 230,
-  deadline: Date.new(2021, 6, 3, 20),
+  deadline: Date.new(2021, 4, 3, 20),
   status: "Abierto", 
   user: telecom
 )
@@ -108,7 +108,7 @@ puts "Creando Projects"
   title: "Creación de Videos", 
   description: "Creación de videos cortos 15 segundos para stories de instagram, yo paso el material, pero no tengo los efectos. Estoy buscando transiciones muy rápidas que comuniquen un mensaje a corto tiempo.", 
   cost: 120,
-  deadline: Date.new(2021, 9, 3, 20),
+  deadline: Date.new(2021, 5, 3, 20),
   status: "Abierto", 
   user: arcor
 )
@@ -117,7 +117,7 @@ puts "Creando Projects"
   title: "Desarrollador Php para relevamiento de entregas", 
   description: "Se solicita la creación de un sistema de control de las entregas y rechazos usando lenguaje Php.", 
   cost: 1420,
-  deadline: Date.new(2021, 7, 23, 20),
+  deadline: Date.new(2021, 4, 23, 20),
   status: "Abierto", 
   user: correo_argentino
 )
@@ -145,7 +145,7 @@ puts "Creando Projects"
   title: "Análisis completo de un sitio web para mejoras Seo", 
   description: "Se necesita analizar un sitio web que lleva 20 años y que requiere tener un mejor posicionamiento con respecto al momento, revisar bien para dar propuestas de mejoras.", 
   cost: 1500,
-  deadline: Date.new(2021, 3, 8, 20),
+  deadline: Date.new(2021, 3, 28, 20),
   status: "Abierto", 
   user: vega
 )
@@ -155,7 +155,7 @@ puts "Creando Projects"
   description: "Definición, Gestión y Optimización de campañas en Facebook Ads.
   Creación, gestión e implantación en Facebook Ads orientados a generar ventas y leads cualificados.", 
   cost: 500,
-  deadline: Date.new(2021, 2, 28, 20),
+  deadline: Date.new(2021, 4, 8, 20),
   status: "Abierto", 
   user: cocacola
 )
@@ -170,10 +170,10 @@ puts "Creando Projects"
 )
 
  loreal = Project.create!(
-  title: "Estrategia de campaña y gráficos de contenido para email marketing", 
+  title: "Estrategia de campaña para email marketing", 
   description: "Se solicita el apoyo para el envió de contenido ya creado, a los que hay que agregar diseño de email (html y css) junto a la creación de algunos gráficos.", 
   cost: 1000,
-  deadline: Date.new(2021, 2, 18, 20),
+  deadline: Date.new(2021, 3, 18, 20),
   status: "Abierto", 
   user: loreal
 )

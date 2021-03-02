@@ -39,7 +39,6 @@
               </div>
               <% start_time =  Date.today %>
               <% end_time   =  @project.deadline %> 
-              <strong><p class="mb-0">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para postularte</p></strong>
             </div>
           <% else %>
             <div class="d-flex">
@@ -58,7 +57,8 @@
           <h5 class="text-black p-3">Descripción: <%= @project.description%></h5>
         </div>
         <div>
-          <h5 class="p-3">Fecha de Entrega: <%= time_tag(@project.deadline, format: :default) %></h5>
+          <strong><p class="mb-0 px-3">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para postularte</p></strong>
+          <h5 class="p-3">Fecha de Entrega: <%= time_tag(@project.deadline, format: :default, id:"deadline") %></h5>
           <div class="d-flex">
             <h2 class="px-3"><strong>Remuneración:</strong> </h2> <h2 class="text-primary pl-2"><strong> u$s <%= @project.cost.round(0) %></strong> </h2>
           </div>
@@ -69,11 +69,46 @@
           <% else %>
             <%= link_to "Enviar propuesta", new_project_postulation_path(@project), class:"btn btn-primary mx-2 my-3"%>
           <% end %>
-          <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 my-3"  %>
+          <!-- <button id="chat-button" class="btn btn-primary mx-2 my-3">Realizar consulta</button> 
+          
+          <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 my-3" %> -->
+
+          <button type="button" class="btn btn-primary mx-2 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Realizar consulta</button>
+
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Recipient:</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Message:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+              </div>
+  </div>
+</div>
+
+
         </div>
       </div>
 
   </div>
+
 
 <!--Proyectos publicados-->
 
@@ -90,7 +125,7 @@
     <div class="d-flex mt-2">
 
       <div class=" rounded" style="width: 330px">
-            <h5 class="text-center text-secondary mt-4 mb-4  ">Actividad en este proyecto</h5>
+            <h5 class="text-center text-secondary mt-1 mb-4  ">Actividad en este proyecto</h5>
             <div class="d-flex justify-content-between px-3 ">
             <p>Propuestas:</p> <p><%= @project.postulations.count %></p>
             </div>
@@ -106,6 +141,30 @@
                 <p><%= category.title %></p>
                 <% end %>
               </div>
+                </div>
+                <div>
+                  <h6 class="px-2">Esta propuesta finaliza en:</h6>
+                </div>
+                <div class="countdown d-flex ml-2 text-center bg-primary rounded " style="width: 310px;">
+                    <div class="countdown__days px-3  m-1 back-number rounded">
+                      <div class="number text-center size-text " ></div>
+                      <span class="pb-1 lh-1">Días</span>
+                    </div>
+
+                    <div class="countdown__hours px-2  m-1 back-number rounded ">
+                      <div class="number text-center size-text "></div>
+                      <span class="pb-1 lh-1">Horas</span>
+                    </div>
+
+                    <div class="countdown__minutes px-1  m-1 back-number rounded ">
+                      <div class="number text-center size-text "></div>
+                      <span class="pb-1 lh-1">Minutos</span>
+                    </div>
+
+                    <div class="countdown__seconds px-1  m-1 back-number rounded">
+                      <div class="number text-center size-text "></div>
+                      <span class="pb-1 lh-1">Segundos</span>
+                    </div>
             </div>
       </div>
     </div>
@@ -116,27 +175,28 @@
 
 
 
-
   </div>
 
 
 
+        
 
 
           <!--REVIEWS DE FREELANCERS A LA EMPRESA -->
 
-<div class="container shadow reviews-back">
-  <h3>Comentarios de Freelancers </h3>
-  <hr>
+    <div class="container shadow reviews-back">
+      <h3>Comentarios de Freelancers </h3>
+      <hr>
 
-  <% @reviews.each do |review| %>
-    <%= render 'components/review_comment', {emmiter: review.postulations.user, review: review} %>
-  <% end %>
+      <% @reviews.each do |review| %>
+        <%= render 'components/review_comment', {emmiter: review.postulations.user, review: review} %>
+      <% end %>
 
-</div>
-                          <!-- FOOTER -->
+    </div>
 
-<%= render "components/footer" %>
+                            <!-- FOOTER -->
 
-</div>
+    <%= render "components/footer" %>
+
+  </div>
 </div>
