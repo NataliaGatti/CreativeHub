@@ -21,11 +21,11 @@
         </div>
       <% end %>
 
-        <p class="mt-2" style="font-size: 12px;"> Busquedas populares: </p>
+        <p class="mt-2" style="font-size: 12px;"> Búsquedas populares: </p>
       <div class="d-flex mt-2 align-items-center">
        
         <% @categories.first(3).each do |category| %>
-          <%= link_to category.title, projects_by_category_path, class:"m-0 text-center badge rounded-pill border p-2 mr-2 bg-white" %>
+        <%= link_to category.title, projects_by_category_path(foo_param: category.title), class:"m-0 text-center badge rounded-pill border p-2 px-3 mx-2" %>
         <% end %>
       
       </div>

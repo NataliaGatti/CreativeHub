@@ -23,7 +23,7 @@
   <div class="d-flex mb-0">
     <% if postulation.status == "Postulado" %>
 
-      <%= link_to "Ver demo", "#", class:"btn btn-primary rounded  mr-4" %>
+      <%= link_to "Ver demo", postulation.file, class:"btn btn-primary rounded  mr-4" %>
       <%= link_to "Abrir chat", "#", class:"btn btn-primary rounded  mr-4" %>
 
       <%= link_to "Aceptar propuesta", change_projects_postulations_state_path(postulation.project.id, postulation.id), class:"btn btn-primary rounded  mr-4", method: :PATCH %>
@@ -33,19 +33,19 @@
 
     <% elsif postulation.status == "Aceptado" %>
 
-      <%= link_to "Ver demo", "#", class:"btn btn-primary rounded  mr-4" %>
+      <%= link_to "Ver demo", postulation.file, class:"btn btn-primary rounded  mr-4", target:"_blank" %>
       <%= link_to "Abrir chat", "#", class:"btn btn-primary rounded  mr-4" %>
 
-      <%= link_to  "Aceptado", "#", class:"btn btn-success rounded  mr-4" %>
+      <h1 class="btn btn-success rounded  mr-4">Aceptado</h1>
       
-      <%= link_to "Enviar comentario", "#", class:"btn btn-primary rounded mr-4" %>
+      <%= link_to "Enviar devolución", "#", class:"btn btn-primary rounded mr-4" %>
 
     <% elsif postulation.status == "Declinado" %>
     
-      <%= link_to "Ver demo", "#", class:"btn btn-primary rounded  mr-4" %>
+      <%= link_to "Ver demo", postulation.file, class:"btn btn-primary rounded  mr-4", target:"_blank" %>
       <%= link_to "Abrir chat", "#", class:"btn btn-primary rounded  mr-4" %>
 
-      <%= link_to "Rechazado", "#", class:"btn btn-danger rounded  mr-4" %>
+      <h1 class="btn btn-danger rounded  mr-4">Rechazado</h1>
 
     <% end %>
   </div>
