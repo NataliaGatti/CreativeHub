@@ -3,7 +3,7 @@
     <%= simple_form_for [project, postulation] do |f| %>
         <%= f.input :description, as: :text, class:"label", placeholder: "Has una breve descripción del concepto de tu proyecto", label_html: { class: "text-white"}, label: "Descripción" %>
         <%= f.input :file, as: :string, placeholder: "ingresa el link de tu demo", label_html: { class: "text-white"}, label: "Link de tu demo" %>
-        <%= f.submit "Envía tu demo", disable_with: 'Submiting...', class: "btn btn-primary postulation-button" %>
+        <%= f.submit "Envía tu demo", disable_with: 'Submiting...', class: "btn btn-primary postulation-button", id:"sweet-alert-demo"%>
     <% end %>   
   </div>
 </div>
