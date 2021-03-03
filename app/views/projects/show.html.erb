@@ -15,7 +15,7 @@
 
 <div class="container shadow mb-5 mt-2 px-0 d-flex">
 
-    <div class=" shadow info-back mr-4 border-info">
+  <div class=" shadow info-back mr-4 border-info">
       <div class="d-flex">
         <div class="pt-4 mr-2">
         <%= cl_image_tag @project.user.photo.key, alt: "Logo", style:"height:120px", class:"px-2" %>
@@ -73,41 +73,15 @@
           
           <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 my-3" %> -->
 
-          <button type="button" class="btn btn-primary mx-2 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Realizar consulta</button>
-
-
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="mb-3">
-                      <label for="recipient-name" class="col-form-label">Recipient:</label>
-                      <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="mb-3">
-                      <label for="message-text" class="col-form-label">Message:</label>
-                      <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-              </div>
-  </div>
-</div>
-
+          <button type="button" class="btn btn-primary mx-2 my-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Realizar consulta</button>
+       
 
         </div>
       </div>
 
   </div>
+
+
 
 
 <!--Proyectos publicados-->
@@ -177,7 +151,34 @@
 
   </div>
 
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Asunto:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
 
         
 
