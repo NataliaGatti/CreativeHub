@@ -1,8 +1,8 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-  background-image: image-url("homepage/baner-background-image.png");
+  padding: 65px 0;
+  // background-image: image-url("homepage/baner-background-image.png");
   padding-top: 0px;
 }
 
@@ -22,3 +22,27 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   margin-bottom: 15px;
 }
+
+#basic-addon2{
+  height: 38px;
+}
+#query{
+  height: 38px;
+}
+
+.home_video {
+ width: 100vw;
+ height: 530px;
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ object-fit: cover;
+ top: 0;
+ z-index: -2;
+}
+
+// .banner-text{
+//   background-color: #a08e8e7e;
+//   padding-bottom: 6px;
+//   border-radius: 10px;
+// }
