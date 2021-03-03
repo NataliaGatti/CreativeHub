@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  resource :user do
+    resources :wishlists
+  end
+  
   root to: 'pages#home'
   resources :projects, only: [:index, :show, :new, :create, :edit, :update] do
     resources :postulations, only: [:index, :show, :new, :create]
