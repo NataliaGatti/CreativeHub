@@ -23,6 +23,7 @@ import "bootstrap";
 import { initflatpickr } from "../plugins/init_flatpickr";
 import { initSweetalert} from '../plugins/init_sweetalert';
 import { initSelect2 } from '../plugins/init_select2';
+import { initDropDownMenu } from '../scripts/init_drop_down_menu'
 import { initNavbar } from '../plugins/init_navbar';
 import { initCountdown } from '../plugins/init_countdown';
 import { initChat } from "../plugins/init_chat"
@@ -38,12 +39,14 @@ import { initChat } from "../plugins/init_chat"
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  
+
+   
+  initDropDownMenu();
   initCountdown();
   initflatpickr();
   initNavbar();
   initSelect2();
-  
+
    initSweetalert('#sweet-alert-demo', {
      title: "Te has postulado para este proyecto!",
      text: "En el transcurso de las proximas 72hs la empresa revisara tu propuesta y recibirás un correo electrónico si tu proyecto fue aceptado!",

@@ -1,16 +1,94 @@
 <%= render 'shared/navbar' %>
 
-<div class="cards-1 section-gray">
-  <div class="container">
-    <div class="row">
 
-      <% @postulations.each do |postulation| %>
+<div id="header">
+  <nav id="drop-menu" class="">
+    <a href="#" class="dc-menu-trigger"><span>Menu</span></a>
+    <div class="menu-overlay">
+    <p class="d-flex justify-content-center align-middle filter-status" style="color:white">Todas las postulaciones</p>
+      <ul class="nav flex-column nav-pills">
+        <li class="status-item"><a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Todas las postulaciones</a></li>
+        <li class="status-item"><a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Aceptadas</a></li>
+        <li class="status-item"><a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Rechazadas</a></li>
+        <li class="status-item"><a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">En espera</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<!--
+
+  <div class="my_postulations_card_row row">
+
+    <% @postulations.each do |postulation| %>
+
+      <%= render 'my_postulation_card', postulation: postulation %>
+
+    <% end %>
+  </div>
+
+-->
+
+<div class="tab-content" id="v-pills-tabContent">
+
+  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+      <div class="my_postulations_card_row row">
+
+        <% @postulations.each do |postulation| %>
 
         <%= render 'my_postulation_card', postulation: postulation %>
-      
 
       <% end %>
-  
+    </div>
+
+  </div>
+
+
+  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    
+        <div class="my_postulations_card_row row">
+
+          <% @aceptedPostulations.each do |postulation| %>
+
+          <%= render 'my_postulation_card', postulation: postulation %>
+
+        <% end %>
+      </div>
+
     </div>
   </div>
+
+  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    
+        <div class="my_postulations_card_row row">
+
+          <% @rejectPostulations.each do |postulation| %>
+
+          <%= render 'my_postulation_card', postulation: postulation %>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    
+        <div class="my_postulations_card_row row">
+
+          <% @watingPostulations.each do |postulation| %>
+
+          <%= render 'my_postulation_card', postulation: postulation %>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+
 </div>
+
+<%= render 'components/footer' %>
