@@ -23,7 +23,6 @@ class PostulationsController < ApplicationController
     @postulation.status = 0
     if @postulation.save
       flash[:alert] = "Tu postulación ha sido enviada exitosamente"
-      # sleep(4)
       redirect_to projects_path
     else
       flash[:alert] = "Falta información en tu postulación"
@@ -34,6 +33,18 @@ class PostulationsController < ApplicationController
   def my_postulations
     if !current_user.company
       @postulations = current_user.postulations
+      
+      @rejectPostulations = @postulations.select do |post|
+        post.status == "Declinado"
+      end
+
+      @aceptedPostulations = @postulations.select do |post|
+        post.status == "Aceptado"
+      end
+
+      @watingPostulations = @postulations.select do |post| 
+        post.status == "Postulado"
+      end
     else
       redirect_to projects_path
     end
