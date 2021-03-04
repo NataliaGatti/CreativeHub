@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   patch '/my_projects/:id/postulations/:postulation_id', to: 'projects#change_projects_postulations_state', as: 'change_projects_postulations_state'
 
   get '/my_postulations', to: 'postulations#my_postulations', as: 'my_postulations'
-  
+  get '/chat', to: 'projects#chat', as: 'chat'  
   # get '/postulations/:id/review', to: 'reviews#new', 
 end

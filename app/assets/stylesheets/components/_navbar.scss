@@ -1,10 +1,11 @@
 .navbar-color {
-  background: #EBE7EB;
+  background: transparent;
 }
 
 .navbar-lewagon {
   justify-content: space-between;
   background: none;
+  
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,4 +26,37 @@
 .avatar-grande{
 width: 77px;
 border-radius: 50%;
+}
+
+.navbar.solid {
+  background-color:  #EBE7EB;
+  transition: background-color 1s ease 0s;
+  box-shadow: 0 0 4px grey;
+
+   // .navbar-brand {
+     // color: #EBE7EB;
+      //transition: color 1s ease 0s;
+   // }
+.bullet{
+      width: 110px;
+    background-color: white;
+    /* margin-right: 0px; */
+    height: 84px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    position:fixed;
+    right: 0;
+    top: 15px;
+    z-index: 1;
+}
+.home-nav{
+  padding-right: 25px;
+  padding-top: 30px;
+  padding-left: 25px;
+  padding-bottom: 25px;
+}
+
+.home-avatar{
+  padding-top: 4px;
+  margin-left: 7px;
 }
