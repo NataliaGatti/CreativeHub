@@ -22,11 +22,7 @@ class PostulationsController < ApplicationController
     @postulation.user = current_user
     @postulation.status = 0
     if @postulation.save
-<<<<<<< HEAD
-      flash[:alert] = "Tu postulación ha sido enviada exitosamente"
-=======
       sleep(4)
->>>>>>> master
       redirect_to projects_path
     else
       flash[:alert] = "Falta información en tu postulación"
