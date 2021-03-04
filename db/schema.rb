@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_234937) do
+ActiveRecord::Schema.define(version: 2021_02_24_232318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,15 +119,6 @@ ActiveRecord::Schema.define(version: 2021_03_02_234937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "wishlists", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "project_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["project_id"], name: "index_wishlists_on_project_id"
-    t.index ["user_id"], name: "index_wishlists_on_user_id"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "category_projects", "categories"
@@ -137,6 +128,4 @@ ActiveRecord::Schema.define(version: 2021_03_02_234937) do
   add_foreign_key "projects", "users"
   add_foreign_key "reviews", "postulations"
   add_foreign_key "reviews", "users"
-  add_foreign_key "wishlists", "projects"
-  add_foreign_key "wishlists", "users"
 end
