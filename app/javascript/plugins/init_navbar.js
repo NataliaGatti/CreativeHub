@@ -1,8 +1,11 @@
 import $ from 'jquery';
 
 const initNavbar = () => {
-  $(document).ready(function() {
+  
     // Transition effect for navbar 
+    window.addEventListener("scroll", (event) => {
+        /* console.log(this.scrollY); */
+    });
     $(window).scroll(function() {
       // checks if window is scrolled more than 500px, adds/removes solid class
       if($(this).scrollTop() > 100) { 
@@ -11,7 +14,7 @@ const initNavbar = () => {
           $('.navbar').removeClass('solid');
       }
     });
-  });
+
 };
 
 export { initNavbar };
