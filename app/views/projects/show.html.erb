@@ -11,8 +11,8 @@
   <div class="container shadow mb-5 mt-2 px-0 d-flex">
     <div class=" shadow info-back mr-4 border-info">
       <div class="d-flex">
-        <div class="pt-4 mr-2">
-          <%= cl_image_tag @project.user.photo.key, alt: "Logo", style:"height:120px", class:"px-2" %>
+        <div class="pt-4 mr-2 pl-3">
+          <%= cl_image_tag @project.user.photo.key, alt: "Logo", style:"height:80px", class:"px-2" %>
         </div>
         <div class="mt-2"style="width:650px">
           <h2 class=" mt-2 text-wrap" style="height: 90px"><%= @project.title%></h2>
@@ -44,10 +44,10 @@
       <!-- DETALLE DE PROPUESTA -->
       <div class="text-wrap p-2 pt-0 border-info " >
         <%# <hr class="mb-0"> %>
-        <h4 class="mt-1 text-primary mb-0"> INFORMACIÓN SOBRE ESTE PROYECTO</h4>
+        <h4 class="mt-1 text-primary mb-0 pl-3"> INFORMACIÓN SOBRE ESTE PROYECTO</h4>
         <hr class="mt-0">
         <div>
-          <h5 class="text-black p-3"><%= @project.description%></h5>
+          <h6 class="text-black p-3"><%= @project.description%></h6>
         </div>
         <div>
           <% start_time =  Date.today %>
@@ -55,7 +55,9 @@
           <strong><h6 class="mb-0 px-3">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para postularte</h6></strong>
           <h5 class="p-3">Fecha de Entrega: <%= time_tag(@project.deadline, format: :default, id:"deadline") %></h5>
           <div class="d-flex">
-            <h2 class="px-3"><strong>Remuneración:</strong> </h2> <h2 class="text-primary pl-2"><strong> u$s <%= @project.cost.round(0) %></strong> </h2>
+            <h2 class="px-3"><strong>Remuneración:</strong> </h2> <h2 class="text-primary pl-2">
+            <%= image_tag "dinero.png", style:"heiht:45px; width:50px;" %>
+            <strong> u$s <%= @project.cost.round(0) %></strong> </h2>
           </div>
         </div>
         <div class="d-flex justify-content-center mt-2">
@@ -107,7 +109,8 @@
             </div>
           </div>
           <div>
-            <h6 class="px-2 mt-5">Esta propuesta finaliza en:</h6>
+            <h6 class="px-2 mt-5">Esta propuesta finaliza en:
+            <%= image_tag "clock.png", style: "height: 40px; width: 40px;" %></h6>
           </div>
           <div class="countdown d-flex ml-2 text-center rounded " style="width: 310px;">
             <div class="countdown__days px-3  m-1 back-number rounded">

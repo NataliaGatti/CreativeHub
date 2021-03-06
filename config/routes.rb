@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :projects, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :postulations, only: [:index, :show, :new, :create]
+    resources :postulations, only: [:index, :show, :new, :create] do
+      resources :reviews, only: [:new, :create]
+    end
   end
 
   resources :categories, only: [:index, :new, :create]
+
 
   get '/project/:id', to: 'projects#unpublish', as: 'unpublish'
   get '/projectsbycategory/', to: 'projects#projects_by_category', as: 'projects_by_category'

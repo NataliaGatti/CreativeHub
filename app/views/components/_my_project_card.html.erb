@@ -1,7 +1,7 @@
 <%# <div class="container"> %>
 
-  <div class="flip flip-vertical shadow rounded" style="width: 350px; height: 350px;">
-    <div class="front border border-white" style="background-image: url('https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80')">
+  <div class="flip flip-vertical shadow rounded mx-2" style="width: 350px; height: 350px;">
+    <div class="front border border-white">
       <h3 class="mb-3 text-dark"><%= project.title %></h3>
       <div class="d-inline justify-content-between text-center">
         <% if project.status == "Abierto" %>
@@ -11,6 +11,7 @@
         <% end %>
         <p class="font-status text-dark">Propuestas: <%= project.postulations.count %></p>
       </div>
+      <%= cl_image_tag project.category.photo.key %>
     </div>
 
     <div class="back" style="background-image: url('<%= image_path "icon.png" %>')">

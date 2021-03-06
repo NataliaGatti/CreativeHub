@@ -42,7 +42,7 @@
 
       <h1 class="btn btn-success rounded  mr-4">Aceptado</h1>
       
-      <%= link_to "Enviar devolución", "#", class:"btn btn-primary rounded mr-4" %>
+      <%= link_to "Enviar review", new_project_postulation_review_path(@project, postulation), class:"btn btn-primary rounded mr-4" %>
 
     <% elsif postulation.status == "Declinado" %>
     

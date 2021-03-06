@@ -10,17 +10,18 @@
 
 require "open-uri"
 
+Review.destroy_all
+CategoryProject.destroy_all
 Project.destroy_all
-# Application.destroy_all
 User.destroy_all
 Category.destroy_all
 
 
 puts "Creando los users"
-nico = User.create!(email: "nicokennedy@lewagon.com", password: "nicokennedy", name: "Nico Kennedy", company: false, rating: 4)
+nico = User.create!(email: "nicokennedy@lewagon.com", password: "nicokennedy", name: "Nico Kennedy", company: false, rating: 5)
 nico.photo.attach(io: open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_600,w_600/jjnpprepy6ktoh1afgdz.jpg"), filename: "nicolas.png", content_type: "image/jpeg")
 nico.save!
-natalia = User.create!(email: "nataliagatti@gmail.com", password: "gattinati", name: "Natalia", company: false, rating: 4)
+natalia = User.create!(email: "nataliagatti@gmail.com", password: "gattinati", name: "Natalia", company: false, rating: 5)
 natalia.photo.attach(io: open("https://media-exp1.licdn.com/dms/image/C4E03AQFRmz1UnrvuIg/profile-displayphoto-shrink_200_200/0/1543620258222?e=1617235200&v=beta&t=1QeHZ_iybNlZxuwzfFYFpvWdILj5Seu4tLh7e0Rcz-s"), filename: "natalia.png", content_type: "image/jpeg")
 natalia.save!
 amazon = User.create!(email: "info@amazon.com", password: "amazon", name: "Amazon Ws", company: true, rating: 5)
@@ -220,6 +221,7 @@ uxdesign.photo.attach(io: ux_design_photo, filename: 'uxdesign.png', content_typ
 
 puts "Creando relaciones project-category"
 CategoryProject.create( project: branca_photo, category: photography )
+CategoryProject.create( project: branca_flyer, category: photography )
 
 CategoryProject.create( project: branca_logo, category: diseno_grafico )
 
@@ -227,12 +229,14 @@ CategoryProject.create( project: pwc_software, category: uxdesign )
 
 CategoryProject.create( project: cuareim_3d, category: video )
 CategoryProject.create( project: pwc_video, category: video )
+CategoryProject.create( project: branca_video, category: video )
 
 CategoryProject.create( project: correo_argentino, category: uxdesign )
-CategoryProject.create( project: cuareim_3d, category: diseno_grafico )
+CategoryProject.create( project: cuareim_redes, category: diseno_grafico )
 
 CategoryProject.create( project: branca_web, category: diseno_grafico )
 CategoryProject.create( project: pwc_web, category: uxdesign )
+CategoryProject.create( project: branca_web, category: uxdesign )
 
 CategoryProject.create( project: cuareim_facebook, category: diseno_grafico )
 CategoryProject.create( project: pwc_md, category: uxdesign )

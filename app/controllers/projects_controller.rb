@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 
     projects.each do |project|
       project.postulations.each do |postulation|
-        @reviews << postulation.review if postulation.review.present?
+        @reviews << postulation.review if postulation.review.present? && postulation.review.user != @company
       end
     end
 
