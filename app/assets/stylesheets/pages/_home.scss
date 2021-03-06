@@ -46,15 +46,8 @@ position: fixed;
 top: 535px;
 font-size: 14px;
 // text-shadow: 1px 1px 3px rgba(165, 158, 158, 0.521);
-i{
-  font-size: 24px;
-  color: #167FFB;
-}
-p {
-  color: #167FFB;
-  margin-bottom: 2px;
 
-}
+
 }
 
 .background-color-block{
@@ -65,7 +58,7 @@ p {
 .box1 {
   width: 141px;
   margin: 14px auto;
-  background: #1edd87b0;
+  background: #efccdbbb;
   padding: 5px;
   text-align: center;
   font-weight: 900;
@@ -73,27 +66,43 @@ p {
   position: relative;
   border-radius: 10px;
   margin-left: 20px;
+  p {
+  color: #167FFB;
+  margin-bottom: 2px;
+}
+i{
+  font-size: 24px;
+  color: #167FFB;
+}
 }
 
 .box2 {
   width: 141px;
   margin: 14px auto;
-  background: #fb743ec9;
+  background: #5cb3edbb;
   padding: 5px;
   text-align: center;
   font-weight: 900;
   color: #fff;
   position: relative;
   border-radius: 10px;
+  p {
+  color: white;
+  margin-bottom: 2px;
+}
+i{
+  font-size: 24px;
+  color: white;
+}
 }
 .sb1:before {
   content: "";
   width: 0px;
   height: 0px;
   position: absolute;
-  border-left: 9px solid #1edd87b0;
+  border-left: 9px solid #efccdbbb;
   border-right: 10px solid transparent;
-  border-top: 10px solid #1edd87b0;
+  border-top: 10px solid #efccdbbb;
   border-bottom: 10px solid transparent;
   right: -19px;
   top: 8px;
@@ -105,8 +114,8 @@ p {
   height: 0px;
   position: absolute;
   border-left: 9px solid transparent;
-  border-right: 10px solid #fb743ec9;
-  border-top: 10px solid #fb743ec9;
+  border-right: 10px solid #5cb3edbb;
+  border-top: 10px solid #5cb3edbb;
   border-bottom: 10px solid transparent;
   left: -19px;
   top: 8px;
