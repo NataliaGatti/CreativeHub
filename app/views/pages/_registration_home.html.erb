@@ -1,49 +1,22 @@
-<%# <div class= home_icons>
-<ul id="registrate" class="box sb1" >
-   <li> 
-   <i class="far fa-lightbulb"></i>
-   </li>
-   <li>
-   <%= link_to "¿Empresa? crea tu projecto", new_project_path %>
-   <%# </li>
-      
-      <li>
-      <i class="fas fa-briefcase"></i>
-    </li>
-    <li>
-    <%= link_to "¿Diseñador? trabaja freelance",  new_user_registration_path %>
-    <%# </li>
-</ul>
-</div> %> 
-
-
-<%# 
-<div class= "home_icons">
-  <div class="box1 sb1" >
-    <div>
-      <i class="far fa-lightbulb"></i>
-    </div>
-    <%= link_to "¿Empresa? crea tu projecto", new_project_path %>
-  <%# </div> %> 
   
 <div class= "home_icons">
-<%= link_to new_project_path do  %>
-  <div class="box1 sb1" >
-    <div>
-      <i class="far fa-lightbulb"></i>
+  <%= link_to new_project_path do  %>
+    <div class="box1 sb1" >
+      <div>
+        <i class="far fa-lightbulb"></i>
+      </div>
+      <p>¿Empresa? crea tu projecto</p>
     </div>
-    <p>¿Empresa? crea tu projecto</p>
-  </div>
-<% end %>
+  <% end %>
 
-<%= link_to projects_path do  %>
-  <div class="box2 sb2" >
-    <div>
-      <i class="fas fa-briefcase"></i>
+  <%= link_to projects_path do  %>
+    <div class="box2 sb2" >
+      <div>
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <p>¿Diseñador? trabaja freelance</p>
     </div>
-    <p>¿Diseñador? trabaja freelance</p>
-  </div>
-<% end %>
+  <% end %>
 </div> 
 
 
