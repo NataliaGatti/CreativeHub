@@ -41,7 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 
    
-  initDropDownMenu();
+  //initDropDownMenu();
   initCountdown();
   initflatpickr();
   initNavbar();

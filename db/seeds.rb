@@ -68,13 +68,13 @@ loreal.save!
 
 puts "Creando Projects"
 
- amazon = Project.create!(
+ branca_photo = Project.create!(
   title: "Sesión de fotografía de productos en almacén", 
   description: "Se solicita sesión fotográfica de los productos que tenemos en stock en almacén un total de 10 fotos", 
   cost: 320,
   deadline: Date.new(2021, 4, 14, 18), 
   status: "Abierto", 
-  user: amazon
+  user: branca
 )
 
  branca = Project.create!(
@@ -95,22 +95,22 @@ puts "Creando Projects"
   user: pwc
 )
 
- telecom = Project.create!(
+ cuareim_3d = Project.create!(
   title: "Videógrafo 3d para redes sociales", 
   description: "Se necesita un profesional que cree videos con algunas animaciones 3d agregando la identidad de imagen acorde a la marca.", 
   cost: 230,
   deadline: Date.new(2021, 4, 3, 20),
   status: "Abierto", 
-  user: telecom
+  user: cuareim
 )
 
- arcor = Project.create!(
+ pwc_video = Project.create!(
   title: "Creación de Videos", 
   description: "Creación de videos cortos 15 segundos para stories de instagram, yo paso el material, pero no tengo los efectos. Estoy buscando transiciones muy rápidas que comuniquen un mensaje a corto tiempo.", 
   cost: 120,
   deadline: Date.new(2021, 5, 3, 20),
   status: "Abierto", 
-  user: arcor
+  user: pwc
 )
 
  correo_argentino = Project.create!(
@@ -132,41 +132,41 @@ puts "Creando Projects"
   user: cuareim
 )
 
- valti = Project.create!(
+ branca_web = Project.create!(
   title: "Optimización web", 
   description: "Se solicita mejora en el tiempo de carga del sitio web que coore por WordPress de contactos , preferentemente evitando el uso de plugins.", 
   cost: 100,
   deadline: Date.new(2021, 5, 8, 20),
   status: "Abierto", 
-  user: valti
+  user: branca
 )
 
- vega = Project.create!(
+ pwc_web = Project.create!(
   title: "Análisis completo de un sitio web para mejoras Seo", 
   description: "Se necesita analizar un sitio web que lleva 20 años y que requiere tener un mejor posicionamiento con respecto al momento, revisar bien para dar propuestas de mejoras.", 
   cost: 1500,
-  deadline: Date.new(2021, 3, 28, 20),
+  brancaline: Date.new(2021, 3, 28, 20),
   status: "Abierto", 
-  user: vega
+  user: pwc
 )
 
- cocacola = Project.create!(
+ cuareim_facebook = Project.create!(
   title: "Especialista en Facebook Ads", 
   description: "Definición, Gestión y Optimización de campañas en Facebook Ads.
   Creación, gestión e implantación en Facebook Ads orientados a generar ventas y leads cualificados.", 
   cost: 500,
   deadline: Date.new(2021, 4, 8, 20),
   status: "Abierto", 
-  user: cocacola
+  user: cuareim
 )
 
- chevallier = Project.create!(
+ pwc_md = Project.create!(
   title: "Coordinador Marketing Digital", 
   description: "Se solicita coordinador de área, quien será responsable de la creación de estrategias digitales y de contenido.", 
   cost: 450,
   deadline: Date.new(2021, 3, 18, 20),
   status: "Abierto", 
-  user: chevallier
+  user: pwc
 )
 
  loreal = Project.create!(
@@ -201,24 +201,32 @@ uxdesign = Category.create(title: 'Diseño UX/UI Responsive')
 uxdesign.photo.attach(io: ux_design_photo, filename: 'uxdesign.png', content_type: 'image/png')
 
 puts "Creando relaciones project-category"
-CategoryProject.create( project: amazon, category: photography )
+CategoryProject.create( project: branca_photo, category: photography )
 
 CategoryProject.create( project: branca, category: diseno_grafico )
 
 CategoryProject.create( project: pwc, category: uxdesign )
 
-CategoryProject.create( project: telecom, category: video )
-CategoryProject.create( project: arcor, category: video )
+CategoryProject.create( project: cuareim_3d, category: video )
+CategoryProject.create( project: pwc_video, category: video )
 
 CategoryProject.create( project: correo_argentino, category: uxdesign )
 CategoryProject.create( project: cuareim, category: diseno_grafico )
 
-CategoryProject.create( project: valti, category: diseno_grafico )
-CategoryProject.create( project: vega, category: uxdesign )
+CategoryProject.create( project: branca_web, category: diseno_grafico )
+CategoryProject.create( project: pwc_web, category: uxdesign )
 
-CategoryProject.create( project: cocacola, category: diseno_grafico )
-CategoryProject.create( project: chevallier, category: uxdesign )
+CategoryProject.create( project: cuareim_facebook, category: diseno_grafico )
+CategoryProject.create( project: pwc_md, category: uxdesign )
 
 CategoryProject.create( project: loreal, category: diseno_grafico )
+
+puts "Creando postulaciones"
+
+branca_nico = Postulation.create(file: 'https://www.globalpremiumbrands.com/images/html/aperitivo-fernet-branca-logo_inside.png', user: nico, proyect: branca, description: "Colores, aromas, sabores y… ¡poderes! El logo hace referencia a la receta de Fernet-Branca. Cada parte de este logo es un universo, una experiencia, un descubrimiento.")
+
+
+
+puts "Creando reviews"
 
 puts "Seeds creadas"
