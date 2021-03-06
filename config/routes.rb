@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :projects, only: [:index, :show, :new, :create, :edit, :update] do
     resources :postulations, only: [:index, :show, :new, :create]
+    resources :chatrooms, only: :create
   end
 
   resources :categories, only: [:index, :new, :create]
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   get '/chat', to: 'projects#chat', as: 'chat'  
   # get '/postulations/:id/review', to: 'reviews#new', 
 
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [:show, :index] do
     resources :messages, only: :create
   # me crea la ruta /chatrooms/1/messages -> POST
   end

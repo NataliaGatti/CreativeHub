@@ -1,7 +1,8 @@
 <!--
   Todo esto es lo que se manda y se recibe del otro lado, habraia
   que acomodarlo despues para que sea con el diseño hecho por Nati 
--->
+
+
 <div class="message-container" id="message-<%= message.id %>">
   <i class="author">
     <span><%= message.user.name %></span>
@@ -9,3 +10,32 @@
   </i>
   <p><%= message.content %></p>
 </div>
+-->
+
+<% if message.user == current_user %>
+
+  <li class="clearfix" style="list-style-type: none">
+    <div class="message-data message-container" id="message-<%= message.id %>">
+      <span class="message-data-time" ><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span> &nbsp; &nbsp;
+      <span class="message-data-name" ><%= message.user.name %></span> <i class="fa fa-circle me"></i>
+      
+    </div>
+    <div class="message my-message">
+      <p><%= message.content %></p>
+    </div>
+  </li>
+
+<% else %>
+
+  <li class="clearfix"  style="list-style-type: none">
+    <div class="message-data align-right message-container" id="message-<%= message.id %>">
+      <span class="message-data-time" ><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span> &nbsp; &nbsp;
+      <span class="message-data-name" ><%= message.user.name %></span> <i class="fa fa-circle"></i>
+      
+    </div>
+    <div class="message other-message float-right">
+      <p><%= message.content %></p>
+    </div>
+  </li>
+
+<% end %>
