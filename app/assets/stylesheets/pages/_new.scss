@@ -1,6 +1,6 @@
 .new_form{
   background-color: #EBE7EB;
-  height: 750px;
+  height: 885px;
   margin-top: 20px;
   margin-bottom: 20px;
   border-top-left-radius: 10px ;
@@ -14,7 +14,7 @@
 
 .new_instructions {
   background-color: #046CE7;
-  height: 750px;
+  height: 885px;
   margin-top: 20px;
   margin-bottom: 20px;
   color: white;
@@ -22,13 +22,17 @@
   border-bottom-right-radius: 10px ;
 
   p{
-    margin-top: 60px;
+    margin-top: 28px;
   }
 
+  h3{
+    margin-top: 50px;
+  }
 }
 
 .style_image{
   width: 350px;
+  margin-top: 48px;
 }
 
 .deadline{

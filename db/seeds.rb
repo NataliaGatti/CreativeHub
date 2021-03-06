@@ -50,7 +50,7 @@ correo_argentino.save!
 cuareim = User.create!(email: "info@cuareimviajes.com", password: "cuareimviajes", name: "Cuareim Viajes y Turismo", company: true, rating: 4)
 cuareim.photo.attach(io: open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaE4Q_AIQWXxHp9hH-HjE9mTnr4FBBbG2FhA&usqp=CAU"), filename: "cuareim.png", content_type: "image/jpeg")
 cuareim.save!
-valti = User.create!(email: "info@valti.com", password: "valtiargentina", name: "VALTI Sistema de Seguridad Industrial", company: true, rating: 5)
+valti = User.create!(email: "info@valti.com", password: "valtiargentina", name: "VALTI Seguridad Industrial", company: true, rating: 5)
 valti.photo.attach(io: open("https://i.pinimg.com/236x/81/d9/e0/81d9e071f746a047f2fa1c16069dcfd1.jpg"), filename: "valti.png", content_type: "image/jpeg")
 valti.save!
 vega = User.create!(email: "info@vega.com", password: "vegaargentina", name: "De La Vega M&A", company: true, rating: 4)

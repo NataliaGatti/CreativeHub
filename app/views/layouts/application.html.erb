@@ -15,7 +15,17 @@
   </head>
 
   <body>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+    <% unless controller_name == "pages" && action_name == "home" %>
+      <%= render "shared/navbar" %>
+    <% end %>
+    <div id="page-container">
+      <div id="content-wrap">
+        <%= yield %>
+      </div>
+    
+      <%= render "components/footer" %>
+ 
+    </div>
+      <%= render 'shared/flashes' %>
   </body>
 </html>
