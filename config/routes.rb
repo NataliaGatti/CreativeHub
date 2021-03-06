@@ -20,4 +20,9 @@ Rails.application.routes.draw do
   get '/my_postulations', to: 'postulations#my_postulations', as: 'my_postulations'
   get '/chat', to: 'projects#chat', as: 'chat'  
   # get '/postulations/:id/review', to: 'reviews#new', 
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  # me crea la ruta /chatrooms/1/messages -> POST
+  end
 end
