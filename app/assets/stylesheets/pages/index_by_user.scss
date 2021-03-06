@@ -1,18 +1,18 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   width: 80%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 5px auto;
+  margin: 20px auto;
   border-radius: 10px;
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -23,20 +23,25 @@
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
-  width: 608px;
+  width: 560px;
 }
 
 .card-product .card-product-infos {
   padding: 16px;
+  width: 592px;
+  margin: 0;
+ 
 }
 
  .info{
    padding: 2px;
+   margin-bottom: 8px;
+   
   }
   .enviar_propuesta{
     font-family: poppins;
@@ -46,7 +51,7 @@
 
   .card-product-actions{
   text-align: center;
-  padding-left: 3%;
+  
   
 }
 
@@ -74,6 +79,6 @@
     border-radius: 10px;
   }
 
-  .favourites_footer{
-   
+  .favourite_photo{
+    width: 190px;
   }
