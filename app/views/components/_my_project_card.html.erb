@@ -1,9 +1,9 @@
 <%# <div class="container"> %>
 
   <div class="flip flip-vertical shadow rounded" style="width: 350px; height: 350px;">
-    <div class="front">
-      <h3 class="mb-5 text-dark"><%= project.title %></h3>
-      <div class="d-inline justify-content-between ">
+    <div class="front border border-white" style="background-image: url('https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80')">
+      <h3 class="mb-3 text-dark"><%= project.title %></h3>
+      <div class="d-inline justify-content-between text-center">
         <% if project.status == "Abierto" %>
           <p class="font-status text-success bg-gradient-light rounded shadow">Status: <%= project.status %></p>
         <% elsif project.status == "Cerrado" %>
@@ -13,9 +13,9 @@
       </div>
     </div>
 
-    <div class="back">
+    <div class="back" style="background-image: url('<%= image_path "icon.png" %>')">
       <div class="button-option">
-        <h3></h3>
+        <h4 class="mb-3 text-dark"><%= project.title %></h4>
         <%= link_to "Editar proyecto", edit_project_path(project), class: "btn btn-primary button-project" %>
 
         <% if project.status == "Abierto" %>
