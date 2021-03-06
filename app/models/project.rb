@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   has_many :postulations, dependent: :destroy
+  has_many :favourite_projects, dependent: :destroy
   has_many :category_projects, dependent: :destroy
   has_many :categories, through: :category_projects
   validates :title, :cost, :deadline, :status, presence: true
