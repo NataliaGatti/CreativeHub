@@ -41,10 +41,10 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 
    
-  initDropDownMenu();
-  initCountdown();
   initflatpickr();
   initNavbar();
+  initCountdown();
+  // initDropDownMenu();
   initSelect2();
 
    initSweetalert('#sweet-alert-demo', {
