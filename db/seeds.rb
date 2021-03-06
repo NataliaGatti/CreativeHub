@@ -77,7 +77,7 @@ puts "Creando Projects"
   user: branca
 )
 
- branca = Project.create!(
+ branca_logo = Project.create!(
   title: "Creación de nuevo logo para edición limitada de Fernet", 
   description: "Se solicita la creación de un nuevo logo para lanzamiento de edición limitada de fernet Strong", 
   cost: 1200,
@@ -86,7 +86,7 @@ puts "Creando Projects"
   user: branca
 )
 
- pwc = Project.create!(
+ pwc_software = Project.create!(
   title: "Creación de software online a medida", 
   description: "Se solicita la creación de una aplicación de gestión contable para la operación con bancos.", 
   cost: 1500,
@@ -122,7 +122,7 @@ puts "Creando Projects"
   user: correo_argentino
 )
 
- cuareim = Project.create!(
+ cuareim_redes = Project.create!(
   title: "Creador de contenido y manejo de redes sociales", 
   description: "Se solicita una persona que pueda planificar, crear contenido y ejecutar en las plataformas instagram y linkedin.
   La empresa ya tiene manual de marca.", 
@@ -145,7 +145,7 @@ puts "Creando Projects"
   title: "Análisis completo de un sitio web para mejoras Seo", 
   description: "Se necesita analizar un sitio web que lleva 20 años y que requiere tener un mejor posicionamiento con respecto al momento, revisar bien para dar propuestas de mejoras.", 
   cost: 1500,
-  brancaline: Date.new(2021, 3, 28, 20),
+  deadline: Date.new(2021, 3, 28, 20),
   status: "Abierto", 
   user: pwc
 )
@@ -178,6 +178,24 @@ puts "Creando Projects"
   user: loreal
 )
 
+ branca_video = Project.create!(
+  title: "Video campaña de marketing", 
+  description: "Se solicita video para renovar campaña de marketing 2021.", 
+  cost: 800,
+  deadline: Date.new(2021, 3, 6, 20),
+  status: "Cerrado", 
+  user: branca
+)
+
+ branca_flyer = Project.create!(
+  title: "Flyer para lanzamiento nueva temporada", 
+  description: "Se solicita flyer para publicitar en redes sociales (Facebook e Instagram).", 
+  cost: 30,
+  deadline: Date.new(2021, 3, 6, 20),
+  status: "Cerrado", 
+  user: branca
+)
+
 puts "Creando cinco categories"
 
 diseno_photo = URI.open('https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
@@ -203,15 +221,15 @@ uxdesign.photo.attach(io: ux_design_photo, filename: 'uxdesign.png', content_typ
 puts "Creando relaciones project-category"
 CategoryProject.create( project: branca_photo, category: photography )
 
-CategoryProject.create( project: branca, category: diseno_grafico )
+CategoryProject.create( project: branca_logo, category: diseno_grafico )
 
-CategoryProject.create( project: pwc, category: uxdesign )
+CategoryProject.create( project: pwc_software, category: uxdesign )
 
 CategoryProject.create( project: cuareim_3d, category: video )
 CategoryProject.create( project: pwc_video, category: video )
 
 CategoryProject.create( project: correo_argentino, category: uxdesign )
-CategoryProject.create( project: cuareim, category: diseno_grafico )
+CategoryProject.create( project: cuareim_3d, category: diseno_grafico )
 
 CategoryProject.create( project: branca_web, category: diseno_grafico )
 CategoryProject.create( project: pwc_web, category: uxdesign )
@@ -223,10 +241,19 @@ CategoryProject.create( project: loreal, category: diseno_grafico )
 
 puts "Creando postulaciones"
 
-branca_nico = Postulation.create(file: 'https://www.globalpremiumbrands.com/images/html/aperitivo-fernet-branca-logo_inside.png', user: nico, proyect: branca, description: "Colores, aromas, sabores y… ¡poderes! El logo hace referencia a la receta de Fernet-Branca. Cada parte de este logo es un universo, una experiencia, un descubrimiento.")
-
-
+branca_nico = Postulation.create(file: 'https://www.globalpremiumbrands.com/images/html/aperitivo-fernet-branca-logo_inside.png', user: nico, project: branca_logo, description: "Colores, aromas, sabores y… ¡poderes! El logo hace referencia a la receta de Fernet-Branca. Cada parte de este logo es un universo, una experiencia, un descubrimiento.")
+branca_cami = Postulation.create(user: camilo, project: branca_logo, description: "Free white and black logo vector.")
+file = URI.open('https://gtswiki.gt-beginners.net/decal/png/00/48/08/7278481107283084800_1.png')
+branca_cami.photo.attach(io: file, filename: 'logo_branca.png', content_type: 'image/png')
+branca_photo_natalia = Postulation.create(file: 'https://www.instagram.com/fotografiaempresarial/?hl=es-la', user: natalia, project: branca_photo, description: "/MOMENTOS REALES/ INSTANTES PRECISOS/")
+branca_web_natalia = Postulation.create(file: 'https://blog.desdelinux.net/nextcloud-hub-20-llega-con-mejoras-de-integracion-optimizacion-y-mas/', user: natalia, project: branca_web, description: "Propuesta de mejoras para Nextcloud Hub 20.")
+branca_video_facundo = Postulation.create(file: 'https://www.youtube.com/watch?v=D4PP1mei-aE', user: facundo, project: branca_video, description: "Un vídeo lleno de imágenes frescas, que invocan los sentimientos de placer desde el primer momento.")
+branca_flyer_camilo = Postulation.create(file: 'https://i.pinimg.com/originals/ff/9e/e4/ff9ee42c9d576e001a271cc88f2a6d89.jpg', user: camilo, project: branca_flyer, description: "Se buscó mantener los colores y la simplicidad que resaltan a la marca.")
 
 puts "Creando reviews"
+
+branca_review_facu = Review.create(comment: "Ha sido un placer este trabajo. El cliente muy atento. Ha revisado todos los detalles. Seguro trabajaremos juntos nuevamente.", rating: 5, user: facundo, postulation: branca_video_facundo )
+branca_review_cami = Review.create(comment: "Muy buena experiencia. una empresa comprometida con el proyecto que genera, sólo algunas demoras en la respuesta.", rating: 4, user: camilo, postulation: branca_flyer_camilo )
+
 
 puts "Seeds creadas"

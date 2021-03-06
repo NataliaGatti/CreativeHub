@@ -139,7 +139,7 @@
         <hr>
 
         <% @reviews.each do |review| %>
-          <%= render 'components/review_comment', {emmiter: review.postulations.user, review: review} %>
+          <%= render 'components/review_comment', {emmiter: review.postulation.user, review: review} %>
         <% end %>
 
       </div>
