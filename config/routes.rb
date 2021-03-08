@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
+  # resource :user do
+  # end
+  
   root to: 'pages#home'
   resources :projects, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :favourite_projects, only: [:index, :create]
     resources :postulations, only: [:index, :show, :new, :create]
   end
-
+  
   resources :categories, only: [:index, :new, :create]
-
+  delete '/favourite_projects/:id', to: "favourite_projects#destroy", as: 'favourite_project'
+  get '/favourite_projects', to: "favourite_projects#index_by_user", as: 'favourite_projects'
   get '/project/:id', to: 'projects#unpublish', as: 'unpublish'
   get '/projectsbycategory/', to: 'projects#projects_by_category', as: 'projects_by_category'
   patch '/project/:id/postulations/accept', to: 'postulations#accept_project', as: 'accept_project'
