@@ -234,7 +234,7 @@ CategoryProject.create( project: branca_video, category: video )
 CategoryProject.create( project: correo_argentino, category: uxdesign )
 CategoryProject.create( project: cuareim_redes, category: diseno_grafico )
 
-CategoryProject.create( project: branca_web, category: diseno_grafico )
+CategoryProject.create( project: branca_web, category: photography )
 CategoryProject.create( project: pwc_web, category: uxdesign )
 CategoryProject.create( project: branca_web, category: uxdesign )
 

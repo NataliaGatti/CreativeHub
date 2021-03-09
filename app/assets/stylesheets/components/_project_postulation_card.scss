@@ -12,10 +12,11 @@
   background-color: rgba($color: #D1E6E8, $alpha: 1.0);
 }
 
-
+.img-postulation {
+  background-image: url('https://images.unsplash.com/photo-1511184150666-9bb7d41a88f4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+  background-size: cover;
+}
 
 .postulation-button {
-
-  margin-bottom: 20px;
-    
+  margin-bottom: 20px;  
 }

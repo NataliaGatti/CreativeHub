@@ -3,7 +3,7 @@
 
   <h1 class="text-center mb-4 pt-4">Mis Proyectos</h1>
 
-  <div class="d-flex align-content-stretch flex-wrap">
+  <div class="d-inline">
     <% @projects.each do |project| %>
 
       <%= render 'components/my_project_card', project: project %>
