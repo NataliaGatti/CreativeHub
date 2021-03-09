@@ -4,7 +4,7 @@
         <% if project.user.photo.key %>
           <%= cl_image_tag project.user.photo.key, alt: "Logo", width: 70, height: 50 %>
         <% end %>
-        <div class="column pt-2 pl-2 pb-3 pr-3">
+        <div class="column pt-2 pl-2 pb-1 pr-3">
           <h4 class="text-wrap"><%= project.user.name %></h4>
           <%= '<i class="fas fa-star" style="color: orange"></i>'.html_safe * project.user.rating %>
           <%= '<i class="fas fa-star" style="color: grey"></i>'.html_safe * (5 - project.user.rating) %>
