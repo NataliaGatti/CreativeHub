@@ -25,7 +25,7 @@ import { initSweetalert} from '../plugins/init_sweetalert';
 import { initSelect2 } from '../plugins/init_select2';
 // import { initDropDownMenu } from '../scripts/init_drop_down_menu'
 import { initNavbar } from '../plugins/init_navbar';
-// import { initCountdown } from '../plugins/init_countdown';
+import { initCountdown } from '../plugins/init_countdown';
 import { initChat } from "../plugins/init_chat"
 import { initChatroomCable } from '../channels/chatroom_channel'
 

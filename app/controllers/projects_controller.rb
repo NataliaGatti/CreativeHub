@@ -19,7 +19,14 @@ class ProjectsController < ApplicationController
   def show
     @project.punch(request)
     @company = @project.user
-    @reviews = @company.reviews
+    @reviews = []
+    projects = @company.projects
+
+    projects.each do |project|
+      project.postulations.each do |postulation|
+        @reviews << postulation.review if postulation.review.present? && postulation.review.user != @company
+      end
+    end
 
     @user_postulated = false
     current_user.postulations.each do |postulation|

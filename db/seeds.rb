@@ -10,8 +10,9 @@
 
 require "open-uri"
 
+Review.destroy_all
+CategoryProject.destroy_all
 Project.destroy_all
-# Application.destroy_all
 User.destroy_all
 Category.destroy_all
 
@@ -68,16 +69,16 @@ loreal.save!
 
 puts "Creando Projects"
 
- amazon = Project.create!(
+ branca_photo = Project.create!(
   title: "Sesión de fotografía de productos en almacén", 
   description: "Se solicita sesión fotográfica de los productos que tenemos en stock en almacén un total de 10 fotos", 
   cost: 320,
   deadline: Date.new(2021, 4, 14, 18), 
   status: "Abierto", 
-  user: amazon
+  user: branca
 )
 
- branca = Project.create!(
+ branca_logo = Project.create!(
   title: "Creación de nuevo logo para edición limitada de Fernet", 
   description: "Se solicita la creación de un nuevo logo para lanzamiento de edición limitada de fernet Strong", 
   cost: 1200,
@@ -86,7 +87,7 @@ puts "Creando Projects"
   user: branca
 )
 
- pwc = Project.create!(
+ pwc_software = Project.create!(
   title: "Creación de software online a medida", 
   description: "Se solicita la creación de una aplicación de gestión contable para la operación con bancos.", 
   cost: 1500,
@@ -95,22 +96,22 @@ puts "Creando Projects"
   user: pwc
 )
 
- telecom = Project.create!(
+ cuareim_3d = Project.create!(
   title: "Videógrafo 3d para redes sociales", 
   description: "Se necesita un profesional que cree videos con algunas animaciones 3d agregando la identidad de imagen acorde a la marca.", 
   cost: 230,
   deadline: Date.new(2021, 4, 3, 20),
   status: "Abierto", 
-  user: telecom
+  user: cuareim
 )
 
- arcor = Project.create!(
+ pwc_video = Project.create!(
   title: "Creación de Videos", 
   description: "Creación de videos cortos 15 segundos para stories de instagram, yo paso el material, pero no tengo los efectos. Estoy buscando transiciones muy rápidas que comuniquen un mensaje a corto tiempo.", 
   cost: 120,
   deadline: Date.new(2021, 5, 3, 20),
   status: "Abierto", 
-  user: arcor
+  user: pwc
 )
 
  correo_argentino = Project.create!(
@@ -122,7 +123,7 @@ puts "Creando Projects"
   user: correo_argentino
 )
 
- cuareim = Project.create!(
+ cuareim_redes = Project.create!(
   title: "Creador de contenido y manejo de redes sociales", 
   description: "Se solicita una persona que pueda planificar, crear contenido y ejecutar en las plataformas instagram y linkedin.
   La empresa ya tiene manual de marca.", 
@@ -132,41 +133,41 @@ puts "Creando Projects"
   user: cuareim
 )
 
- valti = Project.create!(
+ branca_web = Project.create!(
   title: "Optimización web", 
   description: "Se solicita mejora en el tiempo de carga del sitio web que coore por WordPress de contactos , preferentemente evitando el uso de plugins.", 
   cost: 100,
   deadline: Date.new(2021, 5, 8, 20),
   status: "Abierto", 
-  user: valti
+  user: branca
 )
 
- vega = Project.create!(
+ pwc_web = Project.create!(
   title: "Análisis completo de un sitio web para mejoras Seo", 
   description: "Se necesita analizar un sitio web que lleva 20 años y que requiere tener un mejor posicionamiento con respecto al momento, revisar bien para dar propuestas de mejoras.", 
   cost: 1500,
   deadline: Date.new(2021, 3, 28, 20),
   status: "Abierto", 
-  user: vega
+  user: pwc
 )
 
- cocacola = Project.create!(
+ cuareim_facebook = Project.create!(
   title: "Especialista en Facebook Ads", 
   description: "Definición, Gestión y Optimización de campañas en Facebook Ads.
   Creación, gestión e implantación en Facebook Ads orientados a generar ventas y leads cualificados.", 
   cost: 500,
   deadline: Date.new(2021, 4, 8, 20),
   status: "Abierto", 
-  user: cocacola
+  user: cuareim
 )
 
- chevallier = Project.create!(
+ pwc_md = Project.create!(
   title: "Coordinador Marketing Digital", 
   description: "Se solicita coordinador de área, quien será responsable de la creación de estrategias digitales y de contenido.", 
   cost: 450,
   deadline: Date.new(2021, 3, 18, 20),
   status: "Abierto", 
-  user: chevallier
+  user: pwc
 )
 
  loreal = Project.create!(
@@ -176,6 +177,24 @@ puts "Creando Projects"
   deadline: Date.new(2021, 3, 18, 20),
   status: "Abierto", 
   user: loreal
+)
+
+ branca_video = Project.create!(
+  title: "Video campaña de marketing", 
+  description: "Se solicita video para renovar campaña de marketing 2021.", 
+  cost: 800,
+  deadline: Date.new(2021, 3, 6, 20),
+  status: "Cerrado", 
+  user: branca
+)
+
+ branca_flyer = Project.create!(
+  title: "Flyer para lanzamiento nueva temporada", 
+  description: "Se solicita flyer para publicitar en redes sociales (Facebook e Instagram).", 
+  cost: 30,
+  deadline: Date.new(2021, 3, 6, 20),
+  status: "Cerrado", 
+  user: branca
 )
 
 puts "Creando cinco categories"
@@ -201,24 +220,44 @@ uxdesign = Category.create(title: 'Diseño UX/UI')
 uxdesign.photo.attach(io: ux_design_photo, filename: 'uxdesign.png', content_type: 'image/png')
 
 puts "Creando relaciones project-category"
-CategoryProject.create( project: amazon, category: photography )
+CategoryProject.create( project: branca_photo, category: photography )
+CategoryProject.create( project: branca_flyer, category: photography )
 
-CategoryProject.create( project: branca, category: diseno_grafico )
+CategoryProject.create( project: branca_logo, category: diseno_grafico )
 
-CategoryProject.create( project: pwc, category: uxdesign )
+CategoryProject.create( project: pwc_software, category: uxdesign )
 
-CategoryProject.create( project: telecom, category: video )
-CategoryProject.create( project: arcor, category: video )
+CategoryProject.create( project: cuareim_3d, category: video )
+CategoryProject.create( project: pwc_video, category: video )
+CategoryProject.create( project: branca_video, category: video )
 
 CategoryProject.create( project: correo_argentino, category: uxdesign )
-CategoryProject.create( project: cuareim, category: diseno_grafico )
+CategoryProject.create( project: cuareim_redes, category: diseno_grafico )
 
-CategoryProject.create( project: valti, category: diseno_grafico )
-CategoryProject.create( project: vega, category: uxdesign )
+CategoryProject.create( project: branca_web, category: photography )
+CategoryProject.create( project: pwc_web, category: uxdesign )
+CategoryProject.create( project: branca_web, category: uxdesign )
 
-CategoryProject.create( project: cocacola, category: diseno_grafico )
-CategoryProject.create( project: chevallier, category: uxdesign )
+CategoryProject.create( project: cuareim_facebook, category: diseno_grafico )
+CategoryProject.create( project: pwc_md, category: uxdesign )
 
 CategoryProject.create( project: loreal, category: diseno_grafico )
+
+puts "Creando postulaciones"
+
+branca_nico = Postulation.create(file: 'https://www.globalpremiumbrands.com/images/html/aperitivo-fernet-branca-logo_inside.png', user: nico, project: branca_logo, description: "Colores, aromas, sabores y… ¡poderes! El logo hace referencia a la receta de Fernet-Branca. Cada parte de este logo es un universo, una experiencia, un descubrimiento.")
+branca_cami = Postulation.create(user: camilo, project: branca_logo, description: "Free white and black logo vector.")
+file = URI.open('https://gtswiki.gt-beginners.net/decal/png/00/48/08/7278481107283084800_1.png')
+branca_cami.photo.attach(io: file, filename: 'logo_branca.png', content_type: 'image/png')
+branca_photo_natalia = Postulation.create(file: 'https://www.instagram.com/fotografiaempresarial/?hl=es-la', user: natalia, project: branca_photo, description: "/MOMENTOS REALES/ INSTANTES PRECISOS/")
+branca_web_natalia = Postulation.create(file: 'https://blog.desdelinux.net/nextcloud-hub-20-llega-con-mejoras-de-integracion-optimizacion-y-mas/', user: natalia, project: branca_web, description: "Propuesta de mejoras para Nextcloud Hub 20.")
+branca_video_facundo = Postulation.create(file: 'https://www.youtube.com/watch?v=D4PP1mei-aE', user: facundo, project: branca_video, description: "Un vídeo lleno de imágenes frescas, que invocan los sentimientos de placer desde el primer momento.")
+branca_flyer_camilo = Postulation.create(file: 'https://i.pinimg.com/originals/ff/9e/e4/ff9ee42c9d576e001a271cc88f2a6d89.jpg', user: camilo, project: branca_flyer, description: "Se buscó mantener los colores y la simplicidad que resaltan a la marca.")
+
+puts "Creando reviews"
+
+branca_review_facu = Review.create(comment: "Ha sido un placer este trabajo. El cliente muy atento. Ha revisado todos los detalles. Seguro trabajaremos juntos nuevamente.", rating: 5, user: facundo, postulation: branca_video_facundo )
+branca_review_cami = Review.create(comment: "Muy buena experiencia. una empresa comprometida con el proyecto que genera, sólo algunas demoras en la respuesta.", rating: 4, user: camilo, postulation: branca_flyer_camilo )
+
 
 puts "Seeds creadas"

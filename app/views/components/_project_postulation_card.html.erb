@@ -1,4 +1,4 @@
-<div class="shadow m-2 pl-4 border border-white" style="background-image: url('https://images.unsplash.com/photo-1533628635777-112b2239b1c7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');">
+<div class="shadow m-2 pl-4 border border-white img-postulation">
 
   <div class="d-flex m-2 pt-3">
   
@@ -33,6 +33,8 @@
 
       <%= link_to "Rechazar", decline_project_path(postulation.id), class:"btn btn-primary rounded  mr-4", method: :PATCH %>
 
+      <%= link_to "Volver", my_projects_path, class:"btn btn-primary rounded  mr-4" %>
+
 
     <% elsif postulation.status == "Aceptado" %>
 
@@ -42,7 +44,7 @@
 
       <h1 class="btn btn-success rounded  mr-4">Aceptado</h1>
       
-      <%= link_to "Enviar devolución", "#", class:"btn btn-primary rounded mr-4" %>
+      <%= link_to "Enviar review", new_project_postulation_review_path(@project, postulation), class:"btn btn-primary rounded mr-4" %>
 
     <% elsif postulation.status == "Declinado" %>
     

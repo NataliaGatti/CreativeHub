@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="form-wrapper" style="margin: 0 auto;">
+    <%= simple_form_for [@project, @postulation, @review] do |f| %>
+        <%= f.input :comment, as: :text, class:"label", placeholder: "Has una breve review del diseñador", label_html: { class: "text-dark"}, label: "Review" %>
+        <%= f.input :rating, as: :integer %>
+        <div class="d-flex">
+          <%= f.submit "Envía tu Review", disable_with: 'Submiting...', class: "btn btn-primary postulation-button" %>
+          <%= link_to "Volver a proyectos", projects_path, class: "btn btn-primary postulation-button ml-4" %> 
+        </div>
+    <% end %>  
+  </div>
+</div>
