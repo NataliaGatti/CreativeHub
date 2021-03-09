@@ -1,0 +1,80 @@
+<%= render "shared/navbar" %>
+
+ <div class="container-chat clearfix body-chat">
+    <div class="people-list" id="people-list">
+      <div class="search">
+        <input type="text" placeholder="search" />
+        <i class="fa fa-search"></i>
+      </div>
+      <ul class="list">
+        <% @chatrooms.each do |chatroom| %>
+          <%= render 'chatroom_card', chatroom: chatroom %>
+        <% end %>
+      </ul>
+    </div>
+    
+    <div class="chat">
+      <div class="chat-header clearfix">
+        <% if !current_user.company %>
+          <%= cl_image_tag @chatroom.company.photo.key, height: 55, width: 55, style:"border-radius: 50%" %>
+        <% else %>
+          <%= cl_image_tag @chatroom.designer.photo.key, height: 55, width: 55, style:"border-radius: 50%" %>
+        <% end %>
+        
+        <div class="chat-about">
+          <% if !current_user.company %>
+            <div class="chat-with">Chat with <%= @chatroom.company.name %></div>
+          <% else %>
+            <div class="chat-with">Chat with <%= @chatroom.designer.name %></div>
+          <% end %>
+          <div class="chat-num-messages">already <%= @chatroom.messages.count %> messages</div>
+        </div>
+        <i class="fa fa-star"></i>
+      </div> <!-- end chat-header -->
+      
+      <div class="chat-history" id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <ul>
+          <% @chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </ul>
+        
+      </div> <!-- end chat-history -->
+      
+
+      <div class="chat-message clearfix">
+        <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+          <%= f.input :content, label: false, placeholder: "Type your message" %>
+        <% end %>
+        <button>Send</button>
+      </div> <!-- end chat-message -->
+                
+
+      
+    </div> <!-- end chat -->
+    
+  </div> <!-- end container -->
+
+<script id="message-template" type="text/x-handlebars-template">
+  <li class="clearfix">
+    <div class="message-data align-right">
+      <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
+      <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
+    </div>
+    <div class="message other-message float-right">
+      {{messageOutput}}
+    </div>
+  </li>
+</script>
+
+<script id="message-response-template" type="text/x-handlebars-template">
+  <li>
+    <div class="message-data">
+      <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+      <span class="message-data-time">{{time}}, Today</span>
+    </div>
+    <div class="message my-message">
+      {{response}}
+    </div>
+  </li>
+</script>

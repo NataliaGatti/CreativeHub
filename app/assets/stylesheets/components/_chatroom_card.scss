@@ -1,0 +1,42 @@
+.chatroom-chatlist-img {
+  margin-right: 10px;
+}
+
+.about {
+  display: flex;
+}
+
+.name {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.chat {
+  height: calc(100vh - 108.98px);
+
+}
+
+.chat .chat-history {
+  height: 500px;
+}
+
+.container-chat {
+  padding: 0;
+  height: calc(100vh - 108.98px);
+}
+
+.people-list ul {
+  height: 100%;
+}
+
+.people-list {
+  height: calc(100vh - 108.98px);
+  overflow-y: scroll;
+}
+
+.body-chat {
+  padding: 0;
+  // padding-top: 20px;
+}

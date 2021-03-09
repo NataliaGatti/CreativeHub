@@ -60,8 +60,19 @@
             <strong> u$s <%= @project.cost.round(0) %></strong> </h2>
           </div>
         </div>
-        
-       
+        <div class="d-flex justify-content-center mt-2">
+          <% if @user_postulated %>
+            <p class="p-2 bg-success text-white my-3">Ya estás postulado a este proyecto</p>
+          <% else %>
+            <%= link_to "Enviar propuesta", new_project_postulation_path(@project), class:"btn btn-primary mx-2 my-3"%>
+          <% end %>
+          <!-- <button id="chat-button" class="btn btn-primary mx-2 my-3">Realizar consulta</button> 
+          
+          <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 my-3" %> -->
+          <!--
+          <button type="button" class="btn btn-primary mx-2 my-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Realizar consulta</button>
+          -->
+          <%= link_to "Realizar consulta", project_chatrooms_path(@project) , class:"btn btn-primary mx-2 my-3", method: :POST  %>
        
        <% unless current_user.company %>
           <div class="d-flex justify-content-center mt-2">

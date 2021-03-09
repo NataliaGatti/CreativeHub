@@ -1,0 +1,22 @@
+<% if !current_user.company %>
+  <%= link_to chatroom_path(chatroom) do %>
+    <li class="clearfix" style="list-style-type: none">
+      <div class="about">
+      <%= cl_image_tag chatroom.company.photo.key, height: 55, width: 55, crop: :fill, class:"chatroom-chatlist-img", style:"border-radius: 50%" %>
+        <div class="name"><%= chatroom.name %></div>
+      </div>
+    </li>
+  <% end %>
+
+<% else %>
+  
+  <%= link_to chatroom_path(chatroom) do %>
+    <li class="clearfix" style="list-style-type: none">
+      <div class="about">
+      <%= cl_image_tag chatroom.designer.photo.key, height: 55, width: 55, crop: :fill, class:"chatroom-chatlist-img", style:"border-radius: 50%" %>
+        <div class="name"><%= chatroom.name %></div>
+      </div>
+    </li>
+  <% end %>
+  
+<% end %>
