@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 2021_03_06_144947) do
     t.index ["project_id"], name: "index_chatrooms_on_project_id"
   end
 
+  create_table "favourite_projects", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_favourite_projects_on_project_id"
+    t.index ["user_id"], name: "index_favourite_projects_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -145,6 +154,8 @@ ActiveRecord::Schema.define(version: 2021_03_06_144947) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "category_projects", "categories"
   add_foreign_key "category_projects", "projects"
+  add_foreign_key "favourite_projects", "projects"
+  add_foreign_key "favourite_projects", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "postulations", "projects"

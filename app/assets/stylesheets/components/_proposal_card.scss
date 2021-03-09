@@ -2,13 +2,13 @@
   border-radius: 5%;
   // box-shadow: 1px 5px rgba(0, 0, 0, 0.15);
  /*  text-decoration: none; */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   color: black;
   height: 475px;
   width: 350px;
   position: relative;
   background-color: white;
-  opacity: 0.8;
+  // opacity: 0.8;
 }
 
 .proposal-card:hover {
@@ -39,3 +39,22 @@ a:hover {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1px;
 }
+
+.pin{
+    color: rgba(128, 128, 128, 0.521);
+    font-size: 26px;
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.unpin{
+    color: #bd2000;
+    font-size: 26px;
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+

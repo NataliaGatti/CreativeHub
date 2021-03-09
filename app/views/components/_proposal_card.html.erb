@@ -1,16 +1,31 @@
   <div class="p-2">
     <div class="container border p-3 proposal-card">
-      <div class="d-flex">
+      <div class="d-flex" style="height: 100px;">
         <% if project.user.photo.key %>
           <%= cl_image_tag project.user.photo.key, alt: "Logo", width: 70, height: 50 %>
         <% end %>
-        <div class="column pl-4 pb-3">
+        <div class="column pl-2 pb-3">
           <h4 class="text-wrap"><%= project.user.name %></h4>
           <%= '<i class="fas fa-star" style="color: orange"></i>'.html_safe * project.user.rating %>
           <%= '<i class="fas fa-star" style="color: grey"></i>'.html_safe * (5 - project.user.rating) %>
         </div>
       </div>
 
+<% if user_signed_in? %>
+      <% if !current_user.company %>
+        <div>
+          <% if current_user.favourite_projects.include?(project.favourite_projects.where(user_id: current_user.id).first) %>
+            <%= link_to favourite_project_path(project.favourite_projects.where(user_id: current_user.id).first), method: :delete, 'data-toggle' => 'tooltip', 'data-placement' => 'right', title: 'Quitar de favoritos'  do %>
+              <i class="fas fa-thumbtack unpin"></i>
+            <% end %>
+          <% else %>
+            <%= link_to project_favourite_projects_path(project), method: :post, 'data-toggle' => 'tooltip', 'data-placement' => 'right', title: 'Agregar a favoritos'  do %>
+              <i class="fas fa-thumbtack pin"></i>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+  <% end %>
       <div class="d-flex justify-content-between">
         <p>Publicado hace <%= time_ago_in_words(project.created_at) %> </p>
         
@@ -20,6 +35,6 @@
       <h3 class="text-wrap"><%= project.title %></h3>
       <p class="text-wrap"><%= project.description %></p>
 
-      <h1 class="proposal-cost align-self-end">u$s <%= project.cost.round(0) %></h1>
+      <h1 class="proposal-cost align-self-end text-primary text-center">u$s <%= project.cost.round(0) %></h1>
     </div>
   </div>

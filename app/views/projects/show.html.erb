@@ -1,63 +1,58 @@
-<!-- NAVBAR -->
-
-<%= render "shared/navbar" %>
-
                       <!-- RUTAS DE LINKS -->
-
 <div class="d-flex ml-2 mb-0">
-  <%= link_to "Creative Hub Home", root_path  %> <p class="px-2">></p> <%= link_to " Proyectos", projects_path  %> <p class="px-2"> > <%= @project.title %> </p>
+  <%= link_to "Creative Hub Home", root_path  %> 
+  <p class="px-2">></p> 
+  <%= link_to " Proyectos", projects_path  %> 
+  <p class="px-2"> > <%= @project.title %> </p>
 </div>
 
 <div class="fondo">
-
-
                     <!-- INFO DE LA EMPRESA-->
-
-<div class="container shadow mb-5 mt-2 px-0 d-flex">
-
-  <div class=" shadow info-back mr-4 border-info">
+  <div class="container shadow mb-5 mt-2 px-0 d-flex">
+    <div class=" shadow info-back mr-4 border-info">
       <div class="d-flex">
         <div class="pt-4 mr-2">
-        <%= cl_image_tag @project.user.photo.key, alt: "Logo", style:"height:120px", class:"px-2" %>
+          <%= cl_image_tag @project.user.photo.key, alt: "Logo", style:"height:120px", class:"px-2" %>
         </div>
-      <div class="mt-2"style="width:650px">
-        <h1 class=" mt-2 text-wrap" style="height: 90px"><%= @project.title%></h1>
-        <div class="d-flex mb-4">
-          <h2 class="text-secondary m-0" > <%= @project.user.name  %> </h2>
+        <div class="mt-2"style="width:650px">
+          <h2 class=" mt-2 text-wrap" style="height: 90px"><%= @project.title%></h2>
+          <div class="d-flex mb-4">
+            <h3 class="text-secondary m-0" > <%= @project.user.name  %> </h3>
             <div class="d-flex align-items-center ml-3">
               <%= '<i class="fas fa-star" style="color: orange"></i>'.html_safe * @project.user.rating %>
               <%= '<i class="fas fa-star" style="color: grey"></i>'.html_safe * (5 - @project.user.rating) %>
             </div>
-        </div>
-        <div class="d-flex justify-content-between mr-3 pr-2">
-          <p class="mt-0 mb-0 text-secondary">Publicado hace <%= time_ago_in_words(@project.created_at) %> </p>
-
-          <%if @project.status == "Abierto"%>
-            <div class="d-inline mb-0">
-              <div class="d-flex ">
-                <p class="mb-2 mr-1 black-weight">Status:</p> <p class=" shadow rounded pr-2 pl-1 mt-0 mb-0 black-weight bg-success text-white"> Evaluando propuestas </p>
+          </div>
+          <div class="d-flex justify-content-between mr-3 pr-2">
+            <p class="mt-0 mb-0 text-dark">Publicado hace <%= time_ago_in_words(@project.created_at) %> </p>
+            <%if @project.status == "Abierto"%>
+              <div class="d-inline mb-0">
+                <div class="d-flex ">
+                  <p class="mb-2 mr-1 black-weight">Status:</p> 
+                  <p class="pr-2 pl-1 mt-0 mb-0 black-weight text-success"> Evaluando propuestas </p>
+                </div>
               </div>
-              <% start_time =  Date.today %>
-              <% end_time   =  @project.deadline %> 
-            </div>
-          <% else %>
-            <div class="d-flex">
-             <p class="mb-0 mr-1 black-weight">Status:</p><p class="shadow rounded pr-2 pl-1 mt-0 mb-0 text-danger black-weight">Proyecto Finalizado</p>
-            </div>
-          <% end %>
+            <% else %>
+              <div class="d-flex">
+                <p class="mb-0 mr-1 black-weight">Status:</p>
+                <p class="pr-2 pl-1 mt-0 mb-0 text-danger black-weight">Proyecto Finalizado</p>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
-    <!-- DETALLE DE PROPUESTA -->
+      <!-- DETALLE DE PROPUESTA -->
       <div class="text-wrap p-2 pt-0 border-info " >
-        <hr class="mb-0">
-        <h4 class="mt-1 text-primary mb-0 text-center "> INFORMACIÓN SOBRE ESTE PROYECTO</h4>
+        <%# <hr class="mb-0"> %>
+        <h4 class="mt-1 text-primary mb-0"> INFORMACIÓN SOBRE ESTE PROYECTO</h4>
         <hr class="mt-0">
         <div>
-          <h5 class="text-black p-3">Descripción: <%= @project.description%></h5>
+          <h5 class="text-black p-3"><%= @project.description%></h5>
         </div>
         <div>
-          <strong><p class="mb-0 px-3">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para postularte</p></strong>
+          <% start_time =  Date.today %>
+          <% end_time   =  @project.deadline %> 
+          <strong><h6 class="mb-0 px-3">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para postularte</h6></strong>
           <h5 class="p-3">Fecha de Entrega: <%= time_tag(@project.deadline, format: :default, id:"deadline") %></h5>
           <div class="d-flex">
             <h2 class="px-3"><strong>Remuneración:</strong> </h2> <h2 class="text-primary pl-2"><strong> u$s <%= @project.cost.round(0) %></strong> </h2>
@@ -81,77 +76,78 @@
         </div>
       </div>
 
-  </div>
-
-
-
-
-<!--Proyectos publicados-->
-
-
-  <div class="info-back border-info shadow" style="width: 330px">
-    <div class="text-center px-2 mt-4" >
-      <p class="mt-1 px-2"> Proyectos publicados por esta empresa:</p>
-      <p> <%= @company.projects.size %> </p>
-      <p>Proyectos finalizados a la fecha:</p>
-      <p class="mb-0 px-2"><%= @company.projects.size - 1 %></p>
-      <p class="text-center text-secondary my-2 mx-0">Miembro desde <%= time_tag(@project.user.created_at, :format=>'%d/%m/%Y')  %></p>
     </div>
+     <!--Proyectos publicados-->
+    <div class="info-back border-info shadow" style="width: 330px; height: 385px;">
+      <!--
+      <div class="text-center px-2 mt-4 mb-3" >
+        <p class="mt-1 px-2"> Proyectos publicados por esta empresa:  <%= @company.projects.size %></p>
+        
+        <p>Proyectos finalizados a la fecha: <%= @company.projects.size - 1 %></p>
+        <p class="mb-0 px-2"></p>
+        <p class="text-center text-secondary my-2 mx-0">Miembro desde <%= time_tag(@project.user.created_at, :format=>'%d/%m/%Y')  %></p>
+      </div>
+      -->
+      <div class="d-flex mt-2">
 
-    <div class="d-flex mt-2">
-
-      <div class=" rounded" style="width: 330px">
-            <h5 class="text-center text-secondary mt-1 mb-4  ">Actividad en este proyecto</h5>
-            <div class="d-flex justify-content-between px-3 ">
+        <div class=" rounded" style="width: 330px">
+          <h5 class="text-center text-dark mt-5 mb-4 black-weight">Actividad en este proyecto</h5>
+          <div class="d-flex justify-content-between px-3 ">
             <p>Propuestas:</p> <p><%= @project.postulations.count %></p>
+          </div>
+          <div class="d-flex justify-content-between px-3">
+            <p>Visualizaciones:</p> <p><%= @project.hits %></p>
+          </div>
+          <div class="d-flex justify-content-between px-3">
+            <div>
+              <p >Categoría: </p>
             </div>
-            <div class="d-flex justify-content-between px-3">
-              <p>Visualizaciones:</p> <p><%= @project.hits %></p>
-            </div>
-            <div class="d-flex justify-content-between px-3">
-              <div>
-                <p >Categoría: </p>
-              </div>
-              <div class="text-right">
-                <% @project.categories.each do |category| %>
+            <div class="text-right">
+              <% @project.categories.each do |category| %>
                 <p><%= category.title %></p>
-                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div>
+            <h6 class="px-2 mt-5">Esta propuesta finaliza en:</h6>
+          </div>
+          <div class="countdown d-flex ml-2 text-center rounded " style="width: 310px;">
+            <div class="countdown__days px-3  m-1 back-number rounded">
+              <div class="number text-center size-text " ></div>
+                <span class="pb-1 lh-1">Días</span>
               </div>
+              <div class="countdown__hours px-2  m-1 back-number rounded ">
+                <div class="number text-center size-text "></div>
+                  <span class="pb-1 lh-1">Horas</span>
                 </div>
-                <div>
-                  <h6 class="px-2">Esta propuesta finaliza en:</h6>
-                </div>
-                <div class="countdown d-flex ml-2 text-center bg-primary rounded " style="width: 310px;">
-                    <div class="countdown__days px-3  m-1 back-number rounded">
-                      <div class="number text-center size-text " ></div>
-                      <span class="pb-1 lh-1">Días</span>
-                    </div>
-
-                    <div class="countdown__hours px-2  m-1 back-number rounded ">
-                      <div class="number text-center size-text "></div>
-                      <span class="pb-1 lh-1">Horas</span>
-                    </div>
-
-                    <div class="countdown__minutes px-1  m-1 back-number rounded ">
-                      <div class="number text-center size-text "></div>
-                      <span class="pb-1 lh-1">Minutos</span>
-                    </div>
-
-                    <div class="countdown__seconds px-1  m-1 back-number rounded">
-                      <div class="number text-center size-text "></div>
+                <div class="countdown__minutes px-1  m-1 back-number rounded ">
+                  <div class="number text-center size-text "></div>
+                    <span class="pb-1 lh-1">Minutos</span>
+                  </div>
+                  <div class="countdown__seconds px-1  m-1 back-number rounded">
+                    <div class="number text-center size-text "></div>
                       <span class="pb-1 lh-1">Segundos</span>
                     </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      
+          <!--REVIEWS DE FREELANCERS A LA EMPRESA -->
+      <div class="container shadow reviews-back">
+        <h3>Comentarios de Freelancers </h3>
+        <hr>
+
+        <% @reviews.each do |review| %>
+          <%= render 'components/review_comment', {emmiter: review.postulations.user, review: review} %>
+        <% end %>
+
       </div>
-    </div>
-    </div>
 
 
 
-
-
-
-  </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -179,27 +175,5 @@
         <button type="button" class="btn btn-primary">Send message</button>
       </div>
     </div>
-  </div>
-</div>
-
-        
-
-
-          <!--REVIEWS DE FREELANCERS A LA EMPRESA -->
-
-    <div class="container shadow reviews-back">
-      <h3>Comentarios de Freelancers </h3>
-      <hr>
-
-      <% @reviews.each do |review| %>
-        <%= render 'components/review_comment', {emmiter: review.postulations.user, review: review} %>
-      <% end %>
-
-    </div>
-
-                            <!-- FOOTER -->
-
-    <%= render "components/footer" %>
-
   </div>
 </div>
