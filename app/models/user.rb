@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :postulations
   has_many :reviews
   has_one_attached :photo
+  has_many :chatrooms
+  
   has_many :favourite_projects, dependent: :destroy
 
   validates :rating, inclusion: { in: (1..5), message: "Califique en el rango de 1 a 5." }, on: :update

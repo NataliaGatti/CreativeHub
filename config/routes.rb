@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :show, :new, :create, :edit, :update] do
     resources :favourite_projects, only: [:index, :create]
     resources :postulations, only: [:index, :show, :new, :create]
+    resources :chatrooms, only: :create
   end
   
   resources :categories, only: [:index, :new, :create]
@@ -25,4 +26,9 @@ Rails.application.routes.draw do
   get '/my_postulations', to: 'postulations#my_postulations', as: 'my_postulations'
   get '/chat', to: 'projects#chat', as: 'chat'  
   # get '/postulations/:id/review', to: 'reviews#new', 
+
+  resources :chatrooms, only: [:show, :index] do
+    resources :messages, only: :create
+  # me crea la ruta /chatrooms/1/messages -> POST
+  end
 end
