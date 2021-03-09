@@ -3,56 +3,14 @@
   font-size: 20px;
 }
 
-
-// #registrate{
-  
-// list-style-type: none;
-// display: flex;
-// flex-direction: column;
-// align-items: center;
-// text-align: center;
-// margin-top: 20px ;
-// margin-bottom: 80px ;
-// padding-top: 10px;
-// padding-left: 0px;
-// // margin-left: 30px;
-// position: fixed;
-// top: 72%;
-// right: 3%;
-// z-index: 1;
-//  width: 120px;
-//  height: 222px;
-// //  background-color: #f4f4f446;
-//  border-radius: 10px;
-// i{
-// font-size: 30px;
-// color: #046CE7;
-// }
-// li {
-// font-size: 14px;
-// color: #046CE7;
-// margin-bottom: 10px;
-// }
-//  a{
-//    color: #046CE7;
-//  } 
-// }
-
-
 .home_icons{
- width: 100px;
-margin-left: 88%;
-position: fixed;
-top: 535px;
-font-size: 14px;
-// text-shadow: 1px 1px 3px rgba(165, 158, 158, 0.521);
-
-
+  width: 100px;
+  margin-left: 88%;
+  position: fixed;
+  top: 535px;
+  font-size: 14px;
 }
 
-.background-color-block{
-  
-}
 
 
 .box1 {
@@ -67,13 +25,13 @@ font-size: 14px;
   border-radius: 10px;
   margin-left: 20px;
   p {
-  color: #167FFB;
-  margin-bottom: 2px;
-}
-i{
-  font-size: 24px;
-  color: #167FFB;
-}
+    color: #167FFB;
+    margin-bottom: 2px;
+  }
+  i{
+    font-size: 24px;
+    color: #167FFB;
+  }
 }
 
 .box2 {
@@ -87,13 +45,13 @@ i{
   position: relative;
   border-radius: 10px;
   p {
-  color: white;
-  margin-bottom: 2px;
+    color: white;
+    margin-bottom: 2px;
 }
-i{
-  font-size: 24px;
-  color: white;
-}
+  i{
+    font-size: 24px;
+    color: white;
+  }
 }
 .sb1:before {
   content: "";
@@ -123,12 +81,31 @@ i{
 
 .box1:hover {
   transform: scale(1.2);
-  // border: solid 1px #167FFB;
+
   box-shadow: 1px 1px 10px rgba(112, 112, 112, 0.8);
 }
 
 .box2:hover {
   transform: scale(1.2);
-  // border: solid 1px #167FFB;
+
   box-shadow: 1px 1px 10px rgba(112, 112, 112, 0.8);
 }
+
+.hiw-card{
+  width: 800px;
+  padding: 20px;
+  
+}
+
+.hiw_company{
+  background-color: #efccdb41;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+.hiw_designer{
+  background-color: #69b9ee28;
+//  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+

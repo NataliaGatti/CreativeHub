@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
   end
 
   def projects_by_category
-    @projects = Project.includes(:categories).where(categories: {title: params[:foo_param]})
+    @projects = Project.includes(:categories).where(categories: {title: params[:param]})
   end
 
   def index_by_user_company

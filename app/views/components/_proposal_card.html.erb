@@ -1,10 +1,10 @@
   <div class="p-2">
     <div class="container border p-3 proposal-card">
-      <div class="d-flex" style="height: 100px;">
+      <div class="d-flex" style="height: 112px;">
         <% if project.user.photo.key %>
           <%= cl_image_tag project.user.photo.key, alt: "Logo", width: 70, height: 50 %>
         <% end %>
-        <div class="column pl-2 pb-3">
+        <div class="column pt-2 pl-2 pb-1 pr-3">
           <h4 class="text-wrap"><%= project.user.name %></h4>
           <%= '<i class="fas fa-star" style="color: orange"></i>'.html_safe * project.user.rating %>
           <%= '<i class="fas fa-star" style="color: grey"></i>'.html_safe * (5 - project.user.rating) %>
@@ -26,14 +26,14 @@
         </div>
       <% end %>
   <% end %>
-      <div class="d-flex justify-content-between">
-        <p>Publicado hace <%= time_ago_in_words(project.created_at) %> </p>
+      <div class="d-flex justify-content-between publish-data">
+        <p>Publicado <%= time_ago_in_words(project.created_at) %> </p>
         
         <p>Propuestas: <%= project.postulations.size %></p>
       </div>
 
-      <h3 class="text-wrap"><%= project.title %></h3>
-      <p class="text-wrap"><%= project.description %></p>
+      <h3 class="text-wrap mb-2"><%= project.title %></h3>
+      <p class="text-wrap description"><%= project.description %></p>
 
       <h1 class="proposal-cost align-self-end text-primary text-center">u$s <%= project.cost.round(0) %></h1>
     </div>
