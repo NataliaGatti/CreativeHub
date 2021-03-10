@@ -183,7 +183,7 @@ puts "Creando Projects"
   title: "Video campaña de marketing", 
   description: "Se solicita video para renovar campaña de marketing 2021.", 
   cost: 800,
-  deadline: Date.new(2021, 3, 6, 20),
+  deadline: Date.new(2021, 3, 13, 12),
   status: "Cerrado", 
   user: branca
 )
@@ -192,7 +192,7 @@ puts "Creando Projects"
   title: "Flyer para lanzamiento nueva temporada", 
   description: "Se solicita flyer para publicitar en redes sociales (Facebook e Instagram).", 
   cost: 30,
-  deadline: Date.new(2021, 3, 6, 20),
+  deadline: Date.new(2021, 3, 13, 12),
   status: "Cerrado", 
   user: branca
 )

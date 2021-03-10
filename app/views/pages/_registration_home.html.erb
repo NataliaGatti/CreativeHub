@@ -9,6 +9,8 @@
     </div>
   <% end %>
 
+<% if user_signed_in? %>
+
   <%= link_to projects_path do  %>
     <div class="box2 sb2" >
       <div>
@@ -19,7 +21,17 @@
   <% end %>
 </div> 
 
+<% else %>
 
+   <%= link_to user_session_path do  %>
+    <div class="box2 sb2" >
+      <div>
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <p>¿Diseñador? trabaja freelance</p>
+    </div>
+  <% end %>
+</div> 
 
-
+ <% end %>
 
