@@ -37,15 +37,38 @@
   </div>
   
   <div class="d-inline mr-0 ml-4" style="width:20%">
-    <%= link_to "Editar proyecto", edit_project_path(project), class: "btn btn-primary button-project m-2" %>
+
+      <%= link_to edit_project_path(project), target:"_blank" do%>
+        <div class="d-flex">
+            <%= image_tag "document.png", style:"height:40px; width:40px;" %>
+            <h6>Editar proyecto</h6>
+        </div>
+      <% end %>
 
     <% if project.status == "Abierto" %>
-      <%= link_to "Bajar proyecto", unpublish_project_path(project.id), method: :PUT, class: "btn btn-primary button-project m-2" %>
+
+      <%= link_to unpublish_project_path(project.id), method: :PUT, target:"_blank" do%>
+        <div class= "d-flex align-items-center">
+          <%= image_tag "delete.png", style:"height:40px; width:40px;" %>
+          <h6>Borrar proyecto</h6>
+        </div>
+      <% end %>
+
     <% elsif project.status == "Cerrado" %>
-      <%= link_to "Dar de alta", unpublish_project_path(project.id), method: :PUT, class: "btn btn-primary button-project m-2", style:"width: 145px;" %>
+      <%= link_to unpublish_project_path(project.id), method: :PUT, target:"_blank" do%>
+        <div class= "d-flex align-items-center">
+          <%= image_tag "box.png", style:"height:40px; width:40px;" %>
+          <h6>Retomar proyecto</h6>
+        </div>
+      <% end %>
     <% end %>
 
-    <%= link_to "Ver propuestas", my_projects_postulations_path(project.id), class: "btn btn-primary button-project m-2" %>
+     <%= link_to my_projects_postulations_path(project.id), target:"_blank" do%>
+        <div class= "d-flex align-items-center">
+          <%= image_tag "presentation.png", style:"height:40px; width:40px;" %>
+          <h6>Ver propuestas</h6>
+        </div>
+      <% end %>
   </div>
   <!--
   <div class="d-inline">
