@@ -6,7 +6,7 @@
   color: black;
   height: 390px;
   width: 350px;
-  margin: 5px;
+  margin: 10px;
   position: relative;
   background-color: white;
   // opacity: 0.8;
@@ -75,12 +75,27 @@ a:hover {
 .publish-data{
   font-size: 12px;
   color: #7a7c7ea6;
+  
   p{
     margin-bottom: 5px;
     margin-top: -3px;
   }
+
 }
 
 .description{
    font-size: 14px;
+}
+
+.publish_time{
+position: absolute;
+bottom: 70px;
+
+}
+
+.proposals_number{
+position: absolute;
+bottom: 70px;
+right: 20px;
+
 }
