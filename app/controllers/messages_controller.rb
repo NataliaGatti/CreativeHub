@@ -6,11 +6,19 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.user = current_user
 
-    if @message.save
+    if @message.save!
+
+      message_data = {
+        user_id: @message.user.id,
+        message_id: @message.id,
+        message_created_at: @message.created_at.strftime("%a %b %e at %l:%M%p"),
+        message_user_name: @message.user.name,
+        message_content: @message.content
+      }
 
       ChatroomChannel.broadcast_to(
         @chatroom,
-        render_to_string(partial: "message", locals: { message: @message })
+        [current_user.id, message_data]
       )
 
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
