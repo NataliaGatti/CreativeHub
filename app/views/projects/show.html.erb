@@ -9,10 +9,10 @@
 <div class="fondo">
                     <!-- INFO DE LA EMPRESA-->
   <div class="container shadow mb-5 mt-2 px-0 d-flex">
-    <div class=" shadow info-back mr-4 border-info">
+    <div class=" shadow info-back mr-4 border-info mb-3">
       <div class="d-flex">
-        <div class="pt-4 mr-2">
-          <%= cl_image_tag @project.user.photo.key, alt: "Logo", style:"height:120px", class:"px-2" %>
+        <div class="pt-4 mr-2 pl-3">
+          <%= cl_image_tag @project.user.photo.key, alt: "Logo", style:"height:80px", class:"px-2" %>
         </div>
         <div class="mt-2"style="width:650px">
           <h2 class=" mt-2 text-wrap" style="height: 90px"><%= @project.title%></h2>
@@ -44,36 +44,50 @@
       <!-- DETALLE DE PROPUESTA -->
       <div class="text-wrap p-2 pt-0 border-info " >
         <%# <hr class="mb-0"> %>
-        <h4 class="mt-1 text-primary mb-0"> INFORMACIÓN SOBRE ESTE PROYECTO</h4>
+        <h4 class="mt-1 text-primary mb-0  pl-3"> INFORMACIÓN SOBRE ESTE PROYECTO</h4>
         <hr class="mt-0">
         <div>
-          <h5 class="text-black p-3"><%= @project.description%></h5>
+          <h6 class="text-black p-3"><%= @project.description%></h6>
         </div>
+        
+
+        
         <div>
-          <% start_time =  Date.today %>
-          <% end_time   =  @project.deadline %> 
-          <strong><h6 class="mb-0 px-3">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para postularte</h6></strong>
-          <h5 class="p-3">Fecha de Entrega: <%= time_tag(@project.deadline, format: :default, id:"deadline") %></h5>
+          <% if @project.status == "Abierto" %>
+            <% start_time =  Date.today %>
+            <% end_time   =  @project.deadline %> 
+            <strong><h6 class="mb-0 px-3">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para postularte</h6></strong>
+            <h5 class="p-3">Fecha de Entrega: <%= time_tag(@project.deadline, format: :default, id:"deadline") %></h5>
+          <% end %>
+          
           <div class="d-flex">
-            <h2 class="px-3"><strong>Remuneración:</strong> </h2> <h2 class="text-primary pl-2"><strong> u$s <%= @project.cost.round(0) %></strong> </h2>
+            <h2 class="px-3"><strong>Remuneración:</strong> </h2> <h2 class="text-primary pl-2">
+            <%= image_tag "dinero.png", style:"heiht:45px; width:50px;" %>
+            <strong> u$s <%= @project.cost.round(0) %></strong> </h2>
           </div>
         </div>
-        <div class="d-flex justify-content-center mt-2">
-          <% if @user_postulated %>
-            <p class="p-2 bg-success text-white my-3">Ya estás postulado a este proyecto</p>
-          <% else %>
-            <%= link_to "Enviar propuesta", new_project_postulation_path(@project), class:"btn btn-primary mx-2 my-3"%>
-          <% end %>
-          <!-- <button id="chat-button" class="btn btn-primary mx-2 my-3">Realizar consulta</button> 
-          
-          <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 my-3" %> -->
-          <!--
-          <button type="button" class="btn btn-primary mx-2 my-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Realizar consulta</button>
-          -->
-          <%= link_to "Realizar consulta", project_chatrooms_path(@project) , class:"btn btn-primary mx-2 my-3", method: :POST  %>
+              
        
+       <% unless current_user.company %>
+          <div class="d-flex justify-content-center mt-2">
+            <% if @user_postulated %>
+              <p class="p-2 bg-success text-white my-3">Ya estás postulado a este proyecto</p>
+            <% else %>
+              <%= link_to "Enviar propuesta", new_project_postulation_path(@project), class:"btn btn-primary mx-2 my-3"%>
+            <% end %>
+            <!-- <button id="chat-button" class="btn btn-primary mx-2 my-3">Realizar consulta</button> 
+            
+            <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 my-3" %> -->
 
-        </div>
+            <%= link_to "Realizar consulta", project_chatrooms_path(@project), class:"btn btn-primary mx-2 my-3", method: :POST  %>        
+
+          </div>
+       <% end %>
+       
+       
+          
+   
+        
       </div>
 
     </div>
@@ -108,31 +122,35 @@
               <% end %>
             </div>
           </div>
-          <div>
-            <h6 class="px-2 mt-5">Esta propuesta finaliza en:</h6>
-          </div>
-          <div class="countdown d-flex ml-2 text-center rounded " style="width: 310px;">
-            <div class="countdown__days px-3  m-1 back-number rounded">
-              <div class="number text-center size-text " ></div>
-                <span class="pb-1 lh-1">Días</span>
-              </div>
-              <div class="countdown__hours px-2  m-1 back-number rounded ">
-                <div class="number text-center size-text "></div>
-                  <span class="pb-1 lh-1">Horas</span>
-                </div>
-                <div class="countdown__minutes px-1  m-1 back-number rounded ">
-                  <div class="number text-center size-text "></div>
-                    <span class="pb-1 lh-1">Minutos</span>
-                  </div>
-                  <div class="countdown__seconds px-1  m-1 back-number rounded">
-                    <div class="number text-center size-text "></div>
-                      <span class="pb-1 lh-1">Segundos</span>
+          
+                  <% if @project.status == "Abierto" %>
+                    <div>
+                      <h6 class="px-2 mt-5">Esta propuesta finaliza en:
+                      <%= image_tag "clock.png", style: "height: 40px; width: 40px;" %></h6>
                     </div>
-                  </div>
+                    <div class="countdown d-flex ml-2 text-center rounded " style="width: 310px;">
+                      <div class="countdown__days px-3  m-1 back-number rounded">
+                        <div class="number text-center size-text " ></div>
+                          <span class="pb-1 lh-1">Días</span>
+                        </div>
+                        <div class="countdown__hours px-2  m-1 back-number rounded ">
+                          <div class="number text-center size-text "></div>
+                            <span class="pb-1 lh-1">Horas</span>
+                          </div>
+                          <div class="countdown__minutes px-1  m-1 back-number rounded ">
+                            <div class="number text-center size-text "></div>
+                              <span class="pb-1 lh-1">Minutos</span>
+                            </div>
+                            <div class="countdown__seconds px-1  m-1 back-number rounded">
+                              <div class="number text-center size-text "></div>
+                                <span class="pb-1 lh-1">Segundos</span>
+                              </div>
+                            </div>
+                          </div>
+                  <% end %>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       
           <!--REVIEWS DE FREELANCERS A LA EMPRESA -->
@@ -141,7 +159,7 @@
         <hr>
 
         <% @reviews.each do |review| %>
-          <%= render 'components/review_comment', {emmiter: review.postulations.user, review: review} %>
+          <%= render 'components/review_comment', {emmiter: review.postulation.user, review: review} %>
         <% end %>
 
       </div>

@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
         @projects = Project.where(sql_query, query: "%#{params[:query]}%")
       else
         @projects = Project.all.open_proyects
+       
       end
     end
   end
@@ -49,7 +50,7 @@ class ProjectsController < ApplicationController
         category = Category.find(id.to_i)
         CategoryProject.create(project: @project, category: category )
       end
-      redirect_to project_path(@project), notice: "Te has postulado correctamente a este projecto. Aguarda la confirmación de la empresa."
+      redirect_to project_path(@project), notice: "¡Has creado correctamente el proyecto!"
     else
       render :new
     end
@@ -85,7 +86,7 @@ class ProjectsController < ApplicationController
   end
 
   def projects_by_category
-    @projects = Project.includes(:categories).where(categories: {title: params[:foo_param]})
+    @projects = Project.includes(:categories).where(categories: {title: params[:param]})
   end
 
   def index_by_user_company

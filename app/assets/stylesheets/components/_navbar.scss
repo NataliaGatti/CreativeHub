@@ -63,3 +63,9 @@ border-radius: 50%;
   padding-top: 4px;
   margin-left: 7px;
 }
+
+.navbar-nav .dropdown-menu {
+    position: fixed;
+    float: none;
+    top: 87px;
+}

@@ -10,6 +10,7 @@ class Project < ApplicationRecord
   validates :description, length: { minimum: 50 }
   validate :date_cannot_be_in_the_past
   enum status: [:Abierto, :Cerrado], _default: :Abierto
+  validate :date_cannot_be_in_the_past
   has_one_attached :photo
 
   scope :open_proyects, -> { where(status: :Abierto) }
@@ -17,7 +18,7 @@ class Project < ApplicationRecord
 
   def date_cannot_be_in_the_past
     if deadline.present? && deadline < Date.current
-      errors.add(:deadline, "No puede ser anterior a la fecha actual")
+      errors.add(:deadline, "can't be in the past")
     end
   end
 end
