@@ -78,8 +78,11 @@
             <!-- <button id="chat-button" class="btn btn-primary mx-2 my-3">Realizar consulta</button> 
             
             <%= link_to "Realizar consulta", "#", class:"btn btn-primary mx-2 my-3" %> -->
-
-            <%= link_to "Realizar consulta", project_chatrooms_path(@project), class:"btn btn-primary mx-2 my-3", method: :POST  %>        
+            <% if @has_chatroom %>
+              <%= link_to "Ir a conversación", chatroom_path(@chatroom), class:"btn btn-primary mx-2 my-3" %>
+            <% else %>
+              <%= link_to "Realizar consulta", project_chatrooms_path(@project), class:"btn btn-primary mx-2 my-3", method: :POST  %>        
+            <% end %>
 
           </div>
        <% end %>
