@@ -1,24 +1,24 @@
 
- <div class="container-chat clearfix body-chat">
-    <div class="people-list" id="people-list">
-      <div class="search">
-        <input type="text" placeholder="search" />
-        <i class="fa fa-search"></i>
-      </div>
-      <ul class="list">
-        <% @chatrooms.each do |chatroom| %>
-          <%= render 'chatroom_card', chatroom: chatroom %>
-        <% end %>
-      </ul>
+<div class="container-chat clearfix body-chat">
+  <div class="people-list" id="people-list">
+    <div class="search">
+      <input type="text" placeholder="search" />
+      <i class="fa fa-search"></i>
     </div>
+    <ul class="list">
+      <% @chatrooms.each do |chatroom| %>
+        <%= render 'chatroom_card', chatroom: chatroom %>
+      <% end %>
+    </ul>
+  </div>
+  
+  <div class="chat">
     
-    <div class="chat">
-      
-      <img src="https://cdn.dribbble.com/users/1078347/screenshots/2783279/no_messages.png?compress=1&resize=800x600" alt="no messages" width="100%">
-      
-    </div> <!-- end chat -->
+    <img src="https://cdn.dribbble.com/users/1078347/screenshots/2783279/no_messages.png?compress=1&resize=800x600" alt="no messages" height="100%">
     
-  </div> <!-- end container -->
+  </div> <!-- end chat -->
+  
+</div> <!-- end container -->
 
 <script id="message-template" type="text/x-handlebars-template">
   <li class="clearfix">

@@ -23,6 +23,16 @@ class ProjectsController < ApplicationController
     @reviews = []
     projects = @company.projects
 
+    chatroom = Chatroom.all.where("project_id = ?", params[:id].to_i)
+                            .where("company_id = ?", @project.user.id.to_i)
+                            .where("designer_id = ?", current_user.id.to_i)
+    if chatroom.length == 1
+      @chatroom = chatroom[0]
+      @has_chatroom = true
+    else
+      @has_chatroom = false
+    end
+
     projects.each do |project|
       project.postulations.each do |postulation|
         @reviews << postulation.review if postulation.review.present? && postulation.review.user != @company
@@ -34,6 +44,7 @@ class ProjectsController < ApplicationController
       @user_postulated = true if postulation.project_id == params[:id].to_i
     end
   end
+
 
   def new
     @project = Project.new

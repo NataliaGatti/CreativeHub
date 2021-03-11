@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   has_many :favourite_projects, dependent: :destroy
   has_many :category_projects, dependent: :destroy
   has_many :categories, through: :category_projects
+  has_many :chatrooms
   validates :title, :cost, :deadline, :status, presence: true
 
   validates :description, length: { minimum: 50 }
