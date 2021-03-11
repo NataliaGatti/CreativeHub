@@ -1,4 +1,4 @@
-<div class="shadow m-2 pl-4 border border-white img-postulation">
+<div class="shadow m-2 pl-4 border border-white img-postulation" style="width:800px; border-radius:8%;">
 
   <div class="d-flex m-2 pt-3">
   
@@ -24,35 +24,134 @@
 
   <div class="d-flex mb-0">
     <% if postulation.status == "Postulado" %>
+      
+        <% if postulation.file %>
+          <div class="d-inline mx-5">
+            <%= link_to postulation.file, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+              <%= image_tag "carpeta.png", style:"height:45px; width:50px;" %>
+              <h6>Ver Demo</h6>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="d-inline mx-5">
+            <%= link_to @project.photo.key, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+              <%= image_tag "carpeta.png", style:"height:45px; width:50px;" %>
+              <h6>Ver archivo adjunto</h6>
+            <% end %>
+          </div>
+        <% end %>
+        
+        <div class="d-inline mx-5">
+          <%= link_to chatrooms_path, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+            <%= image_tag "charla.png", style:"height:45px; width:50px;" %>
+            <h6>Abrir Chat</h6>
+          <% end %>
+        </div>
 
-      <%= link_to "Ver demo", postulation.file, class:"btn btn-primary rounded  mr-4", target:"_blank" %>
-      <%= link_to "Ver archivo adjunto", @project.photo.key, class:"btn btn-primary rounded  mr-4", target:"_blank" %>
-      <%= link_to "Abrir chat", "#", class:"btn btn-primary rounded  mr-4" %>
+        <div class="d-inline mx-5">
+          <%= link_to change_projects_postulations_state_path(postulation.project.id, postulation.id), method: :PATCH, class:"d-flex flex-column align-items-center" do%>
+            <%= image_tag "si.png", style:"height:45px; width:50px;" %>
+            <h6>Aceptar propuesta</h6>
+          <% end %>
+        </div>
 
-      <%= link_to "Aceptar propuesta", change_projects_postulations_state_path(postulation.project.id, postulation.id), class:"btn btn-primary rounded  mr-4", method: :PATCH %>
-
-      <%= link_to "Rechazar", decline_project_path(postulation.id), class:"btn btn-primary rounded  mr-4", method: :PATCH %>
-
-      <%= link_to "Volver", my_projects_path, class:"btn btn-primary rounded  mr-4" %>
+        <div class="d-inline mx-5">
+          <%= link_to decline_project_path(postulation.id), method: :PATCH, class:"d-flex flex-column align-items-center" do%>
+            <%= image_tag "bad-review.png", style:"height:45px; width:50px;" %>
+            <h6>Rechazar propuesta</h6>
+          <% end %>
+        </div>
+  
+        <div class="d-inline mx-5">
+          <%= link_to my_projects_path, class:"d-flex flex-column align-items-center" do%>
+            <%= image_tag "back-arrow.png", style:"height:45px; width:50px;" %>
+            <h6>Volver</h6>
+          <% end %>
+        </div>
+        </div>
 
 
     <% elsif postulation.status == "Aceptado" %>
 
-      <%= link_to "Ver demo", postulation.file, class:"btn btn-primary rounded  mr-4", target:"_blank" %>
-      <%= link_to "Ver archivo adjunto", @project.photo.key, class:"btn btn-primary rounded  mr-4", target:"_blank" %>
-      <%= link_to "Abrir chat", "#", class:"btn btn-primary rounded  mr-4" %>
-
-      <h1 class="btn btn-success rounded  mr-4">Aceptado</h1>
+      <% if postulation.file %>
+        <div class="d-inline mx-5">
+          <%= link_to postulation.file, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+            <%= image_tag "carpeta.png", style:"height:45px; width:50px;" %>
+            <h6>Ver Demo</h6>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="d-inline mx-5">
+          <%= link_to @project.photo.key, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+            <%= image_tag "carpeta.png", style:"height:45px; width:50px;" %>
+            <h6>Ver archivo adjunto</h6>
+          <% end %>
+        </div>
+      <% end %>
       
-      <%= link_to "Enviar review", new_project_postulation_review_path(@project, postulation), class:"btn btn-primary rounded mr-4" %>
+      <div class="d-inline mx-5">
+        <%= link_to chatrooms_path, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+          <%= image_tag "charla.png", style:"height:45px; width:50px;" %>
+          <h6>Abrir Chat</h6>
+        <% end %>
+      </div>
+
+      <div class="d-flex flex-column align-items-center mx-5">
+        <%= image_tag "approved.png", style:"height:45px; width:50px;" %>
+        <h6 class="text-success bolder pt-1">Aceptado</h6>
+      </div>
+      
+
+       <div class="d-inline mx-5">
+        <%= link_to new_project_postulation_review_path(@project, postulation), target:"_blank", class:"d-flex flex-column align-items-center" do%>
+          <%= image_tag "review.png", style:"height:45px; width:50px;" %>
+          <h6>Enviar review</h6>
+        <% end %>
+      </div>
+
+       <div class="d-inline mx-5">
+        <%= link_to my_projects_path, class:"d-flex flex-column align-items-center" do%>
+          <%= image_tag "back-arrow.png", style:"height:45px; width:50px;" %>
+          <h6>Volver</h6>
+        <% end %>
+      </div>
 
     <% elsif postulation.status == "Declinado" %>
     
-      <%= link_to "Ver demo", postulation.file, class:"btn btn-primary rounded  mr-4", target:"_blank" %>
-      <%= link_to "Ver archivo adjunto", @project.photo.key, class:"btn btn-primary rounded  mr-4", target:"_blank" %>
-      <%= link_to "Abrir chat", "#", class:"btn btn-primary rounded  mr-4" %>
+      <% if postulation.file %>
+        <div class="d-inline mx-5">
+          <%= link_to postulation.file, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+            <%= image_tag "carpeta.png", style:"height:45px; width:50px;" %>
+            <h6>Ver Demo</h6>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="d-inline mx-5">
+          <%= link_to @project.photo.key, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+            <%= image_tag "carpeta.png", style:"height:45px; width:50px;" %>
+            <h6>Ver archivo adjunto</h6>
+          <% end %>
+        </div>
+      <% end %>
+      
+      <div class="d-inline mx-5">
+        <%= link_to chatrooms_path, target:"_blank", class:"d-flex flex-column align-items-center" do%>
+          <%= image_tag "charla.png", style:"height:45px; width:50px;" %>
+          <h6>Abrir Chat</h6>
+        <% end %>
+      </div>
 
-      <h1 class="btn btn-danger rounded  mr-4">Rechazado</h1>
+      <div class="mx-5">
+        <%= image_tag "reject.png", style:"height:45px; width:50px;" %>
+        <h6 class="text-success bolder shadow">Rechazado</h6>
+      </div>
+
+      <div class="d-inline mx-5">
+        <%= link_to my_projects_path, class:"d-flex flex-column align-items-center" do%>
+          <%= image_tag "back-arrow.png", style:"height:45px; width:50px;" %>
+          <h6>Volver</h6>
+        <% end %>
+      </div>
 
     <% end %>
   </div>

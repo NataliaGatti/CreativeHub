@@ -1,6 +1,6 @@
 
 
-<div class="card-product my-3">
+<div class="card-product-company my-3" style="height: 150px;">
   
   <div class="d-inline" style="width:20%">
     <% if project.status == "Abierto" %>
@@ -24,28 +24,51 @@
       </div>
     <% end %>
      
-  <div class="card-product-infos" style="width:60%">
+  <div class="card-product-infos-company" style="width:60%">
     <h3 class="mb-3 text-dark text-wrap"><%= project.title %></h3>
     <div class="d-inline justify-content-between text-center">
       <% if project.status == "Abierto" %>
-        <p class="font-status text-success bg-gradient-light rounded shadow">Status: <%= project.status %></p>
+        <p class="font-status text-success bg-gradient-light">Status: <%= project.status %></p>
       <% elsif project.status == "Cerrado" %>
-        <p class="font-status text-warning bg-gradient-light rounded shadow">Status: <%= project.status %></p>
+        <p class="font-status text-warning bg-gradient-light">Status: <%= project.status %></p>
       <% end %>
       <p class="font-status text-dark">Propuestas: <%= project.postulations.count %></p>
     </div>
   </div>
   
   <div class="d-inline mr-0 ml-4" style="width:20%">
-    <%= link_to "Editar proyecto", edit_project_path(project), class: "btn btn-primary button-project m-2" %>
+
+      <%= link_to edit_project_path(project), target:"_blank" do%>
+        <div class="d-flex">
+            <%= image_tag "document.png", style:"height:40px; width:40px;" %>
+            <h6 class="pl-2 pt-2 mt-1">Editar proyecto</h6>
+        </div>
+      <% end %>
 
     <% if project.status == "Abierto" %>
-      <%= link_to "Bajar proyecto", unpublish_project_path(project.id), method: :PUT, class: "btn btn-primary button-project m-2" %>
+
+      <%= link_to unpublish_project_path(project.id), method: :PUT do%>
+        <div class= "d-flex align-items-center">
+          <%= image_tag "delete.png", style:"height:40px; width:40px;" %>
+          <h6 class="pl-2 pt-2">Borrar proyecto</h6>
+        </div>
+      <% end %>
+
     <% elsif project.status == "Cerrado" %>
-      <%= link_to "Dar de alta", unpublish_project_path(project.id), method: :PUT, class: "btn btn-primary button-project m-2", style:"width: 145px;" %>
+      <%= link_to unpublish_project_path(project.id), method: :PUT do%>
+        <div class= "d-flex align-items-center">
+          <%= image_tag "box.png", style:"height:40px; width:40px;" %>
+          <h6 class="pl-2 pt-2">Retomar proyecto</h6>
+        </div>
+      <% end %>
     <% end %>
 
-    <%= link_to "Ver propuestas", my_projects_postulations_path(project.id), class: "btn btn-primary button-project m-2" %>
+     <%= link_to my_projects_postulations_path(project.id) do%>
+        <div class= "d-flex align-items-center">
+          <%= image_tag "comments.png", style:"height:40px; width:40px;" %>
+          <h6 class="pl-2 pt-2">Ver propuestas</h6>
+        </div>
+      <% end %>
   </div>
   <!--
   <div class="d-inline">
