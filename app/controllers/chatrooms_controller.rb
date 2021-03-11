@@ -13,13 +13,14 @@ class ChatroomsController < ApplicationController
     @chatroom.designer = current_user
     @chatroom.company = Project.find(params[:project_id]).user
     @chatroom.name = "#{Project.find(params[:project_id]).title} - #{current_user.name}"
-
+    @chatroom.project_id = params[:project_id]
     # raise
     if @chatroom.save
       redirect_to chatroom_path(@chatroom)
     else
       redirect_to projects_path
     end
+    # raise
   end
 
   def index

@@ -20,6 +20,15 @@ class ProjectsController < ApplicationController
     @project.punch(request)
     @company = @project.user
     @reviews = @company.reviews
+    chatroom = Chatroom.all.where("project_id = ?", params[:id].to_i)
+                            .where("company_id = ?", @project.user.id.to_i)
+                            .where("designer_id = ?", current_user.id.to_i)
+    if chatroom.length == 1
+      @chatroom = chatroom[0]
+      @has_chatroom = true
+    else
+      @has_chatroom = false
+    end
 
     @user_postulated = false
     current_user.postulations.each do |postulation|

@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  # before_action :set_user_session
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
     @message = Message.new(message_params)
@@ -17,8 +18,12 @@ class MessagesController < ApplicationController
       render "chatrooms/show"
     end
     
-
   end
+
+  # def set_user_session
+  #   session[:user_id] = current_user.id
+  # end
+  
 
   private
 

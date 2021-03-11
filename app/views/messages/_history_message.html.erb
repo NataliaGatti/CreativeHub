@@ -1,3 +1,4 @@
+
 <% if message.user == current_user %>
 
   <li class="clearfix" style="list-style-type: none">
@@ -25,20 +26,3 @@
   </li>
 
 <% end %>
-
-
-<!--
-
-  <li class="clearfix" style="list-style-type: none" data-user-id="<%= message.user.id %>">
-    <div class="message-data message-container" id="message-<%= message.id %>">
-      <span class="message-data-time" ><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span> &nbsp; &nbsp;
-      <span class="message-data-name" ><%= message.user.name %></span> <i class="fa fa-circle me"></i>
-    </div>
-      
-    <div class="message">
-      <p><%= message.content %></p>
-    </div>
-  </li>
-
-
--->
