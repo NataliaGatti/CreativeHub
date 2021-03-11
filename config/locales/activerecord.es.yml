@@ -2,12 +2,15 @@ es:
   activerecord:
     models:
       project:
+      postulation:
     attributes:
         project:
-          title: "Titulo"
+          title: "Título"
           description: "Descripción"
           cost: "Presupuesto"
           deadline: "Fecha maxima"
+        postulation:
+          description: "Descripción"
     errors:
       messages:
         taken: "ya existe"
