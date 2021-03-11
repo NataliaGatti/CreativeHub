@@ -20,7 +20,9 @@ class ProjectsController < ApplicationController
   def show
     @project.punch(request)
     @company = @project.user
-    @reviews = @company.reviews
+    @reviews = []
+    projects = @company.projects
+
     chatroom = Chatroom.all.where("project_id = ?", params[:id].to_i)
                             .where("company_id = ?", @project.user.id.to_i)
                             .where("designer_id = ?", current_user.id.to_i)
@@ -31,11 +33,18 @@ class ProjectsController < ApplicationController
       @has_chatroom = false
     end
 
+    projects.each do |project|
+      project.postulations.each do |postulation|
+        @reviews << postulation.review if postulation.review.present? && postulation.review.user != @company
+      end
+    end
+
     @user_postulated = false
     current_user.postulations.each do |postulation|
       @user_postulated = true if postulation.project_id == params[:id].to_i
     end
   end
+
 
   def new
     @project = Project.new
