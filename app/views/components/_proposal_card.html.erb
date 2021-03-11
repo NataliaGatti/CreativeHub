@@ -24,6 +24,9 @@
   <% end %>
 
   <%= link_to project_path(project), class:"text-dark" do %>
+      <h3 class="text-wrap mb-2"><%= project.title %></h3>
+      
+      <p class="text-wrap description"><%= project.description %></p>
 
     <div class="d-flex justify-content-between publish-data">
       <p>Publicado <%= time_ago_in_words(project.created_at) %> </p> 
