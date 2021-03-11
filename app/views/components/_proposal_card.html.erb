@@ -29,12 +29,9 @@
       <p class="text-wrap description"><%= project.description %></p>
 
     <div class="d-flex justify-content-between publish-data">
-      <p>Publicado <%= time_ago_in_words(project.created_at) %> </p> 
-      <p>Propuestas: <%= project.postulations.size %></p>
+      <p class= "publish_time">Publicado <%= time_ago_in_words(project.created_at) %> </p> 
+      <p class= "proposals_number">Propuestas: <%= project.postulations.size %></p>
     </div>
-
-    <h3 class="text-wrap mb-2"><%= project.title %></h3>
-    <p class="text-wrap description"><%= project.description %></p>
     <h1 class="proposal-cost align-self-end text-primary text-center">u$s <%= project.cost.round(0) %></h1>
   <% end %>
   
