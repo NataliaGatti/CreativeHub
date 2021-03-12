@@ -220,6 +220,7 @@ uxdesign = Category.create!(title: 'Diseño UX/UI')
 uxdesign.photo.attach(io: ux_design_photo, filename: 'uxdesign.png', content_type: 'image/png')
 
 puts "Creando relaciones project-category"
+
 CategoryProject.create!( project: branca_photo, category: photography )
 CategoryProject.create!( project: branca_flyer, category: photography )
 
@@ -234,7 +235,7 @@ CategoryProject.create!( project: branca_video, category: video )
 CategoryProject.create!( project: correo_argentino, category: uxdesign )
 CategoryProject.create!( project: cuareim_redes, category: diseno_grafico )
 
-CategoryProject.create!( project: branca_web, category: photography )
+
 CategoryProject.create!( project: pwc_web, category: uxdesign )
 CategoryProject.create!( project: branca_web, category: uxdesign )
 
@@ -273,7 +274,7 @@ branca_review_cami = Review.create!(comment: "Muy buena experiencia. una empresa
 branca_review_facu = Review.create!(comment: "Ha sido un placer este trabajo. El cliente muy atento. Ha revisado todos los detalles. Seguro trabajaremos juntos nuevamente.", rating: 5, user: facundo, postulation: branca_video_facundo )
 branca_review_natalia = Review.create!(comment: "Me ayudaron mucho con las mejoras en el borrador presentado. Fue muy receptivo con los mensajes y muy amables en todo el proceso. Excelente el pago, en tiempo y forma según lo acordado.", rating: 5, user: natalia, postulation: branca_web_natalia)
 branca_review_nico = Review.create!(comment: "El trabajo realmente fue en equipo. Lo único para señalar es que luego pidieron más cambios de los hablados, pero pagaron por las horas extras de trabajo.", rating: 4, user: nico, postulation: branca_nico )
-pwc_review_nico = Review.create!(comment: "Fue realmente genial trabajar con esta empresa, se tomaron el tiempo para escuchar mis propuestas y explicarme sus correcciones.Este fue mi primera experiencia con la empresa y el resultado fue muy bueno.", rating: 4, user: nico, postulation: pwc_software_nico )
+pwc_review_nico = Review.create!(comment: "Fue realmente genial trabajar con esta empresa, se tomaron el tiempo para escuchar mis propuestas y explicarme sus correcciones. Esta fue mi primera experiencia con la empresa y el resultado fue muy bueno.", rating: 4, user: nico, postulation: pwc_software_nico )
 pwc_review_natalia = Review.create!(comment: "La comunicación fue buena, se cumplieron con los plazos de respuesta y de pago.", rating: 3, user: natalia, postulation: pwc_video_natalia)
 cuareim_review_facu = Review.create!(comment: "Como en la mayoría de los proyectos creativos, cuanta más orientación y dirección pueda proporcionar, mejor resultado se obtiene. La empresa estuvo dispuesta a participar en el proceso creativo y eso es de mucho valor para cualquier diseñador.", rating: 5, user: facundo, postulation: branca_video_facundo )
 loreal_review_cami = Review.create!(comment: "Esta ha sido una de las mejores experiencias trabajando en publicidad con empresas. Excelente comunicación y predisposición para el trabajo en equipo.", rating: 5, user: camilo, postulation: branca_flyer_camilo )
