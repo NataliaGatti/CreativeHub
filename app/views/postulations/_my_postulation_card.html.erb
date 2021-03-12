@@ -1,28 +1,33 @@
-<div class="example-2 postulation-card col-4">
-  
-  <div class="postulation-wrapper">
-    <%= cl_image_tag postulation.project.user.photo.key, class:"image-wrap" %>
-    <div class="header">
-      <div class="date">
-        <span class="day postulation-span">12</span>
-        <span class="month postulation-span">Aug</span>
-        <span class="year postulation-span">2016</span>
-      </div>
-      <ul class="menu-content">
-        <li class="postulation-li">
-          <a href="#" class="fa fa-bookmark-o postulation-text"></a>
-        </li>
-        <li class="postulation-li"><a href="#" class="fa fa-heart-o postulation-text"><span class="postulation-span">18</span></a></li>
-        <li class="postulation-li"><a href="#" class="fa fa-comment-o postulation-text"><span class="postulation-span">3</span></a></li>
-      </ul>
-    </div>
-    <div class="data">
-      <div class="content">
-        <span class="author postulation-span"><%= postulation.project.user.name %></span>
-        <h1 class="postulation-title"><a href="#" class="postulation-text"><%= postulation.project.title %></a></h1>
-        <p class="text"><%= postulation.project.description %></p>
+<%= link_to project_path(postulation.project) do %>
 
+  <div class="example-2 postulation-card col-4">
+    
+    <div class="postulation-wrapper">
+      <%= cl_image_tag postulation.project.user.photo.key, class:"image-wrap" %>
+      <div class="header">
+        <div class="date">
+          <span class="day postulation-span">12</span>
+          <span class="month postulation-span">Aug</span>
+          <span class="year postulation-span">2016</span>
+        </div>
+        <ul class="menu-content">
+          <li class="postulation-li">
+            <a href="#" class="fa fa-bookmark-o postulation-text"></a>
+          </li>
+          <li class="postulation-li"><a href="#" class="fa fa-heart-o postulation-text"><span class="postulation-span">18</span></a></li>
+          <li class="postulation-li"><a href="#" class="fa fa-comment-o postulation-text"><span class="postulation-span">3</span></a></li>
+        </ul>
+      </div>
+      <div class="data">
+        <div class="content">
+          <span class="author postulation-span"><%= postulation.project.user.name %></span>
+          <h1 class="postulation-title"><div class="postulation-text"><%= postulation.project.title %></div></h1>
+          <p class="text"><%= postulation.project.description %></p>
+
+        </div>
       </div>
     </div>
+
   </div>
-</div>
+
+<% end %>
