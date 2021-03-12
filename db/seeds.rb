@@ -220,6 +220,7 @@ uxdesign = Category.create!(title: 'Diseño UX/UI')
 uxdesign.photo.attach(io: ux_design_photo, filename: 'uxdesign.png', content_type: 'image/png')
 
 puts "Creando relaciones project-category"
+
 CategoryProject.create!( project: branca_photo, category: photography )
 CategoryProject.create!( project: branca_flyer, category: photography )
 
@@ -234,7 +235,7 @@ CategoryProject.create!( project: branca_video, category: video )
 CategoryProject.create!( project: correo_argentino, category: uxdesign )
 CategoryProject.create!( project: cuareim_redes, category: diseno_grafico )
 
-CategoryProject.create!( project: branca_web, category: photography )
+
 CategoryProject.create!( project: pwc_web, category: uxdesign )
 CategoryProject.create!( project: branca_web, category: uxdesign )
 
@@ -246,12 +247,12 @@ CategoryProject.create!( project: loreal, category: diseno_grafico )
 puts "Creando postulaciones"
 
 branca_nico = Postulation.create!(file: 'https://www.globalpremiumbrands.com/images/html/aperitivo-fernet-branca-logo_inside.png', user: nico, project: branca_logo, description: "Colores, aromas, sabores y… ¡poderes! El logo hace referencia a la receta de Fernet-Branca. Cada parte de este logo es un universo, una experiencia, un descubrimiento.")
-branca_cami = Postulation.create!(user: camilo, project: branca_logo, description: "Free white and black logo vector. Waiting for comments. Thanks for the opportunity!")
+branca_cami = Postulation.create!(user: camilo, project: branca_logo, description: "Vector logo blanco y negro gratis. Esperando comentarios. ¡Gracias por la oportunidad!")
 file = URI.open('https://gtswiki.gt-beginners.net/decal/png/00/48/08/7278481107283084800_1.png')
 branca_cami.photo.attach(io: file, filename: 'logo_branca.png', content_type: 'image/png')
-branca_photo_natalia = Postulation.create!(file: 'https://www.instagram.com/fotografiaempresarial/?hl=es-la', user: natalia, project: branca_photo, description: "/MOMENTOS REALES/ INSTANTES PRECISOS/..............................................................................................................................................................................")
-branca_photo_facu = Postulation.create!(file: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT93vpDEvf0E1XN48nOFGlxMHEjbWH1j-tUCQ&usqp=CAU', user: facundo, project: branca_photo, description: "Envío muestra de una foto realizada a un almacén de bebidas........................................................................")
-branca_web_natalia = Postulation.create!(file: 'https://blog.desdelinux.net/nextcloud-hub-20-llega-con-mejoras-de-integracion-optimizacion-y-mas/', user: natalia, project: branca_web, description: "Propuesta de mejoras para Nextcloud Hub 20........................................................................................................................................")
+branca_photo_natalia = Postulation.create!(file: 'https://www.instagram.com/fotografiaempresarial/?hl=es-la', user: natalia, project: branca_photo, description: "Se presenta un portafolio con muestras de imágenes que capturan las sensaciones generadas durante la sesión en una vinoteca reconocida.")
+branca_photo_facu = Postulation.create!(file: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT93vpDEvf0E1XN48nOFGlxMHEjbWH1j-tUCQ&usqp=CAU', user: facundo, project: branca_photo, description: "Envío muestra de una foto realizada a un almacén de bebidas.")
+branca_web_natalia = Postulation.create!(file: 'https://blog.desdelinux.net/nextcloud-hub-20-llega-con-mejoras-de-integracion-optimizacion-y-mas/', user: natalia, project: branca_web, description: "Propuesta de mejoras para Nextcloud Hub 20. En la misma pueden observarse los lineamientos principales con los cuales trabajamos para ese desarrollo.")
 branca_video_facundo = Postulation.create!(file: 'https://www.youtube.com/watch?v=D4PP1mei-aE', user: facundo, project: branca_video, description: "Un vídeo lleno de imágenes frescas, que invocan los sentimientos de placer desde el primer momento.")
 branca_flyer_camilo = Postulation.create!(file: 'https://i.pinimg.com/originals/ff/9e/e4/ff9ee42c9d576e001a271cc88f2a6d89.jpg', user: camilo, project: branca_flyer, description: "Se buscó mantener los colores y la simplicidad que resaltan a la marca.")
 pwc_software_nico = Postulation.create!(user: nico, project: pwc_software, description: "Se presenta un borrador con el escenario propuesto, teniendo en cuenta los servicios que utiliza la empresa. La tecnología aplicada sería de alto valor agregado.")
@@ -262,10 +263,10 @@ pwc_video_natalia = Postulation.create!(user: natalia, project: pwc_video, descr
 file = URI.open('https://www.youtube.com/watch?v=7GeMDdfwYDY')
 pwc_video_natalia.photo.attach(io: file, filename: 'pwc_video.video', content_type: 'video/watch')
 cuareim_redes_cami = Postulation.create!(file: 'https://i0.wp.com/tiempodenegocios.com/wp-content/uploads/2021/02/cv-moderno-sexygreek.png', user: camilo, project: cuareim_redes, description: "Envío CV completo para postulación al puesto de community manager.")
-pwc_web_natalia = Postulation.create!(user: natalia, project: pwc_web, description: "Se presenta un diagnóstico de la situación actual y propuestas de mejoras....................................................")
+pwc_web_natalia = Postulation.create!(user: natalia, project: pwc_web, description: "Se presenta un diagnóstico de la situación actual y propuestas de mejoras. Aguardamos comentarios sobre los principales puntos a resaltar.")
 file = URI.open('https://image.slidesharecdn.com/presentacionoctubre1-151201004506-lva1-app6891/95/diseo-y-aplicacion-de-un-sistema-de-informacion-contable-2-638.jpg?cb=1448930866')
 pwc_web_natalia.photo.attach(io: file, filename: 'pwc_web.pdf', content_type: 'image/jpg')
-cuareim_facebook_facundo = Postulation.create!(file: 'https://i0.wp.com/tiempodenegocios.com/wp-content/uploads/2021/02/cv-moderno-sexygreek.png', user: facundo, project: cuareim_facebook, description: "Envío CV completo para postulación al puesto de especialista en Facebook Ads...................")
+cuareim_facebook_facundo = Postulation.create!(file: 'https://i0.wp.com/tiempodenegocios.com/wp-content/uploads/2021/02/cv-moderno-sexygreek.png', user: facundo, project: cuareim_facebook, description: "Envío CV completo para postulación al puesto de especialista en Facebook Ads.")
 
 puts "Creando reviews"
 
@@ -273,7 +274,7 @@ branca_review_cami = Review.create!(comment: "Muy buena experiencia. una empresa
 branca_review_facu = Review.create!(comment: "Ha sido un placer este trabajo. El cliente muy atento. Ha revisado todos los detalles. Seguro trabajaremos juntos nuevamente.", rating: 5, user: facundo, postulation: branca_video_facundo )
 branca_review_natalia = Review.create!(comment: "Me ayudaron mucho con las mejoras en el borrador presentado. Fue muy receptivo con los mensajes y muy amables en todo el proceso. Excelente el pago, en tiempo y forma según lo acordado.", rating: 5, user: natalia, postulation: branca_web_natalia)
 branca_review_nico = Review.create!(comment: "El trabajo realmente fue en equipo. Lo único para señalar es que luego pidieron más cambios de los hablados, pero pagaron por las horas extras de trabajo.", rating: 4, user: nico, postulation: branca_nico )
-pwc_review_nico = Review.create!(comment: "Fue realmente genial trabajar con esta empresa, se tomaron el tiempo para escuchar mis propuestas y explicarme sus correcciones.Este fue mi primera experiencia con la empresa y el resultado fue muy bueno.", rating: 4, user: nico, postulation: pwc_software_nico )
+pwc_review_nico = Review.create!(comment: "Fue realmente genial trabajar con esta empresa, se tomaron el tiempo para escuchar mis propuestas y explicarme sus correcciones. Esta fue mi primera experiencia con la empresa y el resultado fue muy bueno.", rating: 4, user: nico, postulation: pwc_software_nico )
 pwc_review_natalia = Review.create!(comment: "La comunicación fue buena, se cumplieron con los plazos de respuesta y de pago.", rating: 3, user: natalia, postulation: pwc_video_natalia)
 cuareim_review_facu = Review.create!(comment: "Como en la mayoría de los proyectos creativos, cuanta más orientación y dirección pueda proporcionar, mejor resultado se obtiene. La empresa estuvo dispuesta a participar en el proceso creativo y eso es de mucho valor para cualquier diseñador.", rating: 5, user: facundo, postulation: branca_video_facundo )
 loreal_review_cami = Review.create!(comment: "Esta ha sido una de las mejores experiencias trabajando en publicidad con empresas. Excelente comunicación y predisposición para el trabajo en equipo.", rating: 5, user: camilo, postulation: branca_flyer_camilo )

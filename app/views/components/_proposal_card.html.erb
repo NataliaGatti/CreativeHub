@@ -30,7 +30,7 @@
       <p class="text-wrap description"><%= project.description %></p>
 
     <div class="d-flex justify-content-between publish-data">
-      <p class= "publish_time">Publicado <%= time_ago_in_words(project.created_at) %> </p> 
+      <p class= "publish_time">Publicado hace <%= time_ago_in_words(project.created_at) %> </p> 
       <p class= "proposals_number">Propuestas: <%= project.postulations.size %></p>
     </div>
     <h1 class="proposal-cost align-self-end text-primary text-center">u$s <%= project.cost.round(0) %></h1>
