@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   root to: 'pages#home'
   resources :projects, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :favourite_projects, only: [:index, :create]
+    resources :favourite_projects, only: [:create]
     resources :postulations, only: [:index, :show, :new, :create] do
       resources :reviews, only: [:new, :create]
     end

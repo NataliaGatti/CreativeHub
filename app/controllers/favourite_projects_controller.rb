@@ -12,7 +12,7 @@ class FavouriteProjectsController < ApplicationController
     )
     if @favourite_project.save
       flash[:alert] = "Se ha añadido el proyecto a tus favoritos"
-       redirect_to projects_path 
+      redirect_back(fallback_location: projects_path)
     else
       flash[:alert] = "Falta información en tu postulación"
     end
@@ -22,7 +22,7 @@ def destroy
   @favourite_project = FavouriteProject.find(params[:id])
   @favourite_project.destroy
   flash[:alert] = "Has quitado el proyecto de tu lista de favoritos"
-  redirect_to projects_path 
+   redirect_back(fallback_location: projects_path)
 end
 
 

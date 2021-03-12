@@ -34,7 +34,8 @@ import { initChatroomCable } from '../channels/chatroom_channel'
 // import "../plugins/init_flatpickr";
 
 // Internal imports, e.g:
-
+import { initScrollKeeper } from "../plugins/init_scroll_keeper"
+Turbolinks.scroll = {};
 
 document.addEventListener('turbolinks:load', () => {
 
@@ -58,4 +59,5 @@ document.addEventListener('turbolinks:load', () => {
        }
      });
   initChat();
+  initScrollKeeper();
 });

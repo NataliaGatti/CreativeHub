@@ -258,7 +258,7 @@ pwc_software_nico = Postulation.create(user: nico, project: pwc_software, descri
 file = URI.open('https://image.slidesharecdn.com/unapropuestadedesarrolloeningenieradesoftwareeducativo-151107233247-lva1-app6892/95/una-propuesta-de-desarrollo-en-ingeniera-de-software-educativo-1-638.jpg?cb=1446939410')
 pwc_software.photo.attach(io: file, filename: 'pwc_software.pdf', content_type: 'image/png')
 cuareim_3d_facu = Postulation.create(file: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fgraphicburger.com%2Ftri-fold-brochure-mockup%2F&psig=AOvVaw0Pf9jV2yzOqaVxP-gUJXyi&ust=1615580011336000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODv1tqGqe8CFQAAAAAdAAAAABAJ', user: facundo, project: cuareim_3d, description: "Una maqueta de PSD para mostrar el diseño de su folleto tríptico de una manera muy realista. Como de costumbre, funciona con objetos inteligentes para que pueda arrastrar y soltar fácilmente sus diseños. ¡A disfrutar!")
-pwc_video_natalia = Postulation.create(user: natalia, project: pwc_video, descriptio: "El vídeo es de 45min pero es una muestra de lo que realicé para otro estudio.")
+pwc_video_natalia = Postulation.create(user: natalia, project: pwc_video, description: "El vídeo es de 45min pero es una muestra de lo que realicé para otro estudio.")
 file = URI.open('https://www.youtube.com/watch?v=7GeMDdfwYDY')
 pwc_video_natalia.photo.attach(io: file, filename: 'pwc_video.video', content_type: 'video/watch')
 cuareim_redes_cami = Postulation.create(file: 'https://i0.wp.com/tiempodenegocios.com/wp-content/uploads/2021/02/cv-moderno-sexygreek.png', user: camilo, project: cuareim_redes, description: "Envío CV completo para postulación al puesto de community manager.")
