@@ -8,11 +8,10 @@ class ProjectsController < ApplicationController
       redirect_to my_projects_path
     else
       if params[:query].present?
-        sql_query = "title ILIKE :query OR description ILIKE :query"
-        @projects = Project.where(sql_query, query: "%#{params[:query]}%")
+        @projects = Project.where("title LIKE ? OR description LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+        # raise
       else
         @projects = Project.all.open_proyects
-       
       end
     end
   end
