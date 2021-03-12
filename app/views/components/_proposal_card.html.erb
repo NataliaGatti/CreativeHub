@@ -13,15 +13,16 @@
 
   <% if user_signed_in? && !current_user.company %>    
         <% if current_user.favourite_projects.include?(project.favourite_projects.where(user_id: current_user.id).first) %>
-          <%= link_to favourite_project_path(project.favourite_projects.where(user_id: current_user.id).first), method: :delete, 'data-toggle' => 'tooltip', 'data-placement' => 'right', title: 'Quitar de favoritos'  do %>
+          <%= link_to favourite_project_path(project.favourite_projects.where(user_id: current_user.id).first), method: :delete, remote: true, class: "anchor-link", 'data-toggle' => 'tooltip', 'data-placement' => 'right', title: 'Quitar de favoritos'  do %>
             <i class="fas fa-thumbtack unpin"></i>
           <% end %>
         <% else %>
-          <%= link_to project_favourite_projects_path(project), method: :post, 'data-toggle' => 'tooltip', 'data-placement' => 'right', title: 'Agregar a favoritos'  do %>
+          <%= link_to project_favourite_projects_path(project), method: :post, remote: true, class: "anchor-link", 'data-toggle' => 'tooltip', 'data-placement' => 'right', title: 'Agregar a favoritos'  do %>
             <i class="fas fa-thumbtack pin"></i>
           <% end %>
         <% end %>
   <% end %>
+ 
 
   <%= link_to project_path(project), class:"text-dark" do %>
       <h3 class="text-wrap mb-2"><%= project.title %></h3>
