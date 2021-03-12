@@ -28,13 +28,12 @@
           <% end %>
           <div class="chat-num-messages">already <%= @chatroom.messages.count %> messages</div>
         </div>
-        <i class="fa fa-star"></i>
       </div> <!-- end chat-header -->
       
       <div class="chat-history" id="messages" data-chatroom-id="<%= @chatroom.id %>" data-user-id="<%= current_user.id %>">
-        <ul>
+        <ul id="message_list">
           <% @chatroom.messages.each do |message| %>
-            <%= render "messages/message", message: message %>
+            <%= render "messages/history_message", message: message %>
           <% end %>
         </ul>
         
