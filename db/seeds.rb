@@ -25,7 +25,7 @@ natalia = User.create!(email: "nataliagatti@gmail.com", password: "gattinati", n
 natalia.photo.attach(io: open("https://media-exp1.licdn.com/dms/image/C4E03AQFRmz1UnrvuIg/profile-displayphoto-shrink_200_200/0/1543620258222?e=1617235200&v=beta&t=1QeHZ_iybNlZxuwzfFYFpvWdILj5Seu4tLh7e0Rcz-s"), filename: "natalia.png", content_type: "image/jpeg")
 natalia.save!
 amazon = User.create!(email: "info@amazon.com", password: "amazon", name: "Amazon Ws", company: true, rating: 5)
-amazon.photo.attach(io: open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEMIOmeq9LtpU4GjRhGAJc8w59muy6vN_Nwg&usqp=CAU"), filename: "amazon.png", content_type: "image/jpeg")
+amazon.photo.attach(io: open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnhenEqTOtoor-jS7HWMkNreyCVrNSUMXq5g&usqp=CAU"), filename: "amazon.png", content_type: "image/jpeg")
 amazon.save!
 facundo = User.create!(email: "facundolanus1@gmail.com", password: "facundolanus", name: "Facundo", company: false, rating: 5)
 facundo.photo.attach(io: open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1607801912/qslheonjcmvqvi19xvhn.jpg"), filename: "facundo.png", content_type: "image/jpeg")
