@@ -1,4 +1,7 @@
   
+
+<% if user_signed_in? && current_user.company %>
+
 <div class= "home_icons">
   <%= link_to new_project_path do  %>
     <div class="box1 sb1" >
@@ -8,6 +11,22 @@
       <p>¿Empresa? crea tu projecto</p>
     </div>
   <% end %>
+
+<% else %>
+<div class= "home_icons">
+  <%= link_to user_session_path do  %>
+    <div class="box1 sb1" >
+      <div>
+        <i class="far fa-lightbulb"></i>
+      </div>
+      <p>¿Empresa? crea tu projecto</p>
+    </div>
+  <% end %>
+
+
+
+<% end %>
+
 
 <% if user_signed_in? %>
 
