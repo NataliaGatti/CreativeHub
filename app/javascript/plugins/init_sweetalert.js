@@ -22,7 +22,7 @@ const initSweetalert = (selector, options = {}, callback = () => {}) => {
   const file = document.getElementById("postulation_file");
   if (swalButton) { // protect other pages
     swalButton.addEventListener('click', () => {
-      if (description.value.length > 49 && file.value.length > 0) {
+      if (description.value.length > 49) {
         swal(options).then(callback); // <-- add the `.then(callback)`
       
       }; 
@@ -32,3 +32,4 @@ const initSweetalert = (selector, options = {}, callback = () => {}) => {
 
 export { initSweetalert};
 
+// && file.value.length > 0

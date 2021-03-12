@@ -3,7 +3,7 @@
     <%= simple_form_for [project, postulation] do |f| %>
         <%= f.input :description, as: :text, class:"label", placeholder: "Has una breve descripción del concepto de tu proyecto", label_html: { class: "text-white"}, label: "Descripción" %>
         <%= f.input :file, as: :string, placeholder: "ingresa el link de tu demo", label_html: { class: "text-white"}, label: "Link de tu demo" %>
-        <%= f.input :photo, as: :file, label_html: { class: "text-white"}, label: "Comparte tu archivo pdf; jpeg o png (Opcional)" %>
+        <%= f.input :photo, as: :file, label_html: { class: "text-black mb-2"}, label: "O comparte tu archivo pdf; jpeg o png (Opcional):" %> 
         <div class="d-flex">
           <%= f.submit "Envía tu demo", disable_with: 'Submiting...', class: "btn btn-primary postulation-button", id:"sweet-alert-demo"%>
           <%= link_to "Volver al proyecto", projects_path(project), class: "btn btn-primary postulation-button ml-4" %> 
