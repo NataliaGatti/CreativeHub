@@ -1,21 +1,21 @@
 
 
-<div class="card-product-company my-3" style="height: 150px;">
+<div class="card-product-company my-3" style="height: 170px;">
   
-  <div class="d-inline" style="width:20%">
+  <div class="d-inline pl-3" style="width:30%">
     <% if project.status == "Abierto" %>
       <div>
-        <h6 class="px-2 mt-1">Esta propuesta finaliza el:
+        <h6 class="px-2 mt-1">Cierre del proyecto:
         <%= image_tag "clock.png", style: "height: 30px; width: 30px;" %></h6>
       </div>
         <% start_time =  Date.today %>
         <% end_time   =  project.deadline %> 
         <h6 class="px-2"><%= time_tag(project.deadline, format: :default, id:"deadline") %></h6>
-        <strong><h6 class="mb-0 px-2">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para que cierre el proyecto.</h6></strong>
+        <h6 class="mb-0 px-2">Quedan <%= distance_of_time_in_words(start_time, end_time) %> para el cierre del proyecto.</h6>
       </div>
     <% elsif project.status == "Cerrado" %>
       <div>
-        <h6 class="px-2 mt-1">Esta propuesta finalizó el:
+        <h6 class="px-2 mt-1">Proyecto cerrado el:
         <%= image_tag "clock.png", style: "height: 30px; width: 30px;" %></h6>
       </div>
         <% start_time =  Date.today %>
@@ -25,14 +25,14 @@
     <% end %>
      
   <div class="card-product-infos-company" style="width:60%">
-    <h3 class="mb-3 text-dark text-wrap"><%= project.title %></h3>
+    <h3 class="mb-3 text-dark text-wrap pt-4 mt-4"><%= project.title %></h3>
     <div class="d-inline justify-content-between text-center">
       <% if project.status == "Abierto" %>
         <p class="font-status text-success bg-gradient-light">Status: <%= project.status %></p>
       <% elsif project.status == "Cerrado" %>
         <p class="font-status text-warning bg-gradient-light">Status: <%= project.status %></p>
       <% end %>
-      <p class="font-status text-dark">Propuestas: <%= project.postulations.count %></p>
+      <p class="font-status text-dark pb-4 mb-3">Propuestas: <%= project.postulations.count %></p>
     </div>
   </div>
   

@@ -1,6 +1,6 @@
-let deadLine = document.getElementById("deadline");
 
 const initCountdown = () => {
+  let deadLine = document.getElementById("deadline");
   if (deadLine) {
     (() => {
       // Specify the deadline date

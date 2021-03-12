@@ -200,7 +200,7 @@ branca_flyer = Project.create!(
 puts "Creando cinco categories"
 
 diseno_photo = URI.open('https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-diseno_grafico = Category.create(title: 'Diseño Grafico')
+diseno_grafico = Category.create(title: 'Diseño Gráfico')
 diseno_grafico.photo.attach(io: diseno_photo, filename: 'diseno.png', content_type: 'image/png')
 
 photography_photo = URI.open('https://images.unsplash.com/photo-1523467327888-a8a445992901?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fHBob3RvZ3JhcGh5fGVufDB8fDB8&auto=format&fit=crop&w=500&q=60')
