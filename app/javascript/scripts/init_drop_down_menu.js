@@ -15,13 +15,15 @@ const initDropDownMenu = () => {
   const filterStatusSelector = document.querySelector(".filter-status")
   const filterStatusListSelector = document.querySelectorAll(".status-item")
 
-  dropMenuSelectorClickabelArea.addEventListener("click", () => {
-    dropMenuSelector.classList.toggle("dc-menu-open")
-    dropMenuSelectorClickabelArea.classList.toggle("open")
-
-    document.querySelector("#header").classList.toggle("shownav")
-
-  })
+  if (dropMenuSelectorClickabelArea != null && dropMenuSelectorClickabelArea != undefined) {
+    dropMenuSelectorClickabelArea.addEventListener("click", () => {
+      dropMenuSelector.classList.toggle("dc-menu-open")
+      dropMenuSelectorClickabelArea.classList.toggle("open")
+  
+      document.querySelector("#header").classList.toggle("shownav")
+  
+    })
+  }
   
   filterStatusListSelector.forEach(statusItem => {
     statusItem.addEventListener("click", (event) => {

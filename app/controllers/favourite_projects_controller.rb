@@ -1,9 +1,21 @@
 class FavouriteProjectsController < ApplicationController
 
- def index_by_user
-  @user = current_user
-  @favourites = @user.favourite_projects
- end
+  def index_by_user
+    @user = current_user
+    @favourites = @user.favourite_projects
+
+  end
+
+  def favorite_includes_postulation?(favorite)
+    user_postulations = current_user.postulations
+    favorite_postulations = favorite.project.postulations
+    
+
+    user_postulations.each do |postulation|
+      @includes = favorite_postulations.include?(postulation)
+    end
+  end
+  helper_method :favorite_includes_postulation?
 
   def create
     @favourite_project = FavouriteProject.new(
