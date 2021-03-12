@@ -8,41 +8,44 @@
   <h1>Lista de proyectos favoritos</h1>
   <% if @favourites.length > 0 %>
 
-  <% @favourites.each do |favorite| %>
-    <div class="card-favourite">
-    <div class="favourite_photo">
-      <% if favorite.project.user.photo.key %>
-        <%= cl_image_tag favorite.project.user.photo.key, alt: "Logo", width: 70, height: 50 %>
-      <% end %>
-      </div>
-      <div class="card-favourite-infos container">
-        <h2><%= favorite.project.title %></h2>
-        <p><%= favorite.project.description%></p>
-        <h3 class="text-primary">u$s <%= favorite.project.cost.round(0) %></h3>
-      </div>
-      <div class="card-favourite-actions list-group">
-        <%= link_to "+info", project_path(favorite.project), class: "btn btn-primary info"  %> 
-
-        <%= link_to new_project_postulation_path(favorite.project)  do %>
-
-          <i class="fas fa-upload"><h5 class= "enviar_propuesta mt-1">Enviar propuesta</h5></i>
+    <% @favourites.each do |favorite| %>
+      <div class="card-favourite">
+      <div class="favourite_photo">
+        <% if favorite.project.user.photo.key %>
+          <%= cl_image_tag favorite.project.user.photo.key, alt: "Logo", width: 70, height: 50 %>
         <% end %>
-        
-        <%= link_to favourite_project_path(favorite), method: :delete, data: { confirm: '¿Estás seguro de remover este proyecto de tus favoritos?' } do %>
-          <i class="far fa-trash-alt"></i>
-        <% end %>
+        </div>
+        <div class="card-favourite-infos container">
+          <h2><%= favorite.project.title %></h2>
+          <p><%= favorite.project.description%></p>
+          <h3 class="text-primary">u$s <%= favorite.project.cost.round(0) %></h3>
+        </div>
+        <div class="card-favourite-actions list-group">
+          <%= link_to "+info", project_path(favorite.project), class: "btn btn-primary info"  %> 
+
+          <% if !favorite_includes_postulation?(favorite) %>
+            <%= link_to new_project_postulation_path(favorite.project)  do %>
+              <i class="fas fa-upload"><h5 class= "enviar_propuesta mt-1">Enviar propuesta</h5></i>
+            <% end %>
+          <% else %>
+            <i class="fas fa-upload"><h5 class= "enviar_propuesta mt-1">Ya te has postulado</h5></i>
+          <% end %>
+          
+          <%= link_to favourite_project_path(favorite), method: :delete, data: { confirm: '¿Estás seguro de remover este proyecto de tus favoritos?' } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </div>
       </div>
+    <% end %>
+
+    <div class="no_favourites text-center"> 
+      <h3>¡&#129488 No tienes proyectos favoritos!</h3>
+      <h4>Busca <%= link_to "aquí ", projects_path  %> &#128269 tu próximo proyecto y añádelo para verlo más tarde.</h4>
     </div>
   <% end %>
-
-<% else %>
-<div class="no_favourites text-center"> 
-<h3>¡&#129488 No tienes proyectos favoritos!</h3>
-<h4>Busca <%= link_to "aquí ", projects_path  %> &#128269 tu próximo proyecto y añádelo para verlo más tarde.</h4>
 </div>
-<% end %>
-
-</div>
+<!--
 <div class= "favourites_footer">
  <%= render "components/footer" %>
 </div>
+-->
