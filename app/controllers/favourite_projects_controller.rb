@@ -4,16 +4,18 @@ class FavouriteProjectsController < ApplicationController
     @user = current_user
     @favourites = @user.favourite_projects
 
+    # raise
   end
 
   def favorite_includes_postulation?(favorite)
     user_postulations = current_user.postulations
     favorite_postulations = favorite.project.postulations
-    
 
-    user_postulations.each do |postulation|
-      @includes = favorite_postulations.include?(postulation)
+    is_included = user_postulations.any? do |postulation|
+      favorite_postulations.include?(postulation)
     end
+
+    return is_included
   end
   helper_method :favorite_includes_postulation?
 
