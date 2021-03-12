@@ -3,8 +3,6 @@ class FavouriteProjectsController < ApplicationController
   def index_by_user
     @user = current_user
     @favourites = @user.favourite_projects
-
-    # raise
   end
 
   def favorite_includes_postulation?(favorite)
