@@ -13,6 +13,7 @@ require "open-uri"
 Review.destroy_all
 CategoryProject.destroy_all
 Project.destroy_all
+Message.destroy_all
 User.destroy_all
 Category.destroy_all
 
